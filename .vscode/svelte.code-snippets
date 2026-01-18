@@ -1,0 +1,6 @@
+{
+	"props": {
+		"prefix": "$props",
+		"body": ["type Props = {", "    $1", "};", "", "let {", "    $2", "}: Props = \\$props();"]
+	}
+}
