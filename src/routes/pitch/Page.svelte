@@ -29,7 +29,7 @@
 	let totalPages = $derived(pages.length - excludeFirstN);
 </script>
 
-<div class={['relative h-fit print:h-screen print:break-before-page', clazz]}>
+<div class={['h-fit w-full print:h-screen print:break-before-page', clazz]}>
 	{@render children()}
 	{#if pageNumber > 0}
 		<div class="absolute right-8 bottom-4 hidden text-sm text-gray-400 print:block">

@@ -22,7 +22,7 @@
 </script>
 
 <svelte:head>
-	<title>Pitch</title>
+	<title>Elench - Konzept</title>
 </svelte:head>
 
 <Page class="flex flex-col gap-8 p-0">

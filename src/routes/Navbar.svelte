@@ -1,5 +1,6 @@
 <script lang="ts">
-	import logo from '$lib/assets/images/logo.svg';
+	import { beforeNavigate } from '$app/navigation';
+	import Logo from '$lib/components/Logo.svelte';
 	import { clickOutside } from '@ims360/svelte-ivory/utils/attachments';
 	import { Menu, X } from '@lucide/svelte';
 	import type { ClassValue } from 'svelte/elements';
@@ -11,12 +12,19 @@
 
 	let { class: clazz }: Props = $props();
 
+	// idk why svelte doesnt recognize the
+	clickOutside;
+
 	let isMobileMenuOpen = $state(false);
 	let scrollY = $state(0);
 
+	beforeNavigate(() => {
+		isMobileMenuOpen = false;
+	});
+
 	const links = [
 		{ name: 'Services', href: '/' },
-		{ name: 'Approach', href: '/pricing' },
+		{ name: 'Konzept', href: '/pitch' },
 		{ name: 'Pricing', href: '/pricing' }
 	];
 </script>
@@ -25,16 +33,18 @@
 
 <nav
 	class={[
-		'border-b bg-surface-50-950 transition-colors print:hidden',
-		scrollY ? 'border-surface-200-800' : 'border-transparent',
+		'w-full max-w-full border-b bg-surface-50-950/90 backdrop-blur-lg transition-colors select-none print:hidden',
+		scrollY
+			? 'border-surface-200-800'
+			: [isMobileMenuOpen ? 'border-surface-200-800 sm:border-transparent' : 'border-transparent'],
 		clazz
 	]}
 	{@attach clickOutside(() => (isMobileMenuOpen = false))}
 >
 	<div class="mx-auto flex flex-row justify-between content">
-		<div class="flex shrink-0 items-center py-4">
-			<img class="h-10 w-auto" src={logo} alt="Logo" />
-		</div>
+		<a class="flex shrink-0 items-center py-4" href="/">
+			<Logo class="h-10 w-auto sm:h-12" />
+		</a>
 		<div class="hidden sm:flex sm:items-center">
 			{@render navItems(false)}
 		</div>
@@ -68,14 +78,14 @@
 		<a
 			href={link.href}
 			class={[
-				'flex items-center justify-center text-surface-700-300 hover:text-surface-950-50',
-				!mobile && 'h-full px-4'
+				'flex items-center px-4 text-lg text-surface-700-300 hover:text-surface-950-50',
+				mobile ? 'w-full py-2' : 'h-full justify-center '
 			]}
 		>
 			{link.name}
 		</a>
 	{/each}
-	<a href="/contact" class={['', mobile ? 'mt-2' : 'ml-4 h-full py-4']}>
-		<div class="btn h-full preset-filled-primary-500">Contact us</div>
+	<a href="/contact" class={['text-lg', mobile ? 'mt-2 w-full px-4' : 'ml-4 h-full py-8']}>
+		<div class="btn h-full preset-filled-primary-500 font-semibold">Kontakt aufnehmen</div>
 	</a>
 {/snippet}
