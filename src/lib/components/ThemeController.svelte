@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Theme, type ThemePreference } from '$lib/theme.svelte';
-	import { Computer, Icon, Moon, Sun } from '@lucide/svelte';
+	import { Icon, Monitor, Moon, Sun } from '@lucide/svelte';
 
 	const options: { icon: typeof Icon; value: ThemePreference }[] = [
 		{
 			value: 'system',
-			icon: Computer
+			icon: Monitor
 		},
 		{
 			value: 'dark',

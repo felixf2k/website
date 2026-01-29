@@ -11,14 +11,11 @@ class ThemeController {
 
 	constructor() {
 		if (!browser) return;
-		const isOverwritten = document.cookie
-			.split('; ')
-			.some((row) => row.startsWith(COOKIE_THEME_KEY + '='));
-		if (isOverwritten) {
-			const value = cookie.get(COOKIE_THEME_KEY);
-			this.currentTheme = value === 'true' ? 'dark' : 'light';
+		const value = cookie.get(COOKIE_THEME_KEY);
+		if (value === 'system' || value === 'dark' || value === 'light') {
+			this.theme = value;
 		} else {
-			this.currentTheme = 'system';
+			this.theme = 'system';
 		}
 	}
 
@@ -51,6 +48,7 @@ class ThemeController {
 	handle: Handle = ({ event, resolve }) => {
 		const theme = event.cookies.get(COOKIE_THEME_KEY);
 		let isDark = false;
+		console.log(theme);
 
 		if (theme !== undefined && (theme as ThemePreference) !== 'system') {
 			isDark = theme === 'dark';
@@ -61,7 +59,7 @@ class ThemeController {
 		if (!isDark) return resolve(event);
 
 		return resolve(event, {
-			transformPageChunk: ({ html }) => html.replace('<html class="', '<html class="dark ')
+			transformPageChunk: ({ html }) => html.replace('class="', 'class="dark ')
 		});
 	};
 }

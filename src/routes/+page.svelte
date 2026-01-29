@@ -1,5 +1,7 @@
 <script lang="ts">
+	import BulletPoint from '$lib/components/BulletPoint.svelte';
 	import Card from '$lib/components/Card.svelte';
+	import ProgressSection from '$lib/components/ProgressSection.svelte';
 	import {
 		ArrowRight,
 		ChartCandlestick,
@@ -41,7 +43,7 @@
 			den passenden Rahmen für dein Vorhaben.
 		</p>
 	</div>
-	<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+	<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
 		<Card heading="Visionäre" description="Gründer ohne eigenes Tech-Team" iconStyle="filled">
 			{#snippet icon()}
 				<Lightbulb class="h-full w-full" />
@@ -128,8 +130,13 @@
 			Wähle ein Entwicklungsmodell dass zu deinem Projekt und Budget passt
 		</p>
 	</div>
-	<div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
-		<Card heading="Your SaaS" description="Deine Saas, as a Service" iconStyle="tonal" id="saas">
+	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
+		<Card
+			heading="Your SaaS"
+			description="Dein SaaS Produkt, as a Service"
+			iconStyle="tonal"
+			id="saas"
+		>
 			{#snippet icon()}
 				<Cloud class="h-full w-full" />
 			{/snippet}
@@ -137,20 +144,11 @@
 				Wir entwickeln und betreiben dein Produkt als SaaS Lösung. Du erhälst die exklusiven
 				Vertriebsrechte und verwaltest deine Kunden über gesonderte Dashboards.
 			</p>
-			<ul class="flex flex-col gap-2">
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Wir entwickeln und betreiben das Produkt für dich</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Exklusive Vertriebsrechte für dich</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Betriebspauschale gekoppelt an Nutzerzahl</span>
-				</li>
-			</ul>
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Wir entwickeln und betreiben das Produkt für dich</BulletPoint>
+				<BulletPoint>Exklusive Vertriebsrechte für dich</BulletPoint>
+				<BulletPoint>Betriebspauschale gekoppelt an Nutzerzahl</BulletPoint>
+			</div>
 			<a class="mt-auto btn w-fit preset-filled-primary-500">
 				Mehr erfahren
 				<ArrowRight size={16} />
@@ -169,30 +167,17 @@
 				Wir entwickeln eine Lösung für dein internes Problem zu reduzierten Preisen. Im Gegenzug
 				kann die Software an dritte vermarktet werden.
 			</p>
-			<ul class="flex flex-col gap-2">
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Maßgeschneiderte Lösung für dein Problem</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Reduzierte Entwicklungskosten</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>
-						Dritte können Lizenzen erwerben, du kannst Lizenzen für eine Kommission vertreiben
-					</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Kostenlose Weiterentwicklung und Wartung, wenn das Produkt gefragt ist</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Keine Betriebspauschale</span>
-				</li>
-			</ul>
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Maßgeschneiderte Lösung für dein Problem</BulletPoint>
+				<BulletPoint>Reduzierte Entwicklungskosten</BulletPoint>
+				<BulletPoint>
+					Dritte können Lizenzen erwerben, du kannst Lizenzen für eine Kommission vertreiben
+				</BulletPoint>
+				<BulletPoint>
+					Kostenlose Weiterentwicklung und Wartung, wenn das Produkt gefragt ist
+				</BulletPoint>
+				<BulletPoint>Keine Betriebspauschale</BulletPoint>
+			</div>
 			<a class="mt-auto btn w-fit preset-filled-primary-500">
 				Mehr erfahren
 				<ArrowRight size={16} />
@@ -200,7 +185,7 @@
 		</Card>
 		<Card
 			heading="Commissioned Development"
-			description="Volle Kontrolle über kritischen Code"
+			description="Volle Kontrolle für kritische Lösungen"
 			iconStyle="tonal"
 			id="development"
 		>
@@ -211,24 +196,84 @@
 				Klassische Individualentwicklung. Wir setzen deine Anforderungen um und übergeben dir den
 				Quellcode.
 			</p>
-			<ul class="flex flex-col gap-2">
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Klassische Individualentwicklung</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Du betreibst das Produkt selbst</span>
-				</li>
-				<li class="flex flex-row items-start gap-2">
-					<div class="mt-1.75 h-2 w-2 shrink-0 rounded-full preset-filled-primary-500"></div>
-					<span>Übergabe des Quellcodes</span>
-				</li>
-			</ul>
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Klassische Individualentwicklung</BulletPoint>
+				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
+				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
+			</div>
 			<a class="mt-auto btn w-fit preset-filled-primary-500">
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
 		</Card>
 	</div>
+</div>
+
+<div class="flex w-full flex-col gap-8 content pb-256">
+	<div class="flex flex-col gap-2">
+		<h2 class="h2" id="models">Der Prozess</h2>
+		<p class="h4 text-surface-600-400">Wie dein Projekt ablaufen wird</p>
+	</div>
+	<ProgressSection class="w-full">
+		<Card
+			iconStyle="tonal"
+			heading="Erstgespräch"
+			description="Unverbindliches Kennenlernen"
+			icon={1}
+		>
+			<div class="flex flex-col gap-2 @xl:ml-20">
+				<BulletPoint>Das Projekt verstehen</BulletPoint>
+				<BulletPoint>Das richtige Modell wählen</BulletPoint>
+				<BulletPoint>Die nächsten Schritte planen</BulletPoint>
+			</div>
+		</Card>
+		<Card
+			iconStyle="tonal"
+			heading="Anforderungs-bestimmung"
+			description="Was soll das Produkt am Ende können"
+			icon={2}
+		>
+			<div class="flex flex-col gap-2 @xl:ml-20">
+				<BulletPoint>Welche Prozesse sollen abgebildet werden?</BulletPoint>
+				<BulletPoint>Ausbaustufen bestimmen</BulletPoint>
+				<BulletPoint>Dokumentation erstellen</BulletPoint>
+			</div>
+		</Card>
+		<Card
+			iconStyle="tonal"
+			heading="UI Design"
+			description="Wie werden die Benutzer mit dem Produkt interagieren"
+			icon={3}
+		>
+			<div class="flex flex-col gap-2 @xl:ml-20">
+				<BulletPoint>Oberflächen Designen</BulletPoint>
+				<BulletPoint>Benutzertests durchführen</BulletPoint>
+				<BulletPoint>Identität des Produkts bestimmen</BulletPoint>
+			</div>
+		</Card>
+		<Card
+			iconStyle="tonal"
+			heading="Entwicklung"
+			description="Die Implementierung des Produkts"
+			icon={4}
+		>
+			<div class="flex flex-col gap-2 @xl:ml-20">
+				<BulletPoint>Technische Umsetzung</BulletPoint>
+				<BulletPoint>Testing</BulletPoint>
+				<BulletPoint>Security testing</BulletPoint>
+			</div>
+		</Card>
+		<Card
+			iconStyle="tonal"
+			heading="Betrieb"
+			description="Dein SaaS Produkt, as a Service"
+			icon={5}
+		>
+			<div class="flex flex-col gap-2 @xl:ml-20">
+				<BulletPoint>Bereitstellen der Anwendung</BulletPoint>
+				<BulletPoint>Maintenance</BulletPoint>
+				<BulletPoint>Security Updates</BulletPoint>
+			</div>
+		</Card>
+	</ProgressSection>
 </div>
