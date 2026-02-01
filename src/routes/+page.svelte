@@ -1,14 +1,16 @@
 <script lang="ts">
-	import BulletPoint from '$lib/components/BulletPoint.svelte';
-	import Card from '$lib/components/Card.svelte';
-	import ProgressSection from '$lib/components/ProgressSection.svelte';
+	import { resolve } from '$app/paths';
+	import { BulletPoint, IconCard, ProgressSection } from '$lib/components';
 	import {
 		ArrowRight,
 		ChartCandlestick,
 		Cloud,
 		Code,
 		Handshake,
+		Layers,
 		Lightbulb,
+		MailCheck,
+		Map,
 		Route
 	} from '@lucide/svelte';
 </script>
@@ -16,7 +18,7 @@
 <div class="flex h-screen w-full flex-col items-center justify-center content select-none">
 	<div class="flex max-w-full flex-col gap-8">
 		<h1 class="text-4xl lg:text-8xl lg:leading-32">
-			Deine Software<br /><span class="text-primary-500"> Dein Modell </span>
+			Deine Software<br /><span class="text-primary-600-400"> Dein Modell </span>
 		</h1>
 		<p class="text-lg leading-relaxed lg:text-3xl">
 			Von der präzisen Umsetzung bis zur langfristigen Partnerschaft.
@@ -39,12 +41,12 @@
 	<div class="flex flex-col gap-4">
 		<h2 class="h2">Für wen wir bauen</h2>
 		<p class="h4 text-surface-600-400">
-			Egal ob du eine neue Marktlösung schaffst oder interne Prozesse digitalisierst - wir bieten
+			Egal, ob du eine neue Marktlösung schaffst oder interne Prozesse digitalisierst - wir bieten
 			den passenden Rahmen für dein Vorhaben.
 		</p>
 	</div>
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-		<Card heading="Visionäre" description="Gründer ohne eigenes Tech-Team" iconStyle="filled">
+		<IconCard heading="Visionäre" description="Gründer ohne eigenes Tech-Team" iconStyle="filled">
 			{#snippet icon()}
 				<Lightbulb class="h-full w-full" />
 			{/snippet}
@@ -66,8 +68,9 @@
 					<ArrowRight class="h-5 stroke-3" />
 				</a>
 			</div>
-		</Card>
-		<Card
+		</IconCard>
+		<!-- Icon -->
+		<IconCard
 			heading="Optimierer"
 			description="Unternehmen mit internen Herausforderungen"
 			iconStyle="filled"
@@ -93,8 +96,8 @@
 					<ArrowRight class="h-5 stroke-3" />
 				</a>
 			</div>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			heading="Strategen"
 			description="Digitalisierung schützenswerter Prozesse"
 			iconStyle="filled"
@@ -119,7 +122,7 @@
 					<ArrowRight class="h-5 stroke-3" />
 				</a>
 			</div>
-		</Card>
+		</IconCard>
 	</div>
 </div>
 
@@ -127,11 +130,11 @@
 	<div class="flex flex-col gap-2">
 		<h2 class="h2" id="models">Entwicklungsmodelle</h2>
 		<p class="h4 text-surface-600-400">
-			Wähle ein Entwicklungsmodell dass zu deinem Projekt und Budget passt
+			Wähle ein Entwicklungsmodell, dass zu deinem Projekt und Budget passt.
 		</p>
 	</div>
 	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
-		<Card
+		<IconCard
 			heading="Your SaaS"
 			description="Dein SaaS Produkt, as a Service"
 			iconStyle="tonal"
@@ -149,12 +152,12 @@
 				<BulletPoint>Exklusive Vertriebsrechte für dich</BulletPoint>
 				<BulletPoint>Betriebspauschale gekoppelt an Nutzerzahl</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500">
+			<a class="mt-auto btn w-fit preset-filled-primary-500" href={resolve('/models/your-saas')}>
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			heading="Innovation Partnership"
 			description="Gemeinsam Risiken minimieren"
 			iconStyle="tonal"
@@ -178,12 +181,12 @@
 				</BulletPoint>
 				<BulletPoint>Keine Betriebspauschale</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500">
+			<a class="mt-auto btn w-fit preset-filled-primary-500" href={resolve('/models/partnership')}>
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			heading="Commissioned Development"
 			description="Volle Kontrolle für kritische Lösungen"
 			iconStyle="tonal"
@@ -201,21 +204,21 @@
 				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
 				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500">
+			<a class="mt-auto btn w-fit preset-filled-primary-500" href={resolve('/models/commissioned')}>
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
-		</Card>
+		</IconCard>
 	</div>
 </div>
 
-<div class="flex w-full flex-col gap-8 content pb-256">
+<div class="flex w-full flex-col gap-8 content">
 	<div class="flex flex-col gap-2">
 		<h2 class="h2" id="models">Der Prozess</h2>
-		<p class="h4 text-surface-600-400">Wie dein Projekt ablaufen wird</p>
+		<p class="h4 text-surface-600-400">So wird dein Projekt ablaufen:</p>
 	</div>
 	<ProgressSection class="w-full">
-		<Card
+		<IconCard
 			iconStyle="tonal"
 			heading="Erstgespräch"
 			description="Unverbindliches Kennenlernen"
@@ -226,8 +229,8 @@
 				<BulletPoint>Das richtige Modell wählen</BulletPoint>
 				<BulletPoint>Die nächsten Schritte planen</BulletPoint>
 			</div>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			iconStyle="tonal"
 			heading="Anforderungs-bestimmung"
 			description="Was soll das Produkt am Ende können"
@@ -238,8 +241,8 @@
 				<BulletPoint>Ausbaustufen bestimmen</BulletPoint>
 				<BulletPoint>Dokumentation erstellen</BulletPoint>
 			</div>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			iconStyle="tonal"
 			heading="UI Design"
 			description="Wie werden die Benutzer mit dem Produkt interagieren"
@@ -250,8 +253,8 @@
 				<BulletPoint>Benutzertests durchführen</BulletPoint>
 				<BulletPoint>Identität des Produkts bestimmen</BulletPoint>
 			</div>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			iconStyle="tonal"
 			heading="Entwicklung"
 			description="Die Implementierung des Produkts"
@@ -262,11 +265,11 @@
 				<BulletPoint>Testing</BulletPoint>
 				<BulletPoint>Security testing</BulletPoint>
 			</div>
-		</Card>
-		<Card
+		</IconCard>
+		<IconCard
 			iconStyle="tonal"
 			heading="Betrieb"
-			description="Dein SaaS Produkt, as a Service"
+			description="Produktiver Betrieb des Produkts"
 			icon={5}
 		>
 			<div class="flex flex-col gap-2 @xl:ml-20">
@@ -274,6 +277,66 @@
 				<BulletPoint>Maintenance</BulletPoint>
 				<BulletPoint>Security Updates</BulletPoint>
 			</div>
-		</Card>
+		</IconCard>
 	</ProgressSection>
+</div>
+
+<div class="flex w-full flex-col gap-8 content">
+	<div class="flex flex-col gap-2">
+		<h2 class="h2" id="models">Warum Elench</h2>
+		<p class="h4 text-surface-600-400"></p>
+	</div>
+	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
+		<IconCard
+			heading="Moderner Tech Stack"
+			description="Hohe Performance und Zuverlässigkeit"
+			iconStyle="tonal"
+		>
+			{#snippet icon()}
+				<Layers class="h-full w-full" />
+			{/snippet}
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Hohe performance</BulletPoint>
+				<BulletPoint>Schnelle Entwicklung</BulletPoint>
+				<BulletPoint>Hohe Stabilität</BulletPoint>
+			</div>
+		</IconCard>
+		<IconCard
+			heading="Planbarkeit"
+			description="Technische Risiken sind unsere Risiken"
+			iconStyle="tonal"
+		>
+			{#snippet icon()}
+				<Map class="h-full w-full" />
+			{/snippet}
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Du bezahlst deine Features, nicht unsere Zeit</BulletPoint>
+				<BulletPoint>Kein Kostenüberraschungen</BulletPoint>
+				<BulletPoint>Eindeutige "Definition of Done"</BulletPoint>
+			</div>
+		</IconCard>
+		<IconCard
+			heading="Flexible Modelle"
+			description="Für jedes Projekt das richtige Modell"
+			iconStyle="tonal"
+			id="development"
+		>
+			{#snippet icon()}
+				<Code class="h-full w-full" />
+			{/snippet}
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Klassische Individualentwicklung</BulletPoint>
+				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
+				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
+			</div>
+		</IconCard>
+	</div>
+</div>
+
+<div class="flex flex-col gap-8 content">
+	<p class="text-2xl">Bereit dein Projekt zu starten?</p>
+	<a href="/contact" class="btn w-fit btn-xl preset-filled-primary-500">
+		Erstgespräch vereinbaren
+		<MailCheck />
+	</a>
 </div>

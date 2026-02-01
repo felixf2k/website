@@ -48,8 +48,6 @@ class ThemeController {
 	handle: Handle = ({ event, resolve }) => {
 		const theme = event.cookies.get(COOKIE_THEME_KEY);
 		let isDark = false;
-		console.log(theme);
-
 		if (theme !== undefined && (theme as ThemePreference) !== 'system') {
 			isDark = theme === 'dark';
 		} else {

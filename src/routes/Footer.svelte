@@ -14,7 +14,7 @@
 
 <footer
 	class={[
-		'w-full border-t border-surface-200-800 bg-surface-50-950/90 py-8 text-sm print:hidden',
+		'mt-auto w-full border-t border-surface-200-800 bg-surface-50-950/90 py-8 text-sm print:hidden',
 		clazz
 	]}
 >

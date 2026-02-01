@@ -16,7 +16,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.39.1",
-		"@ims360/svelte-ivory": "^0.3.0",
+		"@ims360/svelte-ivory": "^0.3.2",
 		"@inlang/paraglide-js": "^2.6.0",
 		"@lucide/svelte": "^0.562.0",
 		"@skeletonlabs/skeleton": "^4.10.0",

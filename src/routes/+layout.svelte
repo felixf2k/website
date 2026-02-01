@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import favicon from '$lib/assets/images/favicon.svg';
+	import AnimatedBackground from '$lib/components/background/AnimatedBackground.svelte';
 	import { locales, localizeHref } from '$lib/paraglide/runtime';
 	import Footer from './Footer.svelte';
 	import './layout.css';
@@ -13,8 +14,9 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
+<AnimatedBackground class="fixed top-0 left-0 -z-10 h-screen w-full" />
 <Navbar class={['fixed top-0 z-10']} />
-<main class="flex flex-col gap-32 pb-20">
+<main class="flex min-h-full flex-col gap-32 pb-20">
 	{@render children()}
 </main>
 <Footer />

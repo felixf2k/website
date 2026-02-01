@@ -23,9 +23,8 @@
 	});
 
 	const links = [
-		{ name: 'Services', href: '/' },
 		{ name: 'Konzept', href: '/pitch' },
-		{ name: 'Pricing', href: '/pricing' }
+		{ name: 'Preise', href: '/pricing' }
 	];
 </script>
 
