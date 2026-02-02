@@ -24,7 +24,8 @@
 
 	const links = [
 		{ name: 'Konzept', href: '/pitch' },
-		{ name: 'Preise', href: '/pricing' }
+		// { name: 'Preise', href: '/pricing' },
+		{ name: 'Über uns', href: '/about' }
 	];
 </script>
 
@@ -35,21 +36,21 @@
 		'w-full max-w-full border-b bg-surface-50-950/90 backdrop-blur-lg transition-colors select-none print:hidden',
 		scrollY
 			? 'border-surface-200-800'
-			: [isMobileMenuOpen ? 'border-surface-200-800 sm:border-transparent' : 'border-transparent'],
+			: [isMobileMenuOpen ? 'border-surface-200-800 md:border-transparent' : 'border-transparent'],
 		clazz
 	]}
 	{@attach clickOutside(() => (isMobileMenuOpen = false))}
 >
 	<div class="mx-auto flex flex-row justify-between content">
 		<a class="flex shrink-0 items-center py-4" href="/">
-			<Logo class="h-10 w-auto sm:h-12" />
+			<Logo class="h-10 w-auto md:h-12" />
 		</a>
-		<div class="hidden sm:flex sm:items-center">
+		<div class="hidden md:flex md:items-center">
 			{@render navItems(false)}
 		</div>
 		<button
 			type="button"
-			class="flex items-center justify-center rounded-md p-2 text-surface-600-400 hover:bg-surface-100-900 hover:text-surface-900-100 focus:outline-none sm:hidden"
+			class="flex items-center justify-center rounded-md p-2 text-surface-600-400 hover:bg-surface-100-900 hover:text-surface-900-100 focus:outline-none md:hidden"
 			aria-controls="mobile-menu"
 			aria-expanded={isMobileMenuOpen}
 			onclick={() => (isMobileMenuOpen = !isMobileMenuOpen)}
@@ -64,7 +65,7 @@
 	</div>
 
 	{#if isMobileMenuOpen}
-		<div class="container mx-auto sm:hidden" id="mobile-menu" transition:slide>
+		<div class="container mx-auto md:hidden" id="mobile-menu" transition:slide>
 			<div class="flex flex-col pb-4">
 				{@render navItems(true)}
 			</div>

@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      nodemailer:
+        specifier: ^7.0.13
+        version: 7.0.13
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
     devDependencies:
       '@eslint/compat':
         specifier: ^1.4.0
@@ -19,8 +25,8 @@ importers:
         specifier: ^9.39.1
         version: 9.39.2
       '@ims360/svelte-ivory':
-        specifier: ^0.3.0
-        version: 0.3.0(@skeletonlabs/skeleton@4.10.0(tailwindcss@4.1.18))(@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3))
+        specifier: ^0.3.6
+        version: 0.3.6(@skeletonlabs/skeleton@4.10.0(tailwindcss@4.1.18))(@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3))
       '@inlang/paraglide-js':
         specifier: ^2.6.0
         version: 2.9.0
@@ -54,6 +60,9 @@ importers:
       '@types/node':
         specifier: ^22
         version: 22.19.7
+      '@types/nodemailer':
+        specifier: ^7.0.9
+        version: 7.0.9
       eslint:
         specifier: ^9.39.1
         version: 9.39.2(jiti@2.6.1)
@@ -682,8 +691,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@ims360/svelte-ivory@0.3.0':
-    resolution: {integrity: sha512-f9Hdz5e3Dkw2Nk4z2cF1fuAaGd/GhJLP7AZyzqiS23CvOPy5DHkqJUwvndr0PxrIX6Jt/uhrG4D1D+jWYVO+Bw==}
+  '@ims360/svelte-ivory@0.3.6':
+    resolution: {integrity: sha512-gc+vMVHbRYBvHQm2DUtzonv4lgqm2ZKqiVPuweSFf3zI8ny0FGQxbdOvJGtXqOAJWJlY1HpFI6YFEWtLFCBAdQ==}
     peerDependencies:
       '@skeletonlabs/skeleton': ^4.0.0
       '@sveltejs/kit': ^2.49.5
@@ -1150,6 +1159,9 @@ packages:
 
   '@types/node@22.19.7':
     resolution: {integrity: sha512-MciR4AKGHWl7xwxkBa6xUGxQJ4VBOmPTF7sL+iGzuahOFaO0jHCsuEfS80pan1ef4gWId1oWOweIhrDEYLuaOw==}
+
+  '@types/nodemailer@7.0.9':
+    resolution: {integrity: sha512-vI8oF1M+8JvQhsId0Pc38BdUP2evenIIys7c7p+9OZXSPOH5c1dyINP1jT8xQ2xPuBUXmIC87s+91IZMDjH8Ow==}
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -1822,6 +1834,10 @@ packages:
     resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
     hasBin: true
 
+  nodemailer@7.0.13:
+    resolution: {integrity: sha512-PNDFSJdP+KFgdsG3ZzMXCgquO7I6McjY2vlqILjtJd0hy8wEvtugS9xKRF2NWlPNGxvLCXlTNIae4serI7dinw==}
+    engines: {node: '>=6.0.0'}
+
   nopt@8.1.0:
     resolution: {integrity: sha512-ieGu42u/Qsa4TFktmaKEwM6MQH0pOWnaB3htzh0JRtx84+Mebc0cbZYN5bC+6WTZ4+77xrL9Pn5m7CV6VIkV7A==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -2427,6 +2443,9 @@ packages:
   zimmerframe@1.1.4:
     resolution: {integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==}
 
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
+
 snapshots:
 
   '@acemir/cssom@0.9.31': {}
@@ -2806,9 +2825,8 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@ims360/svelte-ivory@0.3.0(@skeletonlabs/skeleton@4.10.0(tailwindcss@4.1.18))(@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3))':
+  '@ims360/svelte-ivory@0.3.6(@skeletonlabs/skeleton@4.10.0(tailwindcss@4.1.18))(@sveltejs/kit@2.50.0(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3)))(svelte@5.46.4)(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.97.3)(sass@1.97.3))':
     dependencies:
-      '@floating-ui/dom': 1.7.4
       '@lucide/svelte': 0.553.0(svelte@5.46.4)
       '@oddbird/css-anchor-positioning': 0.8.0
       '@skeletonlabs/skeleton': 4.10.0(tailwindcss@4.1.18)
@@ -3238,6 +3256,10 @@ snapshots:
   '@types/node@22.19.7':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/nodemailer@7.0.9':
+    dependencies:
+      '@types/node': 22.19.7
 
   '@types/trusted-types@2.0.7':
     optional: true
@@ -3928,6 +3950,8 @@ snapshots:
 
   node-gyp-build@4.8.4: {}
 
+  nodemailer@7.0.13: {}
+
   nopt@8.1.0:
     dependencies:
       abbrev: 3.0.1
@@ -4443,3 +4467,5 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zimmerframe@1.1.4: {}
+
+  zod@4.3.6: {}

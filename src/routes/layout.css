@@ -5,6 +5,8 @@
 
 @import './theme.css';
 
+@source '../../node_modules/@ims360/svelte-ivory';
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {

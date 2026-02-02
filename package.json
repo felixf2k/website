@@ -16,7 +16,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.39.1",
-		"@ims360/svelte-ivory": "^0.3.2",
+		"@ims360/svelte-ivory": "^0.3.6",
 		"@inlang/paraglide-js": "^2.6.0",
 		"@lucide/svelte": "^0.562.0",
 		"@skeletonlabs/skeleton": "^4.10.0",
@@ -28,6 +28,7 @@
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.17",
 		"@types/node": "^22",
+		"@types/nodemailer": "^7.0.9",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
@@ -45,6 +46,8 @@
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
 	"dependencies": {
-		"sharp": "^0.34.5"
+		"nodemailer": "^7.0.13",
+		"sharp": "^0.34.5",
+		"zod": "^4.3.6"
 	}
 }

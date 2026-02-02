@@ -1,3 +1,8 @@
+<script>
+	import { resolve } from '$app/paths';
+	import { Link } from '@lucide/svelte';
+</script>
+
 <svelte:head>
 	<meta name="description" content="Datenschutzerklärung" />
 	<title>Elench UG - Datenschutzerklärung</title>
@@ -16,8 +21,11 @@
 		Dr.-Klein-Straße 29<br />
 		88069 Tettnang<br />
 		Deutschland<br />
-		<strong>Kontakt</strong><br />
-		Tel.: (+49) 1520 3081179<br />
+		<strong>Kontakt:</strong><br />
+		<a class="flex flex-row items-center gap-1 anchor" href={resolve('/contact')}>
+			Kontaktformular
+			<span><Link size={16} /></span>
+		</a>
 		Email: datenschutz|at|elench.de
 	</p>
 

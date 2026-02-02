@@ -1,3 +1,8 @@
+<script>
+	import { resolve } from '$app/paths';
+	import { Link } from '@lucide/svelte';
+</script>
+
 <div class="container mx-auto prose-lg mt-24 flex flex-col gap-8">
 	<h1>Impressum</h1>
 	<p>
@@ -14,7 +19,10 @@
 
 	<p>
 		<strong>Kontakt:</strong><br />
-		Telefon: +49 152030 81179<br />
+		<a class="flex flex-row items-center gap-1 anchor" href={resolve('/contact')}>
+			Kontaktformular
+			<span><Link size={16} /></span>
+		</a>
 		E-Mail: info|at|elench.de
 	</p>
 

@@ -1,5 +1,6 @@
 <script lang="ts" module>
 	import { page } from '$app/state';
+	import { merge } from '@ims360/svelte-ivory/utils/functions';
 	import type { Snippet } from 'svelte';
 	import type { ClassValue } from 'svelte/elements';
 
@@ -17,11 +18,11 @@
 </script>
 
 <div
-	class={[
+	class={merge(
 		'scroll-enter @container flex flex-col gap-8 card border bg-surface-50-950 p-[calc(var(--spacing)*8-1px)] transition-[border-color] delay-500 duration-500 not-dark:shadow-lg dark:bg-surface-100-900',
 		isHighlighted ? 'border-primary-500' : 'border-transparent ',
 		clazz
-	]}
+	)}
 	{id}
 >
 	{@render children?.()}
