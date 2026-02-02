@@ -85,7 +85,7 @@
 			<button class="group/close grow pt-2.5 pr-2 pb-1 pl-1" onclick={() => toast.close()}>
 				<X
 					size={16}
-					class="stroke-2 text-surface-600-400 transition-all group-hover/close:stroke-3"
+					class="shrink-0 stroke-2 text-surface-600-400 transition-all group-hover/close:stroke-3"
 				/>
 			</button>
 		{/if}

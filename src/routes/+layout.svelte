@@ -17,7 +17,7 @@
 
 <AnimatedBackground class="fixed top-0 left-0 -z-10 h-screen w-full" />
 <Navbar class={['fixed top-0 z-10']} />
-<main class="flex min-h-full flex-col gap-32 pt-32 pb-20">
+<main class="flex min-h-full flex-col gap-32 pt-32 pb-20 print:block print:pt-0 print:pb-0">
 	{@render children()}
 </main>
 <Footer />

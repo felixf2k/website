@@ -19,7 +19,7 @@
 
 <div
 	class={merge(
-		'scroll-enter @container flex flex-col gap-8 card border bg-surface-50-950 p-[calc(var(--spacing)*8-1px)] transition-[border-color] delay-500 duration-500 not-dark:shadow-lg dark:bg-surface-100-900',
+		'scroll-enter @container flex flex-col gap-8 card border bg-surface-50-950 p-[calc(var(--spacing)*8-1px)] transition-[border-color] delay-500 duration-500 not-dark:shadow-lg dark:bg-surface-100-900 print:gap-4 print:p-4',
 		isHighlighted ? 'border-primary-500' : 'border-transparent ',
 		clazz
 	)}
@@ -36,7 +36,7 @@
 		}
 	}
 
-	@media (prefers-reduced-motion: no-preference) {
+	@media screen and (prefers-reduced-motion: no-preference) {
 		.scroll-enter {
 			animation: enter linear both;
 			animation-timeline: view();

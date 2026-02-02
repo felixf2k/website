@@ -10,13 +10,15 @@
 		TextInput
 	} from '@ims360/svelte-ivory/components/inputs';
 	import { Toasts } from '@ims360/svelte-ivory/components/toast';
-	import { Copy, Mail, MailCheck } from '@lucide/svelte';
+	import { Copy, Mail, Send } from '@lucide/svelte';
 	import { contactForm } from './contact.remote';
 
 	const form = contactForm;
 
+	let copyFailed = $state(false);
 	const copyMail = () => {
 		try {
+			copyFailed = true;
 			navigator.clipboard.writeText('info@elench.de');
 			Toasts.trigger({
 				variant: 'success',
@@ -32,7 +34,30 @@
 </script>
 
 <div class="flex min-h-full grow flex-col gap-8 content">
-	<Card>
+	<Card class="@container flex flex-col gap-8">
+		<h2 class="text-3xl">Kontakt per Email</h2>
+		<p>Gerne kannst du uns auch direkt eine Email schreiben.</p>
+		<div class="grid grid-cols-1 gap-2 @md:w-fit @md:grid-cols-2 @md:gap-1">
+			<a
+				href="mailto:info@elench.de"
+				class="btn flex flex-row items-center gap-2 preset-filled-primary-500 @md:rounded-l-4xl @md:rounded-r-sm"
+			>
+				info@elench.de
+				<Mail size={16} />
+			</a>
+			<button
+				class="btn flex flex-row items-center gap-2 border border-surface-400-600 text-surface-950-50 @md:rounded-l-sm @md:rounded-r-4xl"
+				onclick={copyMail}
+			>
+				Adresse kopieren
+				<Copy size={16} class="text-surface-400-600" />
+			</button>
+		</div>
+		{#if copyFailed}
+			<p class="w-full text-center text-xl @md:text-start">info@elench.de</p>
+		{/if}
+	</Card>
+	<Card class="@container">
 		<form
 			{...form.enhance(
 				enhanceForm({
@@ -56,33 +81,13 @@
 			<TextareaInput label="Dein Anliegen" form={form.fields.message} class="min-h-36" />
 			<CheckboxInput
 				label="Gespräch erwünscht"
-				description="Wir schlagen dir Termine für ein Gespräch vor"
+				description="Wir schlagen dir einige Termine vor"
 				form={form.fields.requestAppointment}
 			/>
-			<button type="submit" class="btn w-fit preset-filled-primary-500">
+			<button type="submit" class="btn preset-filled-primary-500 @md:w-fit">
 				Absenden
-				<MailCheck size={16} />
+				<Send size={16} />
 			</button>
 		</form>
-	</Card>
-	<Card class="flex flex-col gap-4">
-		<h2 class="text-3xl">Kontakt per Email</h2>
-		<p>Gerne kannst du uns auch direkt eine Email schreiben.</p>
-		<div class="grid w-fit grid-cols-2 gap-1">
-			<a
-				href="mailto:info@elench.de"
-				class="btn flex flex-row items-center gap-2 rounded-l-4xl rounded-r-sm preset-filled-primary-500"
-			>
-				info@elench.de
-				<Mail size={16} />
-			</a>
-			<button
-				class="btn flex flex-row items-center gap-2 rounded-l-sm rounded-r-4xl border border-surface-400-600 text-surface-950-50"
-				onclick={copyMail}
-			>
-				<Copy size={16} class="text-surface-400-600" />
-				Adresse kopieren
-			</button>
-		</div>
 	</Card>
 </div>
