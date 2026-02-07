@@ -3,6 +3,11 @@
 	import { Link } from '@lucide/svelte';
 </script>
 
+<svelte:head>
+	<meta name="description" content="Impressum der Elench Website" />
+	<title>Impressum - Elench</title>
+</svelte:head>
+
 <div class="container mx-auto prose-lg mt-24 flex flex-col gap-8">
 	<h1>Impressum</h1>
 	<p>

@@ -7,7 +7,7 @@
 		CheckboxInput,
 		EmailInput,
 		TextareaInput,
-		TextInput
+		TextInput,
 	} from '@ims360/svelte-ivory/components/inputs';
 	import { Toasts } from '@ims360/svelte-ivory/components/toast';
 	import { Copy, Mail, Send } from '@lucide/svelte';
@@ -18,16 +18,16 @@
 	let copyFailed = $state(false);
 	const copyMail = () => {
 		try {
-			copyFailed = true;
 			navigator.clipboard.writeText('info@elench.de');
 			Toasts.trigger({
 				variant: 'success',
-				message: 'Adresse erfolgreich kopiert'
+				message: 'Adresse erfolgreich kopiert',
 			});
 		} catch (e) {
+			copyFailed = true;
 			Toasts.trigger({
 				variant: 'warning',
-				message: 'Wir konnten die Adresse nicht kopieren, kopiere sie manuell'
+				message: 'Wir konnten die Adresse nicht kopieren, kopiere sie manuell',
 			});
 		}
 	};
@@ -68,10 +68,10 @@
 					onError() {
 						Toasts.trigger({
 							message: 'Ein Fehler ist aufgetreten, schreib uns gerne eine Email',
-							variant: 'warning'
+							variant: 'warning',
 						});
-					}
-				})
+					},
+				}),
 			)}
 			class="flex w-full flex-col gap-4"
 		>

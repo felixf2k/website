@@ -5,7 +5,7 @@
 
 <svelte:head>
 	<meta name="description" content="Datenschutzerklärung" />
-	<title>Elench UG - Datenschutzerklärung</title>
+	<title>Datenschutzerklärung - Elench</title>
 </svelte:head>
 
 <div class="mx-auto prose-lg mt-24 flex flex-col gap-8 content prose-p:m-0">

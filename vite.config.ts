@@ -11,6 +11,6 @@ export default defineConfig({
 		enhancedImages(),
 		sveltekit(),
 		devtoolsJson(),
-		paraglideVitePlugin({ project: './project.inlang', outdir: './src/lib/paraglide' })
-	]
+		paraglideVitePlugin({ project: './project.inlang', outdir: './src/lib/paraglide' }),
+	],
 });

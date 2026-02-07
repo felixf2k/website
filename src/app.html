@@ -1,6 +1,6 @@
 <!doctype html>
 <html
-	class="fonts-loading h-full scroll-p-32 scroll-smooth motion-reduce:scroll-auto"
+	class="fonts-loading h-full scroll-pt-32 scroll-smooth motion-reduce:scroll-auto"
 	lang="%paraglide.lang%"
 	data-theme="theme"
 >
@@ -38,7 +38,7 @@
 			if ('fonts' in document) {
 				Promise.race([
 					document.fonts.load('1em Geist'),
-					new Promise((resolve) => setTimeout(resolve, 2000))
+					new Promise((resolve) => setTimeout(resolve, 2000)),
 				]).then(() => {
 					document.documentElement.classList.remove('fonts-loading');
 				});

@@ -11,7 +11,7 @@
 		Paintbrush,
 		Shield,
 		Upload,
-		Users
+		Users,
 	} from '@lucide/svelte';
 	import Page from './Page.svelte';
 
@@ -21,7 +21,7 @@
 		{ name: 'Benutzerverwaltung & Rollen (RBAC)', price: 4500 },
 		{ name: 'Single Sign-On (SSO) & Active Directory Synchronisierung', price: 5000 },
 		{ name: 'Multi-Tenancy (Mandantenfähigkeit)', price: 6500 },
-		{ name: 'Ticketsystem Kernfunktionalität', price: 13500 }
+		{ name: 'Ticketsystem Kernfunktionalität', price: 13500 },
 	];
 
 	const total = positions.reduce((sum, pos) => sum + pos.price, 0);
@@ -29,7 +29,7 @@
 	const currencyFormatter = new Intl.NumberFormat('de-DE', {
 		style: 'currency',
 		currency: 'EUR',
-		maximumFractionDigits: 0
+		maximumFractionDigits: 0,
 	});
 </script>
 

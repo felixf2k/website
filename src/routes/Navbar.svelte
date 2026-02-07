@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" module>
 	import { beforeNavigate } from '$app/navigation';
 	import Logo from '$lib/components/Logo.svelte';
 	import { clickOutside } from '@ims360/svelte-ivory/utils/attachments';
@@ -6,14 +6,19 @@
 	import type { ClassValue } from 'svelte/elements';
 	import { slide } from 'svelte/transition';
 
+	export const LINKS = [
+		{ name: 'Konzept', url: '/pitch', description: '', type: 'ContactPage' },
+		{ name: 'Modelle', url: '/models', description: '', type: 'WebPage' },
+		{ name: 'Über uns', url: '/about', description: '', type: 'AboutPage' },
+	];
+</script>
+
+<script lang="ts">
 	type Props = {
 		class?: ClassValue;
 	};
 
 	let { class: clazz }: Props = $props();
-
-	// idk why svelte doesnt recognize the
-	clickOutside;
 
 	let isMobileMenuOpen = $state(false);
 	let scrollY = $state(0);
@@ -21,12 +26,6 @@
 	beforeNavigate(() => {
 		isMobileMenuOpen = false;
 	});
-
-	const links = [
-		{ name: 'Konzept', href: '/pitch' },
-		// { name: 'Preise', href: '/pricing' },
-		{ name: 'Über uns', href: '/about' }
-	];
 </script>
 
 <svelte:window bind:scrollY />
@@ -37,7 +36,7 @@
 		scrollY
 			? 'border-surface-200-800'
 			: [isMobileMenuOpen ? 'border-surface-200-800 md:border-transparent' : 'border-transparent'],
-		clazz
+		clazz,
 	]}
 	{@attach clickOutside(() => (isMobileMenuOpen = false))}
 >
@@ -74,12 +73,12 @@
 </nav>
 
 {#snippet navItems(mobile = false)}
-	{#each links as link}
+	{#each LINKS as link}
 		<a
-			href={link.href}
+			href={link.url}
 			class={[
 				'flex items-center px-4 text-lg text-surface-700-300 hover:text-surface-950-50',
-				mobile ? 'w-full py-2' : 'h-full justify-center '
+				mobile ? 'w-full py-2' : 'h-full justify-center ',
 			]}
 		>
 			{link.name}

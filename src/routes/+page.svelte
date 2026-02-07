@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { BulletPoint, Card, IconCard, ProgressSection } from '$lib/components';
+	import { BulletPoint, Card, IconCard, ProgressSection, Section } from '$lib/components';
+	import Hero from '$lib/components/Hero.svelte';
 	import {
 		ArrowRight,
 		ChartCandlestick,
@@ -9,44 +10,49 @@
 		Handshake,
 		Layers,
 		Lightbulb,
+		Mail,
 		MailCheck,
 		Map,
-		Route
+		Route,
 	} from '@lucide/svelte';
 </script>
 
-<div
-	class="flex h-[calc(100vh-var(--spacing)*32)] w-full flex-col items-center justify-center content select-none"
->
-	<div class="flex max-w-full flex-col gap-8">
-		<h1 class="text-4xl lg:text-8xl lg:leading-32">
-			Deine Software<br /><span class="text-primary-600-400"> Dein Modell </span>
-		</h1>
+<svelte:head>
+	<meta
+		name="description"
+		content="Risikofreie Individualsoftware durch Fixpreise - Nachhaltigkeit durch Vermarktung an dritte - Flexible Entwicklungsmodelle für jedes Projekt"
+	/>
+	<title>Individualsoftware zu Fixpreisen - Elench</title>
+</svelte:head>
+
+<Hero centered>
+	{#snippet heading()}
+		Deine Software<br /><span class="text-primary-600-400"> Dein Modell </span>
+	{/snippet}
+	{#snippet description()}
 		<p class="text-lg leading-relaxed lg:text-3xl">
 			Von der präzisen Umsetzung bis zur langfristigen Partnerschaft.
 			<br />
 			Du wählst das Modell, wir garantieren die Planbarkeit.
 		</p>
-		<div class="mt-2 grid grid-cols-1 gap-4 sm:mt-4 sm:w-fit sm:grid-cols-2 lg:gap-8">
-			<a class="btn preset-filled-primary-500 lg:btn-xl" href="#models">
-				Modelle erkunden
-				<ArrowRight />
-			</a>
-			<a class="btn border border-surface-400-600 text-surface-950-50 lg:btn-xl" href="/contact">
-				Kontakt aufnehmen
-			</a>
-		</div>
-	</div>
-</div>
+	{/snippet}
+	{#snippet actions()}
+		<a class="btn preset-filled-primary-500 lg:btn-xl" href="#models">
+			Modelle erkunden
+			<ArrowRight />
+		</a>
+		<a class="btn border border-surface-400-600 text-surface-950-50 lg:btn-xl" href="/contact">
+			Kontakt aufnehmen
+			<Mail />
+		</a>
+	{/snippet}
+</Hero>
 
-<div class="flex w-full flex-col gap-8 content">
-	<div class="flex flex-col gap-4">
-		<h2 class="h2">Für wen wir bauen</h2>
-		<p class="h4 text-surface-600-400">
-			Egal, ob du eine neue Marktlösung schaffst oder interne Prozesse digitalisierst - wir bieten
-			den passenden Rahmen für dein Vorhaben.
-		</p>
-	</div>
+<Section
+	heading="Für wen wir bauen"
+	description="Egal, ob du eine neue Marktlösung schaffst oder interne Prozesse digitalisierst - wir bieten
+			den passenden Rahmen für dein Vorhaben."
+>
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
 		<IconCard heading="Visionäre" description="Gründer ohne eigenes Tech-Team" iconStyle="filled">
 			{#snippet icon()}
@@ -126,15 +132,18 @@
 			</div>
 		</IconCard>
 	</div>
-</div>
+</Section>
 
-<div class="flex w-full flex-col gap-8 content">
-	<div class="flex flex-col gap-2">
-		<h2 class="h2" id="models">Entwicklungsmodelle</h2>
-		<p class="h4 text-surface-600-400">
-			Wähle ein Entwicklungsmodell, dass zu deinem Projekt und Budget passt.
-		</p>
-	</div>
+<Section
+	heading="Das Konzept"
+	description="Features Bezahlen, nicht Zeit. Von skalierung profitieren"
+></Section>
+
+<Section
+	heading="Entwicklungsmodelle"
+	description="Wähle ein Entwicklungsmodell, dass zu deinem Projekt und Budget passt."
+	id="models"
+>
 	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
 		<IconCard
 			heading="Your SaaS"
@@ -154,7 +163,7 @@
 				<BulletPoint>Exklusive Vertriebsrechte für dich</BulletPoint>
 				<BulletPoint>Betriebspauschale gekoppelt an Nutzerzahl</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500" href={resolve('/models/your-saas')}>
+			<a class="mt-auto btn w-fit preset-filled-primary-500" href="{resolve('/models')}#saas">
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
@@ -178,12 +187,13 @@
 				<BulletPoint>
 					Dritte können Lizenzen erwerben, du kannst Lizenzen für eine Kommission vertreiben
 				</BulletPoint>
-				<BulletPoint>
-					Kostenlose Weiterentwicklung und Wartung, wenn das Produkt gefragt ist
-				</BulletPoint>
+				<BulletPoint>Kostenlose Weiterentwicklung, wenn das Produkt gefragt ist</BulletPoint>
 				<BulletPoint>Keine Betriebspauschale</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500" href={resolve('/models/partnership')}>
+			<a
+				class="mt-auto btn w-fit preset-filled-primary-500"
+				href="{resolve('/models')}#partnership"
+			>
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
@@ -206,19 +216,18 @@
 				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
 				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500" href={resolve('/models/commissioned')}>
+			<a
+				class="mt-auto btn w-fit preset-filled-primary-500"
+				href="{resolve('/models')}#commissioned"
+			>
 				Mehr erfahren
 				<ArrowRight size={16} />
 			</a>
 		</IconCard>
 	</div>
-</div>
+</Section>
 
-<div class="flex w-full flex-col gap-8 content">
-	<div class="flex flex-col gap-2">
-		<h2 class="h2" id="models">Der Prozess</h2>
-		<p class="h4 text-surface-600-400">So wird dein Projekt ablaufen:</p>
-	</div>
+<Section heading="Der Prozess" description="So wird dein Projekt ablaufen:">
 	<ProgressSection class="w-full">
 		<IconCard
 			iconStyle="tonal"
@@ -281,13 +290,9 @@
 			</div>
 		</IconCard>
 	</ProgressSection>
-</div>
+</Section>
 
-<div class="flex w-full flex-col gap-8 content">
-	<div class="flex flex-col gap-2">
-		<h2 class="h2" id="models">Warum Elench</h2>
-		<p class="h4 text-surface-600-400">Von Profis für Profis</p>
-	</div>
+<Section heading="Warum Elench" description="Von Profis für Profis">
 	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
 		<IconCard
 			heading="Moderner Tech Stack"
@@ -333,10 +338,9 @@
 			</div>
 		</IconCard>
 	</div>
-</div>
+</Section>
 
-<div class="flex flex-col gap-4 content">
-	<h2 class="h2">Bereit dein Projekt zu starten?</h2>
+<Section heading="Bereit dein Projekt zu starten?">
 	<Card>
 		<p class="text-lg text-surface-600-400">Lass uns unverbindlich über dein Vorhaben sprechen.</p>
 		<a href="/contact" class="btn preset-filled-primary-500 @md:w-fit">
@@ -344,4 +348,4 @@
 			<MailCheck class="h-4 @md:h-5" />
 		</a>
 	</Card>
-</div>
+</Section>

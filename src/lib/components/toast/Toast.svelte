@@ -44,7 +44,7 @@
 			toast.variant === 'info' && 'bg-primary-500/60',
 			toast.variant === 'success' && 'bg-success-500/60',
 			toast.variant === 'warning' && 'bg-warning-500/60',
-			toast.variant === 'error' && 'bg-error-500/60'
+			toast.variant === 'error' && 'bg-error-500/60',
 		];
 	});
 
@@ -53,7 +53,7 @@
 			toast.variant === 'info' && 'stroke-primary-500',
 			toast.variant === 'success' && 'stroke-success-500',
 			toast.variant === 'warning' && 'stroke-warning-500',
-			toast.variant === 'error' && 'stroke-error-500'
+			toast.variant === 'error' && 'stroke-error-500',
 		];
 	});
 
@@ -67,8 +67,8 @@
 
 <div
 	class={[
-		'group relative flex h-fit w-full max-w-96 items-start overflow-hidden rounded bg-surface-50-950 shadow  select-none 2xl:w-lg',
-		transition && 'transition-all duration-200'
+		'group relative flex h-fit w-full max-w-96 items-start overflow-hidden rounded bg-surface-50 select-none not-dark:shadow 2xl:w-lg dark:bg-surface-900 ',
+		transition && 'transition-all duration-200',
 	]}
 	onpointerenter={freeze}
 	onpointerleave={unfreeze}

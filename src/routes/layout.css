@@ -45,3 +45,7 @@
 @utility preset-filled-primary-500 {
 	background-image: linear-gradient(45deg, var(--color-primary-700), var(--color-primary-500));
 }
+
+@utility h1 {
+	@apply text-4xl lg:text-8xl lg:leading-32;
+}
