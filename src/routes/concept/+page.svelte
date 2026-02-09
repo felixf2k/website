@@ -1,17 +1,17 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import logo from '$lib/assets/images/logo.svg';
 	import { BulletPoint, Card, IconCard } from '$lib/components';
+	import { models } from '$lib/models';
 	import {
-		Code,
+		ArrowRight,
 		FileCheck,
 		FileText,
 		Handshake,
 		LayoutTemplate,
 		Mail,
 		Paintbrush,
-		Shield,
 		Upload,
-		Users,
 	} from '@lucide/svelte';
 	import Page from './Page.svelte';
 
@@ -75,10 +75,7 @@
 		<h2 class="h2 text-3xl">
 			Phase 1: <strong>Anforderungsbestimmung</strong>
 		</h2>
-		<IconCard heading="Bring your own" iconStyle="tonal">
-			{#snippet icon()}
-				<FileCheck class="h-full w-full" />
-			{/snippet}
+		<IconCard heading="Bring your own" iconStyle="tonal" icon={FileCheck}>
 			<p>
 				Sie haben bereits eine <strong>vollständige</strong> Anforderungsdokumentation erstellt.
 			</p>
@@ -90,10 +87,7 @@
 				</BulletPoint>
 			</div>
 		</IconCard>
-		<IconCard heading="Cooperative" iconStyle="tonal">
-			{#snippet icon()}
-				<Handshake class="h-full w-full" />
-			{/snippet}
+		<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake}>
 			<p>
 				Wir stellen <strong>Vorlagen</strong> bereit und geben regelmäßig
 				<strong>Rückmeldung</strong> zur Qualität und Vollständigkeit Ihrer Dokumentation.
@@ -103,10 +97,7 @@
 				<BulletPoint>Vorlagen helfen Nicht-Technikern</BulletPoint>
 			</div>
 		</IconCard>
-		<IconCard heading="Full-Service" iconStyle="tonal">
-			{#snippet icon()}
-				<FileText class="h-full w-full" />
-			{/snippet}
+		<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText}>
 			<p>
 				Wir erstellen die <strong>komplette Dokumentation</strong> basierend auf Ihrem Input und Feedback.
 			</p>
@@ -125,29 +116,20 @@
 		<h2 class="h2 text-3xl">
 			Phase 2: <strong>Oberflächendesign</strong>
 		</h2>
-		<IconCard heading="Bring your own" iconStyle="tonal">
-			{#snippet icon()}
-				<Upload class="h-full w-full" />
-			{/snippet}
+		<IconCard heading="Bring your own" iconStyle="tonal" icon={Upload}>
 			<p>Sie stellen ein <strong>fertiges, umsetzbares</strong> Design bereit.</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Nutzung bestehender Ressourcen</BulletPoint>
 				<BulletPoint>Höhere Entwicklungskosten</BulletPoint>
 			</div>
 		</IconCard>
-		<IconCard heading="Standard" iconStyle="tonal">
-			{#snippet icon()}
-				<LayoutTemplate class="h-full w-full" />
-			{/snippet}
+		<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate}>
 			<p>Nutzung unseres <strong>bewährten Standard-Designs</strong> für schnelle Ergebnisse.</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
 			</div>
 		</IconCard>
-		<IconCard heading="Individual" iconStyle="tonal">
-			{#snippet icon()}
-				<Paintbrush class="h-full w-full" />
-			{/snippet}
+		<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush}>
 			<p><strong>Maßgeschneidertes</strong> Design durch uns oder unsere Partner.</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Keine Auswirkung auf Entwicklungskosten</BulletPoint>
@@ -166,39 +148,39 @@
 		<h2 class="h2 text-3xl">
 			Phase 3: <strong>Entwicklung & Betrieb</strong>
 		</h2>
-		<IconCard heading="Exclusive access" iconStyle="tonal">
-			{#snippet icon()}
-				<Shield class="h-full w-full" />
-			{/snippet}
+		<IconCard {...models.saas} iconStyle="tonal">
 			<p>Wir entwickeln und betreiben das Produkt <strong>exklusiv</strong> für Sie.</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Betrieb durch Experten</BulletPoint>
 				<BulletPoint>Volle Marktrechte</BulletPoint>
 				<BulletPoint>Betriebspauschale basierend auf der Benutzeranzahl</BulletPoint>
 			</div>
+			<a class="btn w-fit preset-filled-primary-500" href="{resolve('/models')}#saas">
+				Mehr erfahren <ArrowRight size={16} />
+			</a>
 		</IconCard>
-		<IconCard heading="Innovation Partnership" iconStyle="tonal">
-			{#snippet icon()}
-				<Users class="h-full w-full" />
-			{/snippet}
+		<IconCard {...models.partnership} iconStyle="tonal">
 			<p>
 				Durch <strong>Skalierung</strong> am Markt lösen wir Ihr Problem nachhaltig und preiswert.
 			</p>
 			<div class="flex flex-col gap-2">
-				<BulletPoint>Betrieb durch Experten</BulletPoint>
+				<BulletPoint>Entwicklung und Betrieb durch Experten</BulletPoint>
 				<BulletPoint>Dauerhaft kostenfreie Lizenz</BulletPoint>
 				<BulletPoint>Keine Betriebspauschale</BulletPoint>
 			</div>
+			<a class="btn w-fit preset-filled-primary-500" href="{resolve('/models')}#partnership">
+				Mehr erfahren <ArrowRight size={16} />
+			</a>
 		</IconCard>
-		<IconCard heading="Commissioned Development" iconStyle="tonal">
-			{#snippet icon()}
-				<Code class="h-full w-full" />
-			{/snippet}
+		<IconCard {...models.commissioned} iconStyle="tonal">
 			<p>Wir entwickeln das Produkt und <strong>übergeben</strong> den Code an Sie.</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Voller Zugriff auf den Quellcode</BulletPoint>
 				<BulletPoint>Sie betreiben das Produkt selbst</BulletPoint>
 			</div>
+			<a class="btn w-fit preset-filled-primary-500" href="{resolve('/models')}#commissioned">
+				Mehr erfahren <ArrowRight size={16} />
+			</a>
 		</IconCard>
 	</div>
 </Page>

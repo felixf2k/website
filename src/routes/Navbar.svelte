@@ -1,15 +1,17 @@
 <script lang="ts" module>
 	import { beforeNavigate } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import Logo from '$lib/components/Logo.svelte';
 	import { clickOutside } from '@ims360/svelte-ivory/utils/attachments';
 	import { Menu, X } from '@lucide/svelte';
 	import type { ClassValue } from 'svelte/elements';
 	import { slide } from 'svelte/transition';
+	import Navlink from './Navlink.svelte';
 
 	export const LINKS = [
-		{ name: 'Konzept', url: '/pitch', description: '', type: 'ContactPage' },
-		{ name: 'Modelle', url: '/models', description: '', type: 'WebPage' },
-		{ name: 'Über uns', url: '/about', description: '', type: 'AboutPage' },
+		{ name: 'Konzept', url: resolve('/concept'), description: '', type: 'WebPage' },
+		{ name: 'Modelle', url: resolve('/models'), description: '', type: 'WebPage' },
+		{ name: 'Über uns', url: resolve('/about'), description: '', type: 'AboutPage' },
 	];
 </script>
 
@@ -74,15 +76,12 @@
 
 {#snippet navItems(mobile = false)}
 	{#each LINKS as link}
-		<a
+		<Navlink
 			href={link.url}
-			class={[
-				'flex items-center px-4 text-lg text-surface-700-300 hover:text-surface-950-50',
-				mobile ? 'w-full py-2' : 'h-full justify-center ',
-			]}
+			class={['flex items-center px-4 text-lg', mobile ? 'w-full py-2' : 'h-full justify-center ']}
 		>
 			{link.name}
-		</a>
+		</Navlink>
 	{/each}
 	<a href="/contact" class={['text-lg', mobile ? 'mt-2 w-full px-4' : 'ml-4 h-full py-8']}>
 		<div class="btn h-full preset-filled-primary-500 font-semibold">Kontakt aufnehmen</div>

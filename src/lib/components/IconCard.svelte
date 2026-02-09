@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { getLocale } from '$lib/paraglide/runtime';
-	import type { Snippet } from 'svelte';
+	import type { Icon } from '@lucide/svelte';
 	import Card, { type CardProps } from './Card.svelte';
 
 	type Props = CardProps & {
 		heading?: string;
 		description?: string;
-		icon: Snippet | number;
+		icon: typeof Icon | number;
 		iconStyle?: 'filled' | 'tonal' | 'raw';
 	};
 
@@ -19,7 +19,7 @@
 			class={[
 				'flex h-12 w-12 items-center justify-center rounded-xl text-3xl @md:row-span-2 @md:h-16 @md:w-16 print:h-12 print:w-12',
 				iconStyle === 'filled' && 'preset-filled-primary-500 p-3 @md:p-4 print:p-3',
-				iconStyle === 'tonal' && 'bg-primary-50-950 p-3 text-primary-500 @md:p-4 print:p-3'
+				iconStyle === 'tonal' && 'bg-primary-50-950 p-3 text-primary-500 @md:p-4 print:p-3',
 			]}
 		>
 			{#if typeof icon === 'number'}
@@ -27,13 +27,14 @@
 					{icon.toLocaleString(getLocale(), { minimumIntegerDigits: 1, maximumFractionDigits: 0 })}
 				</p>
 			{:else}
-				{@render icon()}
+				{@const Icon = icon}
+				<Icon class="h-full w-full" />
 			{/if}
 		</div>
 		<p
 			class={[
 				'my-auto h3 @md:my-0 @md:-translate-y-1 print:-translate-y-1 print:h4',
-				!description && 'self-center @md:row-span-2 @md:translate-y-0'
+				!description && 'self-center @md:row-span-2 @md:translate-y-0',
 			]}
 		>
 			{heading}

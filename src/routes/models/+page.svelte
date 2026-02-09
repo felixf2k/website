@@ -2,13 +2,13 @@
 	import { BulletPoint, Card, Hero, IconBulletPoint, IconCard, Section } from '$lib/components';
 	import { getLocale } from '$lib/paraglide/runtime';
 	import {
+		ArrowRight,
 		Banknote,
 		CircleDollarSign,
 		Cloud,
 		Code,
 		Coins,
 		Copyright,
-		Files,
 		Hammer,
 		Handshake,
 		HardDrive,
@@ -66,20 +66,14 @@
 			</p>
 		</div>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			<IconCard heading="Was du einbringst" iconStyle="tonal">
-				{#snippet icon()}
-					<Lightbulb class="h-full w-full" />
-				{/snippet}
+			<IconCard heading="Was du einbringst" iconStyle="tonal" icon={Lightbulb}>
 				<div class="flex flex-col gap-2">
 					<BulletPoint>Tiefes Branchenwissen (Domain Expertise)</BulletPoint>
 					<BulletPoint>Validierung in echter Umgebung</BulletPoint>
 					<BulletPoint>Regelmäßiges Feedback</BulletPoint>
 				</div>
 			</IconCard>
-			<IconCard heading="Was wir übernehmen" iconStyle="tonal">
-				{#snippet icon()}
-					<Code class="h-full w-full" />
-				{/snippet}
+			<IconCard heading="Was wir übernehmen" iconStyle="tonal" icon={Code}>
 				<div class="flex flex-col gap-2">
 					<BulletPoint>Technisches Know-How & Architektur</BulletPoint>
 					<BulletPoint>Produkt-Vision & Vermarktungsstrategie</BulletPoint>
@@ -149,7 +143,7 @@
 		</div>
 
 		<Card class="border-primary-500/30 bg-primary-500/5">
-			<h3 class="mb-8 text-center h3">Investment-Struktur</h3>
+			<h3 class="text-center h3">Investment-Struktur</h3>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				<div class="flex flex-col items-center text-center">
 					<div class="mb-4 rounded-full bg-primary-500/10 p-4 text-primary-500">
@@ -198,20 +192,14 @@
 		</div>
 
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			<IconCard heading="Was du einbringst" iconStyle="tonal">
-				{#snippet icon()}
-					<Lightbulb class="h-full w-full" />
-				{/snippet}
+			<IconCard heading="Was du einbringst" iconStyle="tonal" icon={Lightbulb}>
 				<div class="flex flex-col gap-2">
 					<BulletPoint>Marktvision & Geschäftsmodell</BulletPoint>
 					<BulletPoint>Vertrieb & Marketing</BulletPoint>
 					<BulletPoint>Kundenbeziehungen & Support</BulletPoint>
 				</div>
 			</IconCard>
-			<IconCard heading="Was wir übernehmen" iconStyle="tonal">
-				{#snippet icon()}
-					<Code class="h-full w-full" />
-				{/snippet}
+			<IconCard heading="Was wir übernehmen" iconStyle="tonal" icon={Code}>
 				<div class="flex flex-col gap-2">
 					<BulletPoint>Technische Umsetzung</BulletPoint>
 					<BulletPoint>Skalierbare Cloud-Infrastruktur</BulletPoint>
@@ -265,7 +253,7 @@
 		</div>
 
 		<Card>
-			<h3 class="mb-8 text-center h3">Investment-Struktur</h3>
+			<h3 class="text-center h3">Investment-Struktur</h3>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				<div class="flex flex-col items-center text-center">
 					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-primary-500">
@@ -310,20 +298,14 @@
 		</div>
 
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-			<IconCard heading="Was du einbringst" iconStyle="tonal">
-				{#snippet icon()}
-					<Lightbulb class="h-full w-full" />
-				{/snippet}
+			<IconCard heading="Was du einbringst" iconStyle="tonal" icon={Lightbulb}>
 				<div class="flex flex-col gap-2">
 					<BulletPoint>Klare Anforderungen & Lastenheft</BulletPoint>
 					<BulletPoint>Budget für Entwicklung (CAPEX)</BulletPoint>
 					<BulletPoint>Product Ownership & Abnahme</BulletPoint>
 				</div>
 			</IconCard>
-			<IconCard heading="Was wir übernehmen" iconStyle="tonal">
-				{#snippet icon()}
-					<Code class="h-full w-full" />
-				{/snippet}
+			<IconCard heading="Was wir übernehmen" iconStyle="tonal" icon={Code}>
 				<div class="flex flex-col gap-2">
 					<BulletPoint>Erfahrenes Entwicklungsteam</BulletPoint>
 					<BulletPoint>Umsetzung nach Best Practices</BulletPoint>
@@ -376,8 +358,8 @@
 			</Card>
 		</div>
 
-		<Card class="opacity-80">
-			<h3 class="mb-8 text-center h3">Investment-Struktur</h3>
+		<Card>
+			<h3 class="text-center h3">Investment-Struktur</h3>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				<div class="flex flex-col items-center text-center">
 					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-surface-500">
@@ -395,14 +377,30 @@
 				</div>
 				<div class="flex flex-col items-center text-center">
 					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-surface-500">
-						<Files class="h-8 w-8" />
+						<LayoutDashboard class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Übergabe</p>
+					<p class="font-bold">Weiterentwicklung</p>
 					<p class="text-surface-600-400">
-						Vollständiger Transfer aller IP-Rechte nach Projektende.
+						Updates und weitere Features müssen gesondert beauftragt werden.
 					</p>
 				</div>
 			</div>
 		</Card>
 	</div>
 </Section>
+
+<div class="content">
+	<Card class="flex flex-col items-center gap-8 text-center md:p-12">
+		<div class="flex flex-col gap-4">
+			<h3 class="h2">Bereit für den nächsten Schritt?</h3>
+			<p class="mx-auto max-w-2xl text-lg text-surface-600-400">
+				Lass uns gemeinsam herausfinden, welches Modell am besten zu deinen Zielen passt. Wir freuen
+				uns auf deine Idee!
+			</p>
+		</div>
+		<a href="/contact" class="btn preset-filled-primary-500">
+			Kontakt aufnehmen
+			<ArrowRight class="h-5 w-5" />
+		</a>
+	</Card>
+</div>

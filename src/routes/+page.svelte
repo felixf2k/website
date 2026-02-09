@@ -2,12 +2,12 @@
 	import { resolve } from '$app/paths';
 	import { BulletPoint, Card, IconCard, ProgressSection, Section } from '$lib/components';
 	import Hero from '$lib/components/Hero.svelte';
+	import { models } from '$lib/models';
 	import {
 		ArrowRight,
 		ChartCandlestick,
 		Cloud,
 		Code,
-		Handshake,
 		Layers,
 		Lightbulb,
 		Mail,
@@ -54,10 +54,12 @@
 			den passenden Rahmen für dein Vorhaben."
 >
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-		<IconCard heading="Visionäre" description="Gründer ohne eigenes Tech-Team" iconStyle="filled">
-			{#snippet icon()}
-				<Lightbulb class="h-full w-full" />
-			{/snippet}
+		<IconCard
+			heading="Visionäre"
+			description="Gründer ohne eigenes Tech-Team"
+			iconStyle="filled"
+			icon={Lightbulb}
+		>
 			<div class="flex flex-col gap-1">
 				<p class="font-semibold text-primary-500">Dein Ziel</p>
 				<p>
@@ -82,10 +84,8 @@
 			heading="Optimierer"
 			description="Unternehmen mit internen Herausforderungen"
 			iconStyle="filled"
+			icon={ChartCandlestick}
 		>
-			{#snippet icon()}
-				<ChartCandlestick class="h-full w-full" />
-			{/snippet}
 			<div class="flex flex-col gap-1">
 				<p class="font-semibold text-primary-500">Dein Ziel</p>
 				<p>
@@ -109,10 +109,8 @@
 			heading="Strategen"
 			description="Digitalisierung schützenswerter Prozesse"
 			iconStyle="filled"
+			icon={Route}
 		>
-			{#snippet icon()}
-				<Route class="h-full w-full" />
-			{/snippet}
 			<div class="flex flex-col gap-1">
 				<p class="font-semibold text-primary-500">Dein Ziel</p>
 				<p>
@@ -145,15 +143,7 @@
 	id="models"
 >
 	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
-		<IconCard
-			heading="Your SaaS"
-			description="Dein SaaS Produkt, as a Service"
-			iconStyle="tonal"
-			id="saas"
-		>
-			{#snippet icon()}
-				<Cloud class="h-full w-full" />
-			{/snippet}
+		<IconCard {...models.saas} iconStyle="tonal" id="saas" icon={Cloud}>
 			<p>
 				Wir entwickeln und betreiben dein Produkt als SaaS Lösung. Du erhälst die exklusiven
 				Vertriebsrechte und verwaltest deine Kunden über gesonderte Dashboards.
@@ -168,15 +158,7 @@
 				<ArrowRight size={16} />
 			</a>
 		</IconCard>
-		<IconCard
-			heading="Innovation Partnership"
-			description="Gemeinsam Risiken minimieren"
-			iconStyle="tonal"
-			id="partnership"
-		>
-			{#snippet icon()}
-				<Handshake class="h-full w-full" />
-			{/snippet}
+		<IconCard {...models.commissioned} iconStyle="tonal" id="partnership">
 			<p>
 				Wir entwickeln eine Lösung für dein internes Problem zu reduzierten Preisen. Im Gegenzug
 				kann die Software an dritte vermarktet werden.
@@ -198,15 +180,7 @@
 				<ArrowRight size={16} />
 			</a>
 		</IconCard>
-		<IconCard
-			heading="Commissioned Development"
-			description="Volle Kontrolle für kritische Lösungen"
-			iconStyle="tonal"
-			id="development"
-		>
-			{#snippet icon()}
-				<Code class="h-full w-full" />
-			{/snippet}
+		<IconCard {...models.commissioned} iconStyle="tonal" id="development">
 			<p>
 				Klassische Individualentwicklung. Wir setzen deine Anforderungen um und übergeben dir den
 				Quellcode.
@@ -298,10 +272,8 @@
 			heading="Moderner Tech Stack"
 			description="Hohe Performance und Zuverlässigkeit"
 			iconStyle="tonal"
+			icon={Layers}
 		>
-			{#snippet icon()}
-				<Layers class="h-full w-full" />
-			{/snippet}
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Hohe performance</BulletPoint>
 				<BulletPoint>Schnelle Entwicklung</BulletPoint>
@@ -312,10 +284,8 @@
 			heading="Planbarkeit"
 			description="Technische Risiken sind unsere Risiken"
 			iconStyle="tonal"
+			icon={Map}
 		>
-			{#snippet icon()}
-				<Map class="h-full w-full" />
-			{/snippet}
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Du bezahlst deine Features, nicht unsere Zeit</BulletPoint>
 				<BulletPoint>Kein Kostenüberraschungen</BulletPoint>
@@ -327,10 +297,8 @@
 			description="Für jedes Projekt das richtige Modell"
 			iconStyle="tonal"
 			id="development"
+			icon={Code}
 		>
-			{#snippet icon()}
-				<Code class="h-full w-full" />
-			{/snippet}
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Klassische Individualentwicklung</BulletPoint>
 				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
