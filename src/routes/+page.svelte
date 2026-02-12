@@ -47,11 +47,11 @@
 	{#snippet actions()}
 		<a class="group btn preset-filled-primary-500 xl:btn-xl" href="#models">
 			Modelle erkunden
-			<ArrowRight class="transition-all group-hover:translate-x-0.5" />
+			<ArrowRight class="h-4 transition-all group-hover:translate-x-0.5 xl:h-6" />
 		</a>
 		<a class="btn border border-surface-400-600 text-surface-950-50 xl:btn-xl" href="/contact">
 			Kontakt aufnehmen
-			<Mail />
+			<Mail class="h-4 xl:h-6" />
 		</a>
 	{/snippet}
 </Hero>
