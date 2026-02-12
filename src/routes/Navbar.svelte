@@ -9,10 +9,39 @@
 	import { slide } from 'svelte/transition';
 	import Navlink from './Navlink.svelte';
 
-	export const LINKS = [
+	const DISPLAYED_LINKS = [
 		{ name: 'Konzept', url: resolve('/concept'), description: '', type: 'WebPage' },
 		{ name: 'Modelle', url: resolve('/models'), description: '', type: 'WebPage' },
 		{ name: 'Über uns', url: resolve('/about'), description: '', type: 'AboutPage' },
+	];
+
+	export const LINKS = [
+		...DISPLAYED_LINKS,
+		{
+			name: 'Startseite',
+			url: resolve('/'),
+			description:
+				'Elench bietet risikofreie Individualsoftware zu Fixpreisen. Entdecken Sie unsere flexiblen Kooperationsmodelle für planbare und nachhaltige Softwareprojekte.',
+			type: 'WebPage',
+		},
+		{
+			name: 'Kontakt',
+			url: resolve('/contact'),
+			description: 'Nimm Kontakt zu uns auf',
+			type: 'ContactPage',
+		},
+		{
+			name: 'Impressum',
+			url: resolve('/imprint'),
+			description: 'Impressum',
+			type: 'WebPage',
+		},
+		{
+			name: 'Datenschutz',
+			url: resolve('/data-protection'),
+			description: 'Datenschutzerklärung',
+			type: 'WebPage',
+		},
 	];
 </script>
 
@@ -85,7 +114,7 @@
 </div>
 
 {#snippet navItems(mobile = false)}
-	{#each LINKS as link}
+	{#each DISPLAYED_LINKS as link}
 		<Navlink
 			href={link.url}
 			class={['flex items-center px-4 text-lg', mobile ? 'w-full py-2' : 'h-full justify-center ']}

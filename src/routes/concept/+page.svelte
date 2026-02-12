@@ -34,6 +34,10 @@
 
 <svelte:head>
 	<title>Elench - Konzept</title>
+	<meta
+		name="description"
+		content="Unser Konzept der kooperativen Softwareentwicklung: Bezahlung pro Feature, flexible Projektbeteiligung und individuelle Kooperationsmodelle."
+	/>
 </svelte:head>
 
 <Hero

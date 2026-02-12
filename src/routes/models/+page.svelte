@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { BulletPoint, Card, Hero, IconBulletPoint, IconCard, Section } from '$lib/components';
+	import { models } from '$lib/models';
 	import { getLocale } from '$lib/paraglide/runtime';
 	import {
 		ArrowRight,
@@ -29,10 +30,11 @@
 </script>
 
 <svelte:head>
-	<title>Kooperative Softwareentwicklung - Elench</title>
+	<title>Kooperationsmodelle - Elench</title>
 	<meta
 		name="description"
-		content="Unser Konzept der kooperativen Softwareentwicklung: Pay per Feature, flexible Modelle und transparente Prozesse."
+		content="Entdecke unsere flexiblen Kooperationsmodelle: {models.partnership.heading}, {models
+			.saas.heading} und {models.commissioned.heading}. Maßgeschneidert für dein Projekt."
 	/>
 </svelte:head>
 

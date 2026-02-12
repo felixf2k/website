@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Card, Section } from '$lib/components';
+	import { Card, LearnMoreButton, Section } from '$lib/components';
 	import image from './FF.jpg';
 </script>
 
@@ -8,7 +8,7 @@
 	<title>Über uns - Elench</title>
 	<meta
 		name="description"
-		content="Über Elench - Unsere Motivation und Lösung für bessere Softwareprojekte."
+		content="Lerne Elench kennen. Wir revolutionieren Softwareprojekte durch geteilte Interessen und flexible Kooperationsmodelle."
 	/>
 </svelte:head>
 
@@ -18,15 +18,15 @@
 			<enhanced:img
 				src={image}
 				alt="Felix"
-				class="aspect-square h-64 w-64 max-w-full shrink-0 rounded-b-xl object-cover shadow-lg md:rounded-br-xl"
+				class="aspect-square h-64 w-64 max-w-full shrink-0 rounded-br-xl object-cover shadow-lg"
 			/>
 			<div class="flex flex-col gap-4 p-8">
 				<h3 class="h3">Felix Fischerkeller</h3>
 				<p class="leading-relaxed text-surface-700-300">
 					Als Softwareingenieur habe ich über 5 Jahre an der Konzeptionierung und Umsetzung
 					komplexer Management- und KI-Plattformen gearbeitet. Dabei habe ich Verbesserungspotential
-					in der gängigen Organisation und Umsetung von Komplexen Softwareprojekten erkannt das ich
-					mit Elench realisieren kann.
+					in der gängigen Organisation und Umsetung von komplexen Softwareprojekten erkannt, dass
+					ich mit Elench verwirkliche.
 				</p>
 			</div>
 		</div>
@@ -83,6 +83,7 @@
 					</ol>
 				</div>
 			</div>
+			<LearnMoreButton label="Kontakt aufnehmen" class="md:w-fit" href={resolve('/contact')} />
 		</div>
 	</Card>
 </Section>

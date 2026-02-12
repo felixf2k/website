@@ -4,7 +4,7 @@
 	import type { ClassValue } from 'svelte/elements';
 
 	type Props = {
-		class: ClassValue;
+		class?: ClassValue;
 		label?: string;
 		icon?: typeof GenericIcon;
 		href: string;

@@ -29,7 +29,7 @@
 <svelte:head>
 	<meta
 		name="description"
-		content="Risikofreie Individualsoftware durch Fixpreise - Nachhaltigkeit durch Vermarktung an dritte - Flexible Kooperationsmodelle für jedes Projekt"
+		content="Elench bietet risikofreie Individualsoftware zu Fixpreisen. Entdecken Sie unsere flexiblen Kooperationsmodelle für planbare und nachhaltige Softwareprojekte."
 	/>
 	<title>Individualsoftware zu Fixpreisen - Elench</title>
 </svelte:head>
