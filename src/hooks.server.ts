@@ -1,10 +1,11 @@
+import { building } from '$app/environment';
 import { paraglideMiddleware } from '$lib/paraglide/server';
 import { Theme } from '$lib/theme.svelte';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 
 const handleBasicAuth: Handle = async ({ event, resolve }) => {
-	if (event.route.id) {
+	if (event.route.id && !building) {
 		const auth = event.request.headers.get('Authorization');
 		const user = 'beta';
 		const pass = 'access';

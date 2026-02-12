@@ -13,23 +13,15 @@
 		ShieldCheck,
 		Upload,
 	} from '@lucide/svelte';
+	import PricingCalculator, {
+		type DesignOptions,
+		type DevelopmentOptions,
+		type RequirementOptions,
+	} from './PricingCalculator.svelte';
 
-	const positions = [
-		{ name: 'Anforderungsbestimmung (5 Tage à 1.000 €)', price: 5000 },
-		{ name: 'UI / UX Design (5 Tage à 1.000 €)', price: 5000 },
-		{ name: 'Benutzerverwaltung & Rollen (RBAC)', price: 4500 },
-		{ name: 'Single Sign-On (SSO) & Active Directory Synchronisierung', price: 5000 },
-		{ name: 'Multi-Tenancy (Mandantenfähigkeit)', price: 6500 },
-		{ name: 'Ticketsystem Kernfunktionalität', price: 13500 },
-	];
-
-	const total = positions.reduce((sum, pos) => sum + pos.price, 0);
-
-	const currencyFormatter = new Intl.NumberFormat('de-DE', {
-		style: 'currency',
-		currency: 'EUR',
-		maximumFractionDigits: 0,
-	});
+	let requirement = $state<RequirementOptions>('cooperative');
+	let design = $state<DesignOptions>('standard');
+	let development = $state<DevelopmentOptions>('partnership');
 </script>
 
 <svelte:head>
@@ -202,27 +194,7 @@
 	<h2 class="h2 text-3xl">
 		<strong>Kosten eines Beispielprojektes (Ticketsystem)</strong>
 	</h2>
-	<table class="w-full rounded bg-surface-50-950 text-left text-sm text-surface-600-400 shadow-lg">
-		<thead class="border-b border-surface-200-800 font-bold text-surface-950-50">
-			<tr>
-				<th class="px-6 py-3">Leistung</th>
-				<th class="px-6 py-3 text-right">Kosten</th>
-			</tr>
-		</thead>
-		<tbody class="divide-y divide-surface-200-800">
-			{#each positions as position}
-				<tr>
-					<td class="px-6 py-4">{position.name}</td>
-					<td class="px-6 py-4 text-right">{currencyFormatter.format(position.price)}</td>
-				</tr>
-			{/each}
-			<tr class="font-bold text-surface-950-50">
-				<td class="px-6 py-4">Gesamt</td>
-				<td class="px-6 py-4 text-right">{currencyFormatter.format(total)}</td>
-			</tr>
-		</tbody>
-	</table>
-
+	<PricingCalculator bind:requirement bind:design bind:development />
 	<div
 		class="mt-auto flex w-full flex-col gap-6 rounded-xl bg-surface-50-950 p-8 shadow-lg print:shadow-none"
 	>

@@ -18,7 +18,7 @@
 			<enhanced:img
 				src={image}
 				alt="Felix"
-				class="aspect-square h-64 w-64 max-w-full shrink-0 rounded-br-xl object-cover shadow-lg"
+				class="aspect-square h-64 w-64 max-w-full shrink-0 rounded-xl object-cover shadow-lg"
 			/>
 			<div class="flex flex-col gap-4 p-8">
 				<h3 class="h3">Felix Fischerkeller</h3>
@@ -41,7 +41,7 @@
 					<p>Softwareprojekte stehen vor einigen Herausvorderungen:</p>
 					<ol class="list-decimal pl-4">
 						<li>
-							Vendor Lock-in ist kaum zu vermeiden, da das technische Know-how zwangsläufig bei dem
+							Vendor Lock-in ist kaum zu vermeiden, da das technische Know-How zwangsläufig bei dem
 							Tech-Team liegt.
 						</li>
 						<li>Der Aufbau eigener Tech-Teams ist jedoch schwierig, Zeit-und Kostenintensiv.</li>
@@ -51,8 +51,8 @@
 						</li>
 					</ol>
 					<p>
-						Ich bin der Überzeugung dass durch eine Struktur die eine Überlappung der Interressen
-						beider Partein sicherstellt bessere Ergebnisse erzielt werden können.
+						Ich bin der Überzeugung, dass durch eine Struktur die eine Überlappung der Interressen
+						beider Partein sicherstellt, bessere Ergebnisse erzielt werden können.
 					</p>
 				</div>
 			</div>
@@ -64,12 +64,12 @@
 					class="flex flex-col gap-2 border-l border-primary-500 pl-2 leading-relaxed text-surface-700-300"
 				>
 					<p>
-						Um sich den Herausforderungen zu stellen ist es nötig gemeinsame Interessen am
-						tatsächlichen Erforlg der Produkte zu schaffen:
+						Um sich den Herausforderungen zu stellen, ist es nötig gemeinsame Interessen am
+						tatsächlichen Erfolg der Produkte zu schaffen:
 					</p>
 					<ol class="list-decimal pl-4">
 						<li>
-							Du bezahlst nur für erfolgreich umgesetzte Features, was dein finanzielles Risiko
+							Du bezahlst nur für fertig umgesetzte Features, was dein finanzielles Risiko
 							minimiert.
 						</li>
 						<li>
