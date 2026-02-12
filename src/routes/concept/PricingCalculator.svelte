@@ -192,11 +192,11 @@
 	});
 
 	const gridCols =
-		'grid grid-cols-[1fr_auto] xl:grid-cols-[1fr_8rem_24rem_8rem] gap-x-4 gap-y-2 xl:gap-8 px-6';
+		'grid grid-cols-1 md:grid-cols-[1fr_auto] xl:grid-cols-[1fr_8rem_24rem_8rem] gap-x-4 gap-y-2 xl:gap-8';
 </script>
 
 <Card class="flex flex-col gap-8 p-6">
-	<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+	<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
 		{@render options(
 			'Anforderungsbestimmung',
 			requirement,
@@ -231,7 +231,7 @@
 				]}
 				onclick={feature.fixed ? undefined : () => (feature.enabled = !feature.enabled)}
 			>
-				<div class="flex items-center gap-3">
+				<div class="flex items-center gap-3 xl:row-span-1">
 					{#if !feature.fixed}
 						<Checkbox checked={feature.enabled} class="shrink-0" />
 					{/if}
@@ -246,18 +246,20 @@
 				</div>
 				<div
 					class={[
-						'col-span-2 text-surface-600-400 xl:col-span-1 xl:text-surface-950-50',
+						'text-right text-surface-600-400 md:col-start-2 md:row-start-1 xl:col-span-1 xl:col-start-auto xl:row-start-auto xl:text-left xl:text-surface-950-50',
 						!feature.enabled && 'line-through',
 					]}
 				>
 					<span class="xl:hidden">Basis: </span>
 					{currencyFormatter.format(feature.price)}
 				</div>
-				<div class="col-span-2 text-xs xl:col-span-1">
+				<div class="text-xs md:col-span-1 md:row-start-2 xl:col-span-1 xl:row-start-auto">
 					{#if !feature.exemptFromModifiers}
-						<div class="mr-auto grid w-fit grid-cols-[auto_auto_auto] gap-y-0.5 whitespace-nowrap">
+						<div
+							class="mr-auto grid w-fit grid-cols-[auto_1fr] gap-y-0.5 whitespace-nowrap sm:grid-cols-[auto_auto_auto]"
+						>
 							{#each activeModifiers as mod}
-								<p class="pr-2 text-end text-surface-600-400">
+								<p class="col-span-2 pr-2 text-surface-600-400 sm:col-span-1 sm:text-end">
 									{mod.category}:
 								</p>
 								<p class={['rounded-l-full bg-surface-100-900/50 px-2 text-end']}>
@@ -283,7 +285,7 @@
 				</div>
 				<div
 					class={[
-						'col-start-2 row-start-1 text-right xl:col-auto xl:row-auto',
+						'self-end text-right md:col-start-2 md:row-start-2 xl:col-auto xl:row-auto',
 						!feature.enabled && 'line-through',
 					]}
 				>

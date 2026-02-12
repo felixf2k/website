@@ -11,6 +11,7 @@
 		Mail,
 		Paintbrush,
 		ShieldCheck,
+		Star,
 		Upload,
 	} from '@lucide/svelte';
 	import PricingCalculator, {
@@ -99,15 +100,16 @@
 	description="Wähle unseren Beteiligungsgrad:"
 	id="requirements"
 >
-	<IconCard heading="Bring your own" iconStyle="tonal" icon={FileCheck}>
+	<IconCard heading="Bring your own" iconStyle="tonal" icon={FileCheck} class="relative">
 		<p>
 			Sie haben bereits eine <strong>vollständige</strong> Anforderungsdokumentation erstellt.
 		</p>
 		<div class="flex flex-col gap-2">
 			<BulletPoint>Bei Unvollständigkeit ist ein anderes Modell notwendig</BulletPoint>
 		</div>
+		{@render star(requirement === 'bring-your-own', () => (requirement = 'bring-your-own'))}
 	</IconCard>
-	<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake}>
+	<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake} class="relative">
 		<p>
 			Wir stellen <strong>Vorlagen</strong> bereit und geben regelmäßig
 			<strong>Rückmeldung</strong> zur Qualität und Vollständigkeit Ihrer Dokumentation.
@@ -116,8 +118,9 @@
 			<BulletPoint>Frühe Einbindung der technischen Experten</BulletPoint>
 			<BulletPoint>Vorlagen helfen Nicht-Technikern</BulletPoint>
 		</div>
+		{@render star(requirement === 'cooperative', () => (requirement = 'cooperative'))}
 	</IconCard>
-	<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText}>
+	<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText} class="relative">
 		<p>
 			Wir erstellen die <strong>komplette Dokumentation</strong> basierend auf Ihrem Input und Feedback.
 		</p>
@@ -126,6 +129,7 @@
 			<BulletPoint>Einbindung von Softwarearchitekten</BulletPoint>
 			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
 		</div>
+		{@render star(requirement === 'full-service', () => (requirement = 'full-service'))}
 	</IconCard>
 </Section>
 
@@ -134,24 +138,27 @@
 	description="Wähle unseren Beteiligungsgrad:"
 	id="design"
 >
-	<IconCard heading="Bring your own" iconStyle="tonal" icon={Upload}>
+	<IconCard heading="Bring your own" iconStyle="tonal" icon={Upload} class="relative">
 		<p>Sie stellen ein <strong>fertiges, umsetzbares</strong> Design bereit.</p>
 		<div class="flex flex-col gap-2">
 			<BulletPoint>Nutzung bestehender Ressourcen</BulletPoint>
 			<BulletPoint>Höhere Entwicklungskosten</BulletPoint>
 		</div>
+		{@render star(design === 'bring-your-own', () => (design = 'bring-your-own'))}
 	</IconCard>
-	<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate}>
+	<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate} class="relative">
 		<p>Nutzung unseres <strong>bewährten Standard-Designs</strong> für schnelle Ergebnisse.</p>
 		<div class="flex flex-col gap-2">
 			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
 		</div>
+		{@render star(design === 'standard', () => (design = 'standard'))}
 	</IconCard>
-	<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush}>
+	<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush} class="relative">
 		<p><strong>Maßgeschneidertes</strong> Design durch uns oder unsere Partner.</p>
 		<div class="flex flex-col gap-2">
 			<BulletPoint>Keine Auswirkung auf Entwicklungskosten</BulletPoint>
 		</div>
+		{@render star(design === 'individual', () => (design = 'individual'))}
 	</IconCard>
 </Section>
 
@@ -160,7 +167,7 @@
 	description="Wähle ein Kooperationsmodell:"
 	id="development"
 >
-	<IconCard {...models.saas} iconStyle="tonal">
+	<IconCard {...models.saas} iconStyle="tonal" class="relative">
 		<p>Wir entwickeln und betreiben das Produkt <strong>exklusiv</strong> für Sie.</p>
 		<div class="flex flex-col gap-2">
 			<BulletPoint>Betrieb durch Experten</BulletPoint>
@@ -168,8 +175,9 @@
 			<BulletPoint>Betriebspauschale basierend auf der Benutzeranzahl</BulletPoint>
 		</div>
 		<LearnMoreButton class="w-fit" href="{resolve('/models')}#saas" />
+		{@render star(development === 'saas', () => (development = 'saas'))}
 	</IconCard>
-	<IconCard {...models.partnership} iconStyle="tonal">
+	<IconCard {...models.partnership} iconStyle="tonal" class="relative">
 		<p>
 			Durch <strong>Skalierung</strong> am Markt lösen wir Ihr Problem nachhaltig und preiswert.
 		</p>
@@ -179,14 +187,16 @@
 			<BulletPoint>Keine Betriebspauschale</BulletPoint>
 		</div>
 		<LearnMoreButton class="w-fit" href="{resolve('/models')}#partnership" />
+		{@render star(development === 'partnership', () => (development = 'partnership'))}
 	</IconCard>
-	<IconCard {...models.commissioned} iconStyle="tonal">
+	<IconCard {...models.commissioned} iconStyle="tonal" class="relative">
 		<p>Wir entwickeln das Produkt und <strong>übergeben</strong> den Code an Sie.</p>
 		<div class="flex flex-col gap-2">
 			<BulletPoint>Voller Zugriff auf den Quellcode</BulletPoint>
 			<BulletPoint>Sie betreiben das Produkt selbst</BulletPoint>
 		</div>
 		<LearnMoreButton class="w-fit" href="{resolve('/models')}#commissioned" />
+		{@render star(development === 'commissioned', () => (development = 'commissioned'))}
 	</IconCard>
 </Section>
 
@@ -209,3 +219,9 @@
 		</a>
 	</div>
 </Section>
+
+{#snippet star(active: boolean, onclick: () => void)}
+	<button class="absolute top-8 right-8 text-primary-500 print:hidden" {onclick}>
+		<Star class={active ? 'fill-current' : 'opacity-70'} />
+	</button>
+{/snippet}
