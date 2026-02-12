@@ -73,7 +73,7 @@
 	{@attach clickOutside(() => (isMobileMenuOpen = false))}
 >
 	<div class="mx-auto flex flex-row justify-between content pr-0 lg:pr-8">
-		<a class="flex shrink-0 items-center py-4" href="/">
+		<a class="flex shrink-0 items-center py-4" href="/" aria-label="Startseite">
 			<Logo class="h-10 w-auto lg:h-12" />
 		</a>
 		<div class="hidden lg:flex lg:items-center">

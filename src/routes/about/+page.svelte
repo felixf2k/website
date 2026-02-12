@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { Card, LearnMoreButton, Section } from '$lib/components';
-	import image from './FF.jpg';
+	import image from './FF.jpg?enhanced&w=512';
 </script>
 
 <svelte:head>
