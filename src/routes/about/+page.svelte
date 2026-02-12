@@ -13,14 +13,16 @@
 </svelte:head>
 
 <Section heading="Founder">
-	<Card class="flex flex-col overflow-hidden p-0">
+	<Card class="flex flex-col gap-0 overflow-hidden p-0">
 		<div class="flex flex-col md:flex-row">
-			<enhanced:img
-				src={image}
-				alt="Felix"
-				class="aspect-square h-64 w-64 max-w-full shrink-0 rounded-xl object-cover shadow-lg"
-			/>
-			<div class="flex flex-col gap-4 p-8">
+			<div class="h-64 w-64 shrink-0">
+				<enhanced:img
+					src={image}
+					alt="Felix"
+					class="aspect-square h-64 w-64 max-w-full shrink-0 rounded-xl object-cover shadow-lg"
+				/>
+			</div>
+			<div class="flex max-w-2xl flex-col gap-4 p-8">
 				<h3 class="h3">Felix Fischerkeller</h3>
 				<p class="leading-relaxed text-surface-700-300">
 					Als Softwareingenieur habe ich über 5 Jahre an der Konzeptionierung und Umsetzung
