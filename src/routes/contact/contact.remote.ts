@@ -5,10 +5,10 @@ import z from 'zod';
 
 const schema = z.object({
 	name: z.string().min(1, 'Dein Name ist erforderlich'),
-	email: z.email('Ungültige Email').optional(),
+	email: z.email('Ungültige E-Mail').optional(),
 	phone: z.string().optional(),
 	message: z.string(),
-	requestAppointment: z.boolean().optional()
+	requestAppointment: z.boolean().optional(),
 });
 
 export const contactForm = form(schema, async (data) => {
@@ -16,6 +16,6 @@ export const contactForm = form(schema, async (data) => {
 		to: env.INBOUND_ADRESS,
 		from: env.SMTP_USER,
 		subject: 'Neue Kontaktanfrage',
-		text: `Name: ${data.name}\nEmail: ${data.email}\nTelefon: ${data.phone ?? '-'}\nNachricht: ${data.message}\nTermin erwünscht: ${data.requestAppointment ? 'Ja' : 'Nein'}`
+		text: `Name: ${data.name}\nE-Mail: ${data.email}\nTelefon: ${data.phone ?? '-'}\nNachricht: ${data.message}\nTermin erwünscht: ${data.requestAppointment ? 'Ja' : 'Nein'}`,
 	});
 });

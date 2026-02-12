@@ -22,16 +22,27 @@
 
 <style>
 	.bg-fixed-progress {
-		background: linear-gradient(
-				to bottom,
-				var(--color-primary-600) 0vh,
-				var(--color-primary-500) 50vh,
-				transparent 50vh
-			)
-			fixed;
+		position: relative;
+	}
 
-		/* Ensures the background covers the whole viewport width for consistent alignment */
+	.bg-fixed-progress::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		z-index: -1;
+
+		background: linear-gradient(
+			to bottom,
+			var(--color-primary-600) 0vh,
+			var(--color-primary-500) 50vh,
+			transparent 50vh
+		);
+
 		background-size: 100% 100vh;
 		background-repeat: no-repeat;
+		will-change: transform;
 	}
 </style>

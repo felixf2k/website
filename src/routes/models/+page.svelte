@@ -38,14 +38,12 @@
 
 <Hero centered>
 	{#snippet heading()}
-		Kooperative <br /><span class="text-primary-600-400">Softwareentwicklung</span>
+		Flexible <br /><span class="text-primary-600-400">Kooperationsmodelle</span>
 	{/snippet}
 	{#snippet description()}
-		<p class="text-lg leading-relaxed lg:text-3xl">
-			Pay per Feature.
-			<br />
-			Du wählst den Grad unserer Involvierung. Von "Full Service" bis "Just the Code".
-		</p>
+		Du wählst den Grad unserer Involvierung.<br /> Von
+		<span class="font-semibold text-primary-500">"Full Service"</span> bis
+		<span class="font-semibold text-primary-500">"Just the Code"</span>.
 	{/snippet}
 </Hero>
 
@@ -55,8 +53,8 @@
 	id="partnership"
 >
 	<div class="flex flex-col gap-16">
-		<div class="flex flex-col gap-4 border-l-4 border-primary-500 pl-4">
-			<h3 class="h4 font-bold">Das Prinzip</h3>
+		<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-4">
+			<h3 class="h3">Das Prinzip</h3>
 			<p class="leading-relaxed text-surface-600-400">
 				Wir entwickeln eine maßgeschneiderte Lösung für dein internes Problem.<br />
 				Da wir das geistige Eigentum (IP) behalten und das Produkt an Dritte vermarkten dürfen, bieten
@@ -177,15 +175,15 @@
 
 <Section
 	heading="Your SaaS"
-	description="Volle Konzentration auf Vertrieb und Marktwachstum."
+	description="Volle Konzentration auf Vertrieb und Marktwachstum"
 	id="saas"
 >
-	<div class="flex flex-col gap-12">
-		<div class="flex flex-col gap-4 border-l-4 border-primary-500 pl-4">
-			<h3 class="h3 text-xl font-bold">Das Prinzip</h3>
+	<div class="flex flex-col gap-16">
+		<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-4">
+			<h3 class="h3">Das Prinzip</h3>
 			<p class="text-lg leading-relaxed text-surface-600-400">
 				Du hast eine Vision für ein SaaS-Produkt, möchtest dich aber auf Vertrieb und Marketing
-				konzentrieren? Wir übernehmen die komplette technische Entwicklung und den Betrieb der
+				konzentrieren. Wir übernehmen die komplette technische Entwicklung und den Betrieb der
 				Plattform exklusiv für dich. Du behältst die volle Kontrolle über deine Kunden und Märkte,
 				während wir im Hintergrund für Stabilität und Features sorgen.
 			</p>
@@ -214,7 +212,7 @@
 				<div class="flex flex-col gap-6">
 					<IconBulletPoint
 						title="Exklusivitäts-Garantie"
-						description="Kein Know-how-Leak. Die Lösung wird exklusiv für dich entwickelt und betrieben."
+						description="Kein Know-How-Leak. Die Lösung wird exklusiv für dich entwickelt und betrieben."
 						icon={Shield}
 						iconClass="text-primary-500"
 					/>
@@ -256,24 +254,24 @@
 			<h3 class="text-center h3">Investment-Struktur</h3>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				<div class="flex flex-col items-center text-center">
-					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-primary-500">
+					<div class="mb-4 rounded-full bg-surface-100 p-4 text-primary-500 dark:bg-surface-950">
 						<Hammer class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Setup</p>
-					<p class="text-surface-600-400">Einmaliges Budget für die technische Erschließung.</p>
+					<p class="h4">Setup</p>
+					<p class="text-surface-600-400">Einmaliges Budget für die technische Erschließung</p>
 				</div>
 				<div class="flex flex-col items-center text-center">
-					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-primary-500">
+					<div class="mb-4 rounded-full bg-surface-100 p-4 text-primary-500 dark:bg-surface-950">
 						<Layers class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Betrieb</p>
+					<p class="h4">Betrieb</p>
 					<p class="text-surface-600-400">Monatliche Betriebspauschale pro aktivem User.</p>
 				</div>
 				<div class="flex flex-col items-center text-center">
-					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-primary-500">
+					<div class="mb-4 rounded-full bg-surface-100 p-4 text-primary-500 dark:bg-surface-950">
 						<Cloud class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Managed</p>
+					<p class="h4">Managed</p>
 					<p class="text-surface-600-400">Wartung, Sicherheitsupdates und Hosting inklusive.</p>
 				</div>
 			</div>
@@ -286,9 +284,9 @@
 	description="Maximale Kontrolle und Unabhängigkeit."
 	id="commissioned"
 >
-	<div class="flex flex-col gap-12">
-		<div class="flex flex-col gap-4 border-l-4 border-primary-500 pl-4">
-			<h3 class="h3 text-xl font-bold">Das Prinzip</h3>
+	<div class="flex flex-col gap-16">
+		<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-4">
+			<h3 class="h3">Das Prinzip</h3>
 			<p class="text-lg leading-relaxed text-surface-600-400">
 				Der Klassiker der Softwareentwicklung. Du beauftragst uns mit der Umsetzung deiner
 				Anforderungen. Nach Abschluss des Projekts übergeben wir dir den vollständigen Quellcode und
@@ -362,24 +360,24 @@
 			<h3 class="text-center h3">Investment-Struktur</h3>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 				<div class="flex flex-col items-center text-center">
-					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-surface-500">
+					<div class="mb-4 rounded-full bg-surface-100 p-4 text-surface-500 dark:bg-surface-950">
 						<CircleDollarSign class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Projektpreis</p>
+					<p class="h4">Projektpreis</p>
 					<p class="text-surface-600-400">Abrechnung nach marktüblichen Sätzen (CAPEX).</p>
 				</div>
 				<div class="flex flex-col items-center text-center">
-					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-surface-500">
+					<div class="mb-4 rounded-full bg-surface-100 p-4 text-surface-500 dark:bg-surface-950">
 						<HardDrive class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Infrastruktur</p>
+					<p class="h4">Infrastruktur</p>
 					<p class="text-surface-600-400">Echtheitskosten direkt beim Provider deiner Wahl.</p>
 				</div>
 				<div class="flex flex-col items-center text-center">
-					<div class="mb-4 rounded-full bg-surface-100-900 p-4 text-surface-500">
+					<div class="mb-4 rounded-full bg-surface-100 p-4 text-surface-500 dark:bg-surface-950">
 						<LayoutDashboard class="h-8 w-8" />
 					</div>
-					<p class="font-bold">Weiterentwicklung</p>
+					<p class="h4">Weiterentwicklung</p>
 					<p class="text-surface-600-400">
 						Updates und weitere Features müssen gesondert beauftragt werden.
 					</p>

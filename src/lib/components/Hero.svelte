@@ -2,6 +2,7 @@
 	import { merge } from '@ims360/svelte-ivory/utils/functions';
 	import type { Snippet } from 'svelte';
 	import type { ClassValue, HTMLAttributes } from 'svelte/elements';
+	import Section from './Section.svelte';
 
 	type Props = HTMLAttributes<HTMLDivElement> & {
 		class?: ClassValue;
@@ -11,29 +12,44 @@
 		centered?: boolean;
 	};
 
-	let { class: clazz, heading, description, actions, centered = false, ...rest }: Props = $props();
+	let {
+		class: clazz,
+		heading,
+		description,
+		actions,
+		centered = false,
+		children,
+		...rest
+	}: Props = $props();
 </script>
 
-<div
+<Section
 	class={merge(
 		'flex w-full flex-col content',
 		centered
-			? 'h-[calc(100vh-var(--spacing)*32)] items-center justify-center gap-8 select-none'
+			? 'h-[calc(100vh-var(--spacing)*32)] items-center justify-center gap-8 pb-8 select-none '
 			: 'gap-4',
 		clazz,
 	)}
 	{...rest}
 >
-	<div class={merge('flex max-w-full flex-col', centered ? 'gap-8' : 'gap-4')}>
+	<div
+		class={merge(
+			'flex max-w-full grow flex-col justify-center pb-24',
+			centered ? 'gap-8' : 'gap-4',
+		)}
+	>
 		<h1 class="h1">
 			{@render heading()}
 		</h1>
 		{#if description}
-			{#if typeof description === 'string'}
-				<p class="text-lg leading-relaxed lg:text-3xl">{description}</p>
-			{:else}
-				{@render description()}
-			{/if}
+			<p class="h2 text-surface-600-400 leading-relaxed">
+				{#if typeof description === 'string'}
+					{description}
+				{:else}
+					{@render description()}
+				{/if}
+			</p>
 		{/if}
 		{#if actions}
 			<div class="mt-2 grid grid-cols-1 gap-4 sm:mt-4 sm:w-fit sm:grid-cols-2 lg:gap-8">
@@ -41,4 +57,5 @@
 			</div>
 		{/if}
 	</div>
-</div>
+	{@render children?.()}
+</Section>

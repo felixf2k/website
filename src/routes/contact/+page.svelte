@@ -34,6 +34,39 @@
 </script>
 
 <div class="flex min-h-full grow flex-col gap-8 content">
+	<Card class="@container">
+		<form
+			{...form.enhance(
+				enhanceForm({
+					form,
+					async onSuccess() {
+						await goto(resolve('/contact/success'));
+					},
+					onError() {
+						Toasts.trigger({
+							message: 'Ein Fehler ist aufgetreten, schreib uns gerne eine Email',
+							variant: 'warning',
+						});
+					},
+				}),
+			)}
+			class="flex w-full flex-col gap-4"
+		>
+			<h2 class="text-3xl">Kontakt aufnehmen</h2>
+			<TextInput label="Dein Name" form={form.fields.name} />
+			<EmailInput label="Deine E-Mail" form={form.fields.email} />
+			<TextareaInput label="Dein Anliegen" form={form.fields.message} class="min-h-36" />
+			<CheckboxInput
+				label="Gespräch erwünscht"
+				description="Wir schlagen dir Termine vor"
+				form={form.fields.requestAppointment}
+			/>
+			<button type="submit" class="btn preset-filled-primary-500 @md:w-fit">
+				Absenden
+				<Send size={16} />
+			</button>
+		</form>
+	</Card>
 	<Card class="@container flex flex-col gap-8">
 		<h2 class="text-3xl">Kontakt per Email</h2>
 		<p>Gerne kannst du uns auch direkt eine Email schreiben.</p>
@@ -56,38 +89,5 @@
 		{#if copyFailed}
 			<p class="w-full text-center text-xl @md:text-start">info@elench.de</p>
 		{/if}
-	</Card>
-	<Card class="@container">
-		<form
-			{...form.enhance(
-				enhanceForm({
-					form,
-					async onSuccess() {
-						await goto(resolve('/contact/success'));
-					},
-					onError() {
-						Toasts.trigger({
-							message: 'Ein Fehler ist aufgetreten, schreib uns gerne eine Email',
-							variant: 'warning',
-						});
-					},
-				}),
-			)}
-			class="flex w-full flex-col gap-4"
-		>
-			<h2 class="text-3xl">Kontaktformular</h2>
-			<TextInput label="Dein Name" form={form.fields.name} />
-			<EmailInput label="Deine Email" form={form.fields.email} />
-			<TextareaInput label="Dein Anliegen" form={form.fields.message} class="min-h-36" />
-			<CheckboxInput
-				label="Gespräch erwünscht"
-				description="Wir schlagen dir einige Termine vor"
-				form={form.fields.requestAppointment}
-			/>
-			<button type="submit" class="btn preset-filled-primary-500 @md:w-fit">
-				Absenden
-				<Send size={16} />
-			</button>
-		</form>
 	</Card>
 </div>

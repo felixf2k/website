@@ -8,14 +8,16 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			regions: ['fra1'],
+		}),
 		experimental: {
-			remoteFunctions: true
-		}
+			remoteFunctions: true,
+		},
 	},
 	experimental: {
-		async: true
-	}
+		async: true,
+	},
 };
 
 export default config;

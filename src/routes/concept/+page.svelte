@@ -1,19 +1,18 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import logo from '$lib/assets/images/logo.svg';
-	import { BulletPoint, Card, IconCard } from '$lib/components';
+	import { BulletPoint, Card, Hero, IconCard, LearnMoreButton, Section } from '$lib/components';
 	import { models } from '$lib/models';
 	import {
-		ArrowRight,
 		FileCheck,
 		FileText,
 		Handshake,
+		Layers,
 		LayoutTemplate,
 		Mail,
 		Paintbrush,
+		ShieldCheck,
 		Upload,
 	} from '@lucide/svelte';
-	import Page from './Page.svelte';
 
 	const positions = [
 		{ name: 'Anforderungsbestimmung (5 Tage à 1.000 €)', price: 5000 },
@@ -37,155 +36,165 @@
 	<title>Elench - Konzept</title>
 </svelte:head>
 
-<Page class="flex h-[calc(100vh-var(--spacing)*32)] flex-col gap-8 content py-8">
-	<div class="hidden w-full flex-row items-center justify-between print:flex">
-		<img src={logo} alt="Elench logo" class="h-10 w-auto" />
-		<a href="mailto:info@elench.de" class="btn preset-filled-primary-500">
-			Kontakt aufnehmen <Mail size={16} />
-		</a>
-	</div>
-	<div class="flex w-full grow flex-col justify-center gap-8">
-		<h1 class="text-4xl lg:text-8xl lg:leading-32 print:text-3xl print:leading-24">
-			Kooperative<br /><span class="text-primary-600-400">Softwareentwicklung</span>
-		</h1>
-		<p class="text-lg leading-relaxed lg:text-3xl">
-			Vom Auftrag bis Joint Venture:<br /> Wir skalieren unsere Beteiligung nach Ihren Zielen.
-		</p>
-	</div>
+<Hero
+	centered
+	description="Wir glauben, dass großartige Software durch enge Zusammenarbeit und flexible, faire Modelle entsteht. "
+>
+	{#snippet heading()}
+		Das Konzept <br /><span class="text-primary-600-400">Kooperative Softwareentwicklung </span>
+	{/snippet}
+</Hero>
 
-	<Card class="gap-4">
-		<h2 class="h2 text-3xl">Das Konzept</h2>
-		<div class="flex flex-col gap-2 text-lg text-surface-600-400">
-			<p class="w-full">
-				Für jeden Projektabschnitt wählen Sie den Grad unserer Beteiligung: <br /> von
-				<span class="font-bold text-primary-600-400"> "Full Service" </span>
-				bis <span class="font-bold text-primary-600-400">"Just the Code"</span>.
-			</p>
+<Section
+	heading="Unser Ansatz: Partnerschaft auf Augenhöhe"
+	description="Unser Konzept basiert auf drei Säulen, die Ihnen maximale Kontrolle, Transparenz und
+			Planbarkeit garantieren."
+>
+	<Card>
+		<p class="h4"></p>
+		<div class="grid grid-cols-1 gap-x-24 gap-y-16 2xl:grid-cols-3">
+			<div class="@container flex flex-col gap-4">
+				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+					<ShieldCheck class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+					<h3 class="h3">Bezahlung pro Feature</h3>
+				</div>
+				<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-2">
+					<p>Statt für Entwicklungszeit bezahlen Sie bei uns nur für abgenommene Features.</p>
+				</div>
+				<BulletPoint>Bezahlung nur für abgenommene Features statt Entwicklungszeit</BulletPoint>
+				<BulletPoint>Minimiertes Risiko und volle Kostentransparenz</BulletPoint>
+				<BulletPoint>Festlegung einer "Definition of Done" vor Entwicklungsstart</BulletPoint>
+				<BulletPoint>Anzahlung vor Start, Restzahlung nach erfolgreicher Abnahme</BulletPoint>
+			</div>
+			<div class="@container flex flex-col gap-4">
+				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+					<Layers class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+					<h3 class="h3">Flexible Projektbeteiligung</h3>
+				</div>
+				<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-2">
+					<p>Sie entscheiden pro Projektabschnitt, wie stark wir uns einbringen.</p>
+				</div>
+				<BulletPoint>Entscheidung über Beteiligungsgrad pro Projektabschnitt</BulletPoint>
+				<BulletPoint>
+					Möglichkeit eigene Ressourcen (z.B. Design, Dokumentation) einzubringen
+				</BulletPoint>
+				<BulletPoint>Anpassung an Ihre Bedürfnisse und Ihr Budget</BulletPoint>
+			</div>
+			<div class="@container flex flex-col gap-4">
+				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+					<Handshake class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+					<h3 class="h3">Individuelles Kooperationsmodell</h3>
+				</div>
+				<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-2">
+					<p>Wir finden gemeinsam das Kooperationsmodell, das am besten zu Ihren Zielen passt.</p>
+				</div>
+				<BulletPoint>
+					Gemeinsame Findung des passenden Modells (SaaS, Partnerschaft, Auftragsentwicklung)
+				</BulletPoint>
+				<BulletPoint>Ausrichtung an Ihren Zielen und Geschäftsmodell</BulletPoint>
+				<BulletPoint>Strategische Beratung zur optimalen Risiko- und Chancenverteilung</BulletPoint>
+			</div>
 		</div>
 	</Card>
-</Page>
+</Section>
 
-<Page class="flex flex-row p-0">
-	<enhanced:img
-		src="./documentation.jpg"
-		alt="Documentation"
-		class="h-full w-44 object-cover object-center"
-	/>
-	<div class="flex flex-1 flex-col gap-4 p-8 not-print:py-0">
-		<h2 class="h2 text-3xl">
-			Phase 1: <strong>Anforderungsbestimmung</strong>
-		</h2>
-		<IconCard heading="Bring your own" iconStyle="tonal" icon={FileCheck}>
-			<p>
-				Sie haben bereits eine <strong>vollständige</strong> Anforderungsdokumentation erstellt.
-			</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>
-					<span class="text-surface-600-400">
-						Bei Unvollständigkeit ist ein anderes Modell notwendig
-					</span>
-				</BulletPoint>
-			</div>
-		</IconCard>
-		<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake}>
-			<p>
-				Wir stellen <strong>Vorlagen</strong> bereit und geben regelmäßig
-				<strong>Rückmeldung</strong> zur Qualität und Vollständigkeit Ihrer Dokumentation.
-			</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Frühe Einbindung der technischen Experten</BulletPoint>
-				<BulletPoint>Vorlagen helfen Nicht-Technikern</BulletPoint>
-			</div>
-		</IconCard>
-		<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText}>
-			<p>
-				Wir erstellen die <strong>komplette Dokumentation</strong> basierend auf Ihrem Input und Feedback.
-			</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Professionelle Dokumentation</BulletPoint>
-				<BulletPoint>Einbindung von Softwarearchitekten</BulletPoint>
-				<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
-			</div>
-		</IconCard>
-	</div>
-</Page>
+<Section
+	heading="Phase 1: Anforderungsbestimmung"
+	description="Wähle unseren Beteiligungsgrad:"
+	id="requirements"
+>
+	<IconCard heading="Bring your own" iconStyle="tonal" icon={FileCheck}>
+		<p>
+			Sie haben bereits eine <strong>vollständige</strong> Anforderungsdokumentation erstellt.
+		</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Bei Unvollständigkeit ist ein anderes Modell notwendig</BulletPoint>
+		</div>
+	</IconCard>
+	<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake}>
+		<p>
+			Wir stellen <strong>Vorlagen</strong> bereit und geben regelmäßig
+			<strong>Rückmeldung</strong> zur Qualität und Vollständigkeit Ihrer Dokumentation.
+		</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Frühe Einbindung der technischen Experten</BulletPoint>
+			<BulletPoint>Vorlagen helfen Nicht-Technikern</BulletPoint>
+		</div>
+	</IconCard>
+	<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText}>
+		<p>
+			Wir erstellen die <strong>komplette Dokumentation</strong> basierend auf Ihrem Input und Feedback.
+		</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Professionelle Dokumentation</BulletPoint>
+			<BulletPoint>Einbindung von Softwarearchitekten</BulletPoint>
+			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
+		</div>
+	</IconCard>
+</Section>
 
-<Page class="flex flex-row p-0">
-	<enhanced:img src="./design.jpg" alt="Design" class="h-full w-44 object-cover object-center" />
-	<div class="flex flex-1 flex-col gap-4 p-8 not-print:py-0">
-		<h2 class="h2 text-3xl">
-			Phase 2: <strong>Oberflächendesign</strong>
-		</h2>
-		<IconCard heading="Bring your own" iconStyle="tonal" icon={Upload}>
-			<p>Sie stellen ein <strong>fertiges, umsetzbares</strong> Design bereit.</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Nutzung bestehender Ressourcen</BulletPoint>
-				<BulletPoint>Höhere Entwicklungskosten</BulletPoint>
-			</div>
-		</IconCard>
-		<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate}>
-			<p>Nutzung unseres <strong>bewährten Standard-Designs</strong> für schnelle Ergebnisse.</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
-			</div>
-		</IconCard>
-		<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush}>
-			<p><strong>Maßgeschneidertes</strong> Design durch uns oder unsere Partner.</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Keine Auswirkung auf Entwicklungskosten</BulletPoint>
-			</div>
-		</IconCard>
-	</div>
-</Page>
+<Section
+	heading="Phase 2: Oberflächendesign"
+	description="Wähle unseren Beteiligungsgrad:"
+	id="design"
+>
+	<IconCard heading="Bring your own" iconStyle="tonal" icon={Upload}>
+		<p>Sie stellen ein <strong>fertiges, umsetzbares</strong> Design bereit.</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Nutzung bestehender Ressourcen</BulletPoint>
+			<BulletPoint>Höhere Entwicklungskosten</BulletPoint>
+		</div>
+	</IconCard>
+	<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate}>
+		<p>Nutzung unseres <strong>bewährten Standard-Designs</strong> für schnelle Ergebnisse.</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
+		</div>
+	</IconCard>
+	<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush}>
+		<p><strong>Maßgeschneidertes</strong> Design durch uns oder unsere Partner.</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Keine Auswirkung auf Entwicklungskosten</BulletPoint>
+		</div>
+	</IconCard>
+</Section>
 
-<Page class="flex flex-row p-0">
-	<enhanced:img
-		src="./develop.jpg"
-		alt="Development"
-		class="h-full w-44 object-cover object-center"
-	/>
-	<div class="flex flex-1 flex-col gap-4 p-8 not-print:py-0">
-		<h2 class="h2 text-3xl">
-			Phase 3: <strong>Entwicklung & Betrieb</strong>
-		</h2>
-		<IconCard {...models.saas} iconStyle="tonal">
-			<p>Wir entwickeln und betreiben das Produkt <strong>exklusiv</strong> für Sie.</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Betrieb durch Experten</BulletPoint>
-				<BulletPoint>Volle Marktrechte</BulletPoint>
-				<BulletPoint>Betriebspauschale basierend auf der Benutzeranzahl</BulletPoint>
-			</div>
-			<a class="btn w-fit preset-filled-primary-500" href="{resolve('/models')}#saas">
-				Mehr erfahren <ArrowRight size={16} />
-			</a>
-		</IconCard>
-		<IconCard {...models.partnership} iconStyle="tonal">
-			<p>
-				Durch <strong>Skalierung</strong> am Markt lösen wir Ihr Problem nachhaltig und preiswert.
-			</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Entwicklung und Betrieb durch Experten</BulletPoint>
-				<BulletPoint>Dauerhaft kostenfreie Lizenz</BulletPoint>
-				<BulletPoint>Keine Betriebspauschale</BulletPoint>
-			</div>
-			<a class="btn w-fit preset-filled-primary-500" href="{resolve('/models')}#partnership">
-				Mehr erfahren <ArrowRight size={16} />
-			</a>
-		</IconCard>
-		<IconCard {...models.commissioned} iconStyle="tonal">
-			<p>Wir entwickeln das Produkt und <strong>übergeben</strong> den Code an Sie.</p>
-			<div class="flex flex-col gap-2">
-				<BulletPoint>Voller Zugriff auf den Quellcode</BulletPoint>
-				<BulletPoint>Sie betreiben das Produkt selbst</BulletPoint>
-			</div>
-			<a class="btn w-fit preset-filled-primary-500" href="{resolve('/models')}#commissioned">
-				Mehr erfahren <ArrowRight size={16} />
-			</a>
-		</IconCard>
-	</div>
-</Page>
+<Section
+	heading="Phase 3: Entwicklung & Betrieb"
+	description="Wähle ein Kooperationsmodell:"
+	id="development"
+>
+	<IconCard {...models.saas} iconStyle="tonal">
+		<p>Wir entwickeln und betreiben das Produkt <strong>exklusiv</strong> für Sie.</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Betrieb durch Experten</BulletPoint>
+			<BulletPoint>Volle Marktrechte</BulletPoint>
+			<BulletPoint>Betriebspauschale basierend auf der Benutzeranzahl</BulletPoint>
+		</div>
+		<LearnMoreButton class="w-fit" href="{resolve('/models')}#saas" />
+	</IconCard>
+	<IconCard {...models.partnership} iconStyle="tonal">
+		<p>
+			Durch <strong>Skalierung</strong> am Markt lösen wir Ihr Problem nachhaltig und preiswert.
+		</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Entwicklung und Betrieb durch Experten</BulletPoint>
+			<BulletPoint>Dauerhaft kostenfreie Lizenz</BulletPoint>
+			<BulletPoint>Keine Betriebspauschale</BulletPoint>
+		</div>
+		<LearnMoreButton class="w-fit" href="{resolve('/models')}#partnership" />
+	</IconCard>
+	<IconCard {...models.commissioned} iconStyle="tonal">
+		<p>Wir entwickeln das Produkt und <strong>übergeben</strong> den Code an Sie.</p>
+		<div class="flex flex-col gap-2">
+			<BulletPoint>Voller Zugriff auf den Quellcode</BulletPoint>
+			<BulletPoint>Sie betreiben das Produkt selbst</BulletPoint>
+		</div>
+		<LearnMoreButton class="w-fit" href="{resolve('/models')}#commissioned" />
+	</IconCard>
+</Section>
 
-<Page class="flex flex-col gap-8 p-8">
+<Section class="flex flex-col gap-8 p-8">
 	<h2 class="h2 text-3xl">
 		<strong>Kosten eines Beispielprojektes (Ticketsystem)</strong>
 	</h2>
@@ -219,8 +228,8 @@
 				Lass uns unverbindlich über dein Vorhaben sprechen.
 			</p>
 		</div>
-		<a href="mailto:info@elench.de" class="btn w-fit preset-filled-primary-500">
+		<a href={resolve('/contact')} class="btn w-fit preset-filled-primary-500">
 			Jetzt Kontakt aufnehmen <Mail size={20} />
 		</a>
 	</div>
-</Page>
+</Section>

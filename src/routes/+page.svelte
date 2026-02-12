@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { BulletPoint, Card, IconCard, ProgressSection, Section } from '$lib/components';
+	import {
+		BulletPoint,
+		Card,
+		IconCard,
+		LearnMoreButton,
+		ProgressSection,
+		Section,
+	} from '$lib/components';
 	import Hero from '$lib/components/Hero.svelte';
 	import { models } from '$lib/models';
 	import {
@@ -8,19 +15,21 @@
 		ChartCandlestick,
 		Cloud,
 		Code,
+		Handshake,
 		Layers,
 		Lightbulb,
 		Mail,
 		MailCheck,
 		Map,
 		Route,
+		ShieldCheck,
 	} from '@lucide/svelte';
 </script>
 
 <svelte:head>
 	<meta
 		name="description"
-		content="Risikofreie Individualsoftware durch Fixpreise - Nachhaltigkeit durch Vermarktung an dritte - Flexible Entwicklungsmodelle für jedes Projekt"
+		content="Risikofreie Individualsoftware durch Fixpreise - Nachhaltigkeit durch Vermarktung an dritte - Flexible Kooperationsmodelle für jedes Projekt"
 	/>
 	<title>Individualsoftware zu Fixpreisen - Elench</title>
 </svelte:head>
@@ -30,18 +39,17 @@
 		Deine Software<br /><span class="text-primary-600-400"> Dein Modell </span>
 	{/snippet}
 	{#snippet description()}
-		<p class="text-lg leading-relaxed lg:text-3xl">
-			Von der präzisen Umsetzung bis zur langfristigen Partnerschaft.
-			<br />
-			Du wählst das Modell, wir garantieren die Planbarkeit.
-		</p>
+		Von der präzisen Umsetzung bis zur langfristigen Partnerschaft.
+		<br />
+		Du wählst das <span class="text-primary-600-400">Kooperationsmodell</span>, wir garantieren die
+		Planbarkeit.
 	{/snippet}
 	{#snippet actions()}
-		<a class="btn preset-filled-primary-500 lg:btn-xl" href="#models">
+		<a class="group btn preset-filled-primary-500 xl:btn-xl" href="#models">
 			Modelle erkunden
-			<ArrowRight />
+			<ArrowRight class="transition-all group-hover:translate-x-0.5" />
 		</a>
-		<a class="btn border border-surface-400-600 text-surface-950-50 lg:btn-xl" href="/contact">
+		<a class="btn border border-surface-400-600 text-surface-950-50 xl:btn-xl" href="/contact">
 			Kontakt aufnehmen
 			<Mail />
 		</a>
@@ -53,7 +61,7 @@
 	description="Egal, ob du eine neue Marktlösung schaffst oder interne Prozesse digitalisierst - wir bieten
 			den passenden Rahmen für dein Vorhaben."
 >
-	<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+	<div class="grid grid-cols-1 gap-8 lg:grid-cols-3 print:gap-4">
 		<IconCard
 			heading="Visionäre"
 			description="Gründer ohne eigenes Tech-Team"
@@ -69,12 +77,12 @@
 			</div>
 			<hr class="mt-auto hr" />
 			<div class="flex flex-col gap-2">
-				<p class="text-surface-600-400">Empfohlenes Modell</p>
+				<p class="text-surface-600-400">Empfohlenes Kooperationsmodell</p>
 				<a
 					href="#saas"
 					class="flex flex-row items-center gap-2 text-lg font-semibold text-primary-500"
 				>
-					Your SaaS
+					{models.saas.heading}
 					<ArrowRight class="h-5 stroke-3" />
 				</a>
 			</div>
@@ -95,12 +103,12 @@
 			</div>
 			<hr class="mt-auto hr" />
 			<div class="flex flex-col gap-2">
-				<p class="text-surface-600-400">Empfohlenes Modell</p>
+				<p class="text-surface-600-400">Empfohlenes Kooperationsmodell</p>
 				<a
 					href="#partnership"
 					class="flex flex-row items-center gap-2 text-lg font-semibold text-primary-500"
 				>
-					Innovation Partnership
+					{models.partnership.heading}
 					<ArrowRight class="h-5 stroke-3" />
 				</a>
 			</div>
@@ -119,12 +127,12 @@
 			</div>
 			<hr class="mt-auto hr" />
 			<div class="flex flex-col gap-2">
-				<p class="text-surface-600-400">Empfohlenes Modell</p>
+				<p class="text-surface-600-400">Empfohlenes Kooperationsmodell</p>
 				<a
 					href="#development"
 					class="flex flex-row items-center gap-2 text-lg font-semibold text-primary-500"
 				>
-					Commissioned Development
+					{models.commissioned.heading}
 					<ArrowRight class="h-5 stroke-3" />
 				</a>
 			</div>
@@ -134,15 +142,51 @@
 
 <Section
 	heading="Das Konzept"
-	description="Features Bezahlen, nicht Zeit. Von skalierung profitieren"
-></Section>
+	description="Maximale Flexibilität und Planbarkeit für dein Softwareprojekt."
+>
+	<Card class="gap-16">
+		<div class="grid grid-cols-1 gap-x-24 gap-y-16 2xl:grid-cols-3">
+			<div class="@container flex flex-col gap-4">
+				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+					<ShieldCheck class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+					<h3 class="h3">Bezahlung pro Feature</h3>
+				</div>
+				<p class="border-l-2 border-primary-500 pl-2">
+					Statt für Entwicklungszeit bezahlst du bei uns nur für abgenommene Features. Das minimiert
+					dein Risiko und sorgt für volle Kostentransparenz.
+				</p>
+			</div>
+			<div class="@container flex flex-col gap-4">
+				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+					<Layers class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+					<h3 class="h3">Flexible Projektbeteiligung</h3>
+				</div>
+				<p class="border-l-2 border-primary-500 pl-2">
+					Du entscheidest pro Projektabschnitt, wie stark wir uns einbringen. Ob wir alles
+					übernehmen oder du eigene Ressourcen einbringst - wir passen uns an.
+				</p>
+			</div>
+			<div class="@container flex flex-col gap-4">
+				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+					<Handshake class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+					<h3 class="h3">Individuelles Kooperationsmodell</h3>
+				</div>
+				<p class="border-l-2 border-primary-500 pl-2">
+					Egal ob SaaS, Partnerschaft oder Auftragsentwicklung: Wir finden gemeinsam das
+					Kooperationsmodell, das am besten zu deinen Zielen passt.
+				</p>
+			</div>
+		</div>
+		<LearnMoreButton class="@lg:w-fit print:hidden" href={resolve('/concept')} />
+	</Card>
+</Section>
 
 <Section
-	heading="Entwicklungsmodelle"
-	description="Wähle ein Entwicklungsmodell, dass zu deinem Projekt und Budget passt."
+	heading="Kooperationsmodelle"
+	description="Wähle ein Kooperationsmodell, dass zu deinem Projekt passt."
 	id="models"
 >
-	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
+	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3 print:gap-4">
 		<IconCard {...models.saas} iconStyle="tonal" id="saas" icon={Cloud}>
 			<p>
 				Wir entwickeln und betreiben dein Produkt als SaaS Lösung. Du erhälst die exklusiven
@@ -153,12 +197,9 @@
 				<BulletPoint>Exklusive Vertriebsrechte für dich</BulletPoint>
 				<BulletPoint>Betriebspauschale gekoppelt an Nutzerzahl</BulletPoint>
 			</div>
-			<a class="mt-auto btn w-fit preset-filled-primary-500" href="{resolve('/models')}#saas">
-				Mehr erfahren
-				<ArrowRight size={16} />
-			</a>
+			<LearnMoreButton class="mt-auto w-fit print:hidden" href="{resolve('/models')}#saas" />
 		</IconCard>
-		<IconCard {...models.commissioned} iconStyle="tonal" id="partnership">
+		<IconCard {...models.partnership} iconStyle="tonal" id="partnership">
 			<p>
 				Wir entwickeln eine Lösung für dein internes Problem zu reduzierten Preisen. Im Gegenzug
 				kann die Software an dritte vermarktet werden.
@@ -172,13 +213,7 @@
 				<BulletPoint>Kostenlose Weiterentwicklung, wenn das Produkt gefragt ist</BulletPoint>
 				<BulletPoint>Keine Betriebspauschale</BulletPoint>
 			</div>
-			<a
-				class="mt-auto btn w-fit preset-filled-primary-500"
-				href="{resolve('/models')}#partnership"
-			>
-				Mehr erfahren
-				<ArrowRight size={16} />
-			</a>
+			<LearnMoreButton class="mt-auto w-fit print:hidden" href="{resolve('/models')}#partnership" />
 		</IconCard>
 		<IconCard {...models.commissioned} iconStyle="tonal" id="development">
 			<p>
@@ -190,13 +225,10 @@
 				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
 				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
 			</div>
-			<a
-				class="mt-auto btn w-fit preset-filled-primary-500"
+			<LearnMoreButton
+				class="mt-auto w-fit print:hidden"
 				href="{resolve('/models')}#commissioned"
-			>
-				Mehr erfahren
-				<ArrowRight size={16} />
-			</a>
+			/>
 		</IconCard>
 	</div>
 </Section>
@@ -207,60 +239,58 @@
 			iconStyle="tonal"
 			heading="Erstgespräch"
 			description="Unverbindliches Kennenlernen"
-			icon={1}
+			icon={0}
 		>
-			<div class="flex flex-col gap-2 @xl:ml-20">
+			<div class="flex flex-col gap-2 @xl:ml-20 print:ml-0">
 				<BulletPoint>Das Projekt verstehen</BulletPoint>
-				<BulletPoint>Das richtige Modell wählen</BulletPoint>
+				<BulletPoint>Das richtige Kooperationsmodell wählen</BulletPoint>
 				<BulletPoint>Die nächsten Schritte planen</BulletPoint>
 			</div>
 		</IconCard>
 		<IconCard
 			iconStyle="tonal"
-			heading="Anforderungs-bestimmung"
+			heading="Anforderungsbestimmung"
 			description="Was soll das Produkt am Ende können"
-			icon={2}
+			icon={1}
 		>
-			<div class="flex flex-col gap-2 @xl:ml-20">
+			<div class="flex flex-col gap-2 @xl:ml-20 print:ml-0">
 				<BulletPoint>Welche Prozesse sollen abgebildet werden?</BulletPoint>
 				<BulletPoint>Ausbaustufen bestimmen</BulletPoint>
 				<BulletPoint>Dokumentation erstellen</BulletPoint>
+				<LearnMoreButton
+					class="mt-6 @lg:w-fit print:hidden"
+					href="{resolve('/concept')}#requirements"
+					label=""
+				/>
 			</div>
 		</IconCard>
 		<IconCard
 			iconStyle="tonal"
 			heading="UI Design"
 			description="Wie werden die Benutzer mit dem Produkt interagieren"
-			icon={3}
+			icon={2}
 		>
-			<div class="flex flex-col gap-2 @xl:ml-20">
+			<div class="flex flex-col gap-2 @xl:ml-20 print:ml-0">
 				<BulletPoint>Oberflächen Designen</BulletPoint>
 				<BulletPoint>Benutzertests durchführen</BulletPoint>
 				<BulletPoint>Identität des Produkts bestimmen</BulletPoint>
+				<LearnMoreButton class="mt-6 @lg:w-fit print:hidden" href="{resolve('/concept')}#design" />
 			</div>
 		</IconCard>
 		<IconCard
 			iconStyle="tonal"
-			heading="Entwicklung"
+			heading="Entwicklung & Betrieb"
 			description="Die Implementierung des Produkts"
-			icon={4}
+			icon={3}
 		>
-			<div class="flex flex-col gap-2 @xl:ml-20">
+			<div class="flex flex-col gap-2 @xl:ml-20 print:ml-0">
 				<BulletPoint>Technische Umsetzung</BulletPoint>
-				<BulletPoint>Testing</BulletPoint>
-				<BulletPoint>Security testing</BulletPoint>
-			</div>
-		</IconCard>
-		<IconCard
-			iconStyle="tonal"
-			heading="Betrieb"
-			description="Produktiver Betrieb des Produkts"
-			icon={5}
-		>
-			<div class="flex flex-col gap-2 @xl:ml-20">
 				<BulletPoint>Bereitstellen der Anwendung</BulletPoint>
 				<BulletPoint>Maintenance</BulletPoint>
-				<BulletPoint>Security Updates</BulletPoint>
+				<LearnMoreButton
+					class="mt-6 @lg:w-fit print:hidden"
+					href="{resolve('/concept')}#development"
+				/>
 			</div>
 		</IconCard>
 	</ProgressSection>
@@ -294,15 +324,15 @@
 		</IconCard>
 		<IconCard
 			heading="Flexible Modelle"
-			description="Für jedes Projekt das richtige Modell"
+			description="Für jedes Projekt das richtige Kooperationsmodell"
 			iconStyle="tonal"
 			id="development"
 			icon={Code}
 		>
 			<div class="flex flex-col gap-2">
-				<BulletPoint>Klassische Individualentwicklung</BulletPoint>
-				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
-				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
+				<BulletPoint>Maßgeschneidert für dein Budget</BulletPoint>
+				<BulletPoint>Individuelle Risikoverteilung</BulletPoint>
+				<BulletPoint>Wächst mit deinen Anforderungen</BulletPoint>
 			</div>
 		</IconCard>
 	</div>

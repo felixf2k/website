@@ -57,6 +57,6 @@
 </script>
 
 <div
-	class={['absolute transition-all ease-linear', clazz]}
+	class={['absolute transition-all ease-linear will-change-transform', clazz]}
 	style="left: {x}%; top: {y}%; width: {w}%; height: {h}%; transition-duration: {duration}s;"
 ></div>
