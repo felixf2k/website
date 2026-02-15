@@ -1,10 +1,10 @@
 <script lang="ts" module>
 	import { beforeNavigate } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import logo from '$lib/assets/images/logo.svg';
+	// import logo from '$lib/assets/images/logo.svg';
 	import Logo from '$lib/components/Logo.svelte';
 	import { clickOutside } from '@ims360/svelte-ivory/utils/attachments';
-	import { Mail, Menu, X } from '@lucide/svelte';
+	import { Menu, X } from '@lucide/svelte';
 	import type { ClassValue } from 'svelte/elements';
 	import { slide } from 'svelte/transition';
 	import Navlink from './Navlink.svelte';
@@ -104,14 +104,14 @@
 	{/if}
 </nav>
 
-<div
+<!-- <div
 	class="absolute top-0 hidden w-full flex-row items-center justify-between content py-4 print:flex"
 >
 	<img src={logo} alt="Elench logo" class="h-10 w-auto" />
 	<a href="mailto:info@elench.de" class="btn preset-filled-primary-500">
 		Kontakt aufnehmen <Mail size={16} />
 	</a>
-</div>
+</div> -->
 
 {#snippet navItems(mobile = false)}
 	{#each DISPLAYED_LINKS as link}

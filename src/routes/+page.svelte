@@ -260,7 +260,6 @@
 				<LearnMoreButton
 					class="mt-6 @lg:w-fit print:hidden"
 					href="{resolve('/concept')}#requirements"
-					label=""
 				/>
 			</div>
 		</IconCard>
