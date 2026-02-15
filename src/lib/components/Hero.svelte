@@ -43,7 +43,7 @@
 			{@render heading()}
 		</h1>
 		{#if description}
-			<p class="h2 text-surface-600-400 leading-relaxed">
+			<p class="h2 leading-normal text-surface-600-400">
 				{#if typeof description === 'string'}
 					{description}
 				{:else}

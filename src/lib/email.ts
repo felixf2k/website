@@ -1,4 +1,3 @@
-import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import { createTransport, type Transporter } from 'nodemailer';
 
@@ -11,10 +10,12 @@ interface EmailOptions {
 	html?: string;
 }
 
+const port = Number(env.SMTP_PORT);
+
 const transporter: Transporter = createTransport({
 	host: env.SMTP_HOST,
-	port: Number(env.SMTP_PORT),
-	secure: !dev,
+	port,
+	secure: port === 465,
 	auth: {
 		user: env.SMTP_USER,
 		pass: env.SMTP_PASS
