@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import favicon from '$lib/assets/images/favicon.svg';
 	import AnimatedBackground from '$lib/components/background/AnimatedBackground.svelte';
@@ -63,22 +62,6 @@
 				}),
 			},
 		],
-	});
-
-	afterNavigate(async (navigation) => {
-		const hash = navigation.to?.url.hash;
-		if (navigation.type === 'enter' || !hash) return;
-		const isCrossPage = navigation.from?.url.pathname !== navigation.to?.url.pathname;
-		if (!isCrossPage) return;
-		const anchor = document.getElementById(hash.slice(1));
-		if (!anchor) return;
-		setTimeout(() => {
-			anchor.scrollIntoView({
-				behavior: 'smooth',
-				inline: 'start',
-				block: 'start',
-			});
-		}, 0);
 	});
 </script>
 
