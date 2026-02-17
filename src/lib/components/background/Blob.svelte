@@ -57,6 +57,12 @@
 </script>
 
 <div
-	class={['absolute transition-all ease-linear will-change-transform', clazz]}
-	style="left: {x}%; top: {y}%; width: {w}%; height: {h}%; transition-duration: {duration}s;"
+	class={['absolute top-0 left-0 will-change-transform', clazz]}
+	style="
+        width: 100%;
+        height: 100%;
+		transform-origin: 0 0;
+		transform: translate3d({x}%, {y}%, 0) scale({w / 100}, {h / 100});        
+        transition: transform {duration}s linear;
+		"
 ></div>
