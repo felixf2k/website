@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Card, LearnMoreButton, Section } from '$lib/components';
+	import { AccentText, Card, LearnMoreButton, Section } from '$lib/components';
 	import image from './FF.jpg?enhanced&w=512';
 </script>
 
@@ -37,9 +37,7 @@
 				<div class="flex items-center gap-3">
 					<h4 class="h4">Motivation</h4>
 				</div>
-				<div
-					class="flex flex-col gap-2 border-l border-primary-500 pl-2 leading-relaxed text-surface-700-300"
-				>
+				<AccentText class="flex flex-col gap-2 leading-relaxed">
 					<p>Softwareprojekte stehen vor einigen Herausvorderungen:</p>
 					<ol class="list-decimal pl-4">
 						<li>
@@ -56,15 +54,13 @@
 						Ich bin der Überzeugung, dass durch eine Struktur die eine Überlappung der Interressen
 						beider Partein sicherstellt, bessere Ergebnisse erzielt werden können.
 					</p>
-				</div>
+				</AccentText>
 			</div>
 			<div class="flex flex-col gap-4">
 				<div class="flex items-center gap-3">
 					<h4 class="h4">Lösungsansatz</h4>
 				</div>
-				<div
-					class="flex flex-col gap-2 border-l border-primary-500 pl-2 leading-relaxed text-surface-700-300"
-				>
+				<AccentText class="flex flex-col gap-2 leading-relaxed">
 					<p>
 						Um sich den Herausforderungen zu stellen, ist es nötig gemeinsame Interessen am
 						tatsächlichen Erfolg der Produkte zu schaffen:
@@ -83,7 +79,7 @@
 							Rahmenbedingungen von unterschiedlichen Projekten gerecht.
 						</li>
 					</ol>
-				</div>
+				</AccentText>
 			</div>
 			<LearnMoreButton label="Kontakt aufnehmen" class="md:w-fit" href={resolve('/contact')} />
 		</div>

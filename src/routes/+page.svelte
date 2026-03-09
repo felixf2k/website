@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import {
+		AccentText,
 		BulletPoint,
 		Card,
 		IconCard,
@@ -49,7 +50,10 @@
 			Modelle erkunden
 			<ArrowRight class="h-4 transition-all group-hover:translate-x-0.5 xl:h-6" />
 		</a>
-		<a class="btn border border-surface-400-600 text-surface-950-50 xl:btn-xl" href="/contact">
+		<a
+			class="btn border border-surface-400-600 text-surface-950-50 xl:btn-xl"
+			href={resolve('/contact')}
+		>
 			Kontakt aufnehmen
 			<Mail class="h-4 xl:h-6" />
 		</a>
@@ -69,11 +73,10 @@
 			icon={Lightbulb}
 		>
 			<div class="flex flex-col gap-1">
-				<p class="font-semibold text-primary-500">Dein Ziel</p>
-				<p>
-					Du hast eine Marktlücke entdeckt und willst dein SaaS-Produkt schnell und professionell an
-					den Markt bringen.
-				</p>
+				<AccentText class="mb-4 text-lg italic">Wir realisieren deine SaaS Idee</AccentText>
+				<BulletPoint>Professionelle Entwicklung und Betrieb</BulletPoint>
+				<BulletPoint>Planbare Projektkosten</BulletPoint>
+				<BulletPoint>Transparente Betriebspauschale</BulletPoint>
 			</div>
 			<hr class="mt-auto hr" />
 			<div class="flex flex-col gap-2">
@@ -95,11 +98,10 @@
 			icon={ChartCandlestick}
 		>
 			<div class="flex flex-col gap-1">
-				<p class="font-semibold text-primary-500">Dein Ziel</p>
-				<p>
-					Du willst Prozesse optimieren, aber das Budget für Individualsoftware lieber strategisch
-					investieren.
-				</p>
+				<AccentText class="mb-4 text-lg italic">Das muss doch besser gehen</AccentText>
+				<BulletPoint>Interne Prozesse optimieren</BulletPoint>
+				<BulletPoint>Kosten durch die Vermarktung an Dritte optimieren</BulletPoint>
+				<BulletPoint>Niedrige Betriebskosten durch Wachstumspuffer</BulletPoint>
 			</div>
 			<hr class="mt-auto hr" />
 			<div class="flex flex-col gap-2">
@@ -120,10 +122,10 @@
 			icon={Route}
 		>
 			<div class="flex flex-col gap-1">
-				<p class="font-semibold text-primary-500">Dein Ziel</p>
-				<p>
-					Du willst deinen Marktvorteil durch die Digitalisierung entscheidender Prozesse ausbauen.
-				</p>
+				<AccentText class="mb-4 text-lg italic">Know-How in Software gießen</AccentText>
+				<BulletPoint>Klassische Auftragsentwicklung</BulletPoint>
+				<BulletPoint>Volle Kontrolle über kritischen Code</BulletPoint>
+				<BulletPoint>Eigene Hostingverantwortung</BulletPoint>
 			</div>
 			<hr class="mt-auto hr" />
 			<div class="flex flex-col gap-2">
@@ -144,37 +146,32 @@
 	heading="Das Konzept"
 	description="Maximale Flexibilität und Planbarkeit für dein Softwareprojekt."
 >
-	<Card class="gap-16">
-		<div class="grid grid-cols-1 gap-x-24 gap-y-16 2xl:grid-cols-3">
+	<Card>
+		<div class="grid grid-cols-1 gap-x-24 gap-y-12 2xl:grid-cols-3">
 			<div class="@container flex flex-col gap-4">
-				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
-					<ShieldCheck class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+				<div class="flex flex-col gap-4 @lg:flex-row @lg:items-center">
+					<ShieldCheck class="h-7 w-7 text-primary-500 print:h-5 print:w-5" />
 					<h3 class="h3">Bezahlung pro Feature</h3>
 				</div>
-				<p class="border-l-2 border-primary-500 pl-2">
-					Statt für Entwicklungszeit bezahlst du bei uns nur für abgenommene Features. Das minimiert
-					dein Risiko und sorgt für volle Kostentransparenz.
-				</p>
+				<AccentText>
+					Statt für Entwicklungszeit bezahlst du bei uns nur für fertige Features.
+				</AccentText>
 			</div>
 			<div class="@container flex flex-col gap-4">
-				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
-					<Layers class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+				<div class="flex flex-col gap-4 @lg:flex-row @lg:items-center">
+					<Layers class="h-7 w-7 text-primary-500 print:h-5 print:w-5" />
 					<h3 class="h3">Flexible Projektbeteiligung</h3>
 				</div>
-				<p class="border-l-2 border-primary-500 pl-2">
-					Du entscheidest pro Projektabschnitt, wie stark wir uns einbringen. Ob wir alles
-					übernehmen oder du eigene Ressourcen einbringst - wir passen uns an.
-				</p>
+				<AccentText>Du entscheidest pro Projektabschnitt, wie stark wir uns einbringen.</AccentText>
 			</div>
 			<div class="@container flex flex-col gap-4">
-				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
-					<Handshake class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+				<div class="flex flex-col gap-4 @lg:flex-row @lg:items-center">
+					<Handshake class="h-7 w-7 text-primary-500 print:h-5 print:w-5" />
 					<h3 class="h3">Individuelles Kooperationsmodell</h3>
 				</div>
-				<p class="border-l-2 border-primary-500 pl-2">
-					Egal ob SaaS, Partnerschaft oder Auftragsentwicklung: Wir finden gemeinsam das
-					Kooperationsmodell, das am besten zu deinen Zielen passt.
-				</p>
+				<AccentText>
+					Wir finden gemeinsam das Kooperationsmodell, das am besten zu deinen Zielen passt.
+				</AccentText>
 			</div>
 		</div>
 		<LearnMoreButton class="@lg:w-fit print:hidden" href={resolve('/concept')} />
@@ -188,10 +185,6 @@
 >
 	<div class="grid grid-cols-1 gap-8 xl:grid-cols-3 print:gap-4">
 		<IconCard {...models.saas} iconStyle="tonal" id="saas" icon={Cloud}>
-			<p>
-				Wir entwickeln und betreiben dein Produkt als SaaS Lösung. Du erhälst die exklusiven
-				Vertriebsrechte und verwaltest deine Kunden über gesonderte Dashboards.
-			</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Wir entwickeln und betreiben das Produkt für dich</BulletPoint>
 				<BulletPoint>Exklusive Vertriebsrechte für dich</BulletPoint>
@@ -200,10 +193,6 @@
 			<LearnMoreButton class="mt-auto w-fit print:hidden" href="{resolve('/models')}#saas" />
 		</IconCard>
 		<IconCard {...models.partnership} iconStyle="tonal" id="partnership">
-			<p>
-				Wir entwickeln eine Lösung für dein internes Problem zu reduzierten Preisen. Im Gegenzug
-				kann die Software an dritte vermarktet werden.
-			</p>
 			<div class="flex flex-col gap-2">
 				<BulletPoint>Maßgeschneiderte Lösung für dein Problem</BulletPoint>
 				<BulletPoint>Reduzierte Entwicklungskosten</BulletPoint>
@@ -216,14 +205,10 @@
 			<LearnMoreButton class="mt-auto w-fit print:hidden" href="{resolve('/models')}#partnership" />
 		</IconCard>
 		<IconCard {...models.commissioned} iconStyle="tonal" id="development">
-			<p>
-				Klassische Individualentwicklung. Wir setzen deine Anforderungen um und übergeben dir den
-				Quellcode.
-			</p>
 			<div class="flex flex-col gap-2">
-				<BulletPoint>Klassische Individualentwicklung</BulletPoint>
+				<BulletPoint>Wir übergeben dir den Quellcode</BulletPoint>
 				<BulletPoint>Du betreibst das Produkt selbst</BulletPoint>
-				<BulletPoint>Übergabe des Quellcodes</BulletPoint>
+				<BulletPoint>Sicherheitsupdates und Wartung müssen beauftragt werden</BulletPoint>
 			</div>
 			<LearnMoreButton
 				class="mt-auto w-fit print:hidden"
@@ -340,7 +325,7 @@
 <Section heading="Bereit dein Projekt zu starten?">
 	<Card>
 		<p class="text-lg text-surface-600-400">Lass uns unverbindlich über dein Vorhaben sprechen.</p>
-		<a href="/contact" class="btn preset-filled-primary-500 @md:w-fit">
+		<a href={resolve('/contact')} class="btn preset-filled-primary-500 @md:w-fit">
 			Erstgespräch vereinbaren
 			<MailCheck class="h-4 @md:h-5" />
 		</a>

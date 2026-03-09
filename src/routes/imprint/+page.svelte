@@ -8,12 +8,12 @@
 	<title>Impressum - Elench</title>
 </svelte:head>
 
-<div class="container mx-auto prose-lg mt-24 flex flex-col gap-8">
+<div class="mx-auto prose mt-24 flex flex-col gap-4 content prose-p:m-0">
 	<h1>Impressum</h1>
 	<p>
 		<strong>Elench UG (haftungsbeschränkt)</strong><br />
-		Dr.-Klein-Straße 29<br />
-		88069 Tettnang<br />
+		Anselm-Pflug-Str. 1<br />
+		88097 Eriskirch<br />
 		Deutschland<br />
 	</p>
 
@@ -22,14 +22,18 @@
 		Felix Fischerkeller
 	</p>
 
-	<p>
-		<strong>Kontakt:</strong><br />
+	<div class="grid w-fit grid-cols-[1fr_auto] gap-x-4">
+		<strong class="col-span-2">Kontakt:</strong>
+		<p>Formular:</p>
 		<a class="flex flex-row items-center gap-1 anchor" href={resolve('/contact')}>
 			Kontaktformular
 			<span><Link size={16} /></span>
 		</a>
-		E-Mail: info|at|elench.de
-	</p>
+		<p>Email:</p>
+		<a class="anchor" href="mailto:info@elench.de">info@elench.de</a>
+		<p>Telefon:</p>
+		<a class="anchor" href="tel:+4975419552768">+49 7541 9552768</a>
+	</div>
 
 	<p>
 		<strong>Registereintrag:</strong><br />

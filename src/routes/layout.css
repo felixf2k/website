@@ -43,11 +43,11 @@
 }
 
 @utility h1 {
-	@apply text-4xl leading-snug md:text-5xl xl:text-7xl print:text-4xl;
+	@apply text-4xl leading-snug md:text-5xl xl:text-6xl print:text-4xl;
 }
 
 @utility h2 {
-	@apply text-2xl md:text-3xl xl:text-4xl print:text-2xl;
+	@apply text-2xl md:text-3xl xl:text-3xl print:text-2xl;
 }
 
 @utility h3 {

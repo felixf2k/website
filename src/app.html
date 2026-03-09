@@ -38,7 +38,7 @@
 			if ('fonts' in document) {
 				Promise.race([
 					document.fonts.load('1em Geist'),
-					new Promise((resolve) => setTimeout(resolve, 2000)),
+					new Promise((resolve) => setTimeout(resolve, 300)),
 				]).then(() => {
 					document.documentElement.classList.remove('fonts-loading');
 				});

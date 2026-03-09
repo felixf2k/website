@@ -8,26 +8,36 @@
 	<title>Datenschutzerklärung - Elench</title>
 </svelte:head>
 
-<div class="mx-auto prose-lg mt-24 flex flex-col gap-8 content prose-p:m-0">
+<div class="mx-auto prose mt-24 flex flex-col gap-4 content prose-p:m-0">
 	<h1>Datenschutzerklärung</h1>
 	<p>
 		Wir freuen uns über Ihren Besuch auf unserer Webseite. Gern möchten wir Sie nachstehend über die
 		Verarbeitung Ihrer personenbezogenen Daten auf unserer Webseite informieren.
 	</p>
 
-	<h3>Verantwortliche</h3>
-	<p>
-		Elench UG (Haftungsbeschränkt)<br />
-		Dr.-Klein-Straße 29<br />
-		88069 Tettnang<br />
-		Deutschland<br />
-		<strong>Kontakt:</strong><br />
-		<a class="flex flex-row items-center gap-1 anchor" href={resolve('/contact')}>
-			Kontaktformular
-			<span><Link size={16} /></span>
-		</a>
-		Email: datenschutz|at|elench.de
-	</p>
+	<h3>Verantwortliche Stelle</h3>
+
+	<div class="flex flex-col gap-4">
+		<p>
+			<strong>Elench UG (haftungsbeschränkt)</strong><br />
+			Anselm-Pflug-Str. 1<br />
+			88097 Eriskirch<br />
+			Deutschland<br />
+		</p>
+		<div class="grid w-fit grid-cols-[1fr_auto] gap-x-4">
+			<strong class="col-span-2">Kontakt:</strong>
+			<p>Formular:</p>
+			<a class="flex flex-row items-center gap-1 anchor" href={resolve('/contact')}>
+				Kontaktformular
+				<span><Link size={16} /></span>
+			</a>
+			<p>Email:</p>
+			<a class="anchor" href="mailto:datenschutz@elench.de">datenschutz@elench.de</a>
+
+			<p>Telefon:</p>
+			<a class="anchor" href="tel:+4975419552768">+49 7541 9552768</a>
+		</div>
+	</div>
 
 	<h3>Begriffe</h3>
 	<p>

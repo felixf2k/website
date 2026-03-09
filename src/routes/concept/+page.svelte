@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { BulletPoint, Card, Hero, IconCard, LearnMoreButton, Section } from '$lib/components';
+	import {
+		AccentText,
+		BulletPoint,
+		Card,
+		Hero,
+		IconCard,
+		LearnMoreButton,
+		Section,
+	} from '$lib/components';
 	import { models } from '$lib/models';
 	import {
 		FileCheck,
@@ -50,26 +58,20 @@
 	<Card>
 		<p class="h4"></p>
 		<div class="grid grid-cols-1 gap-x-24 gap-y-16 2xl:grid-cols-3">
-			<div class="@container flex flex-col gap-4">
-				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
-					<ShieldCheck class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
+			<div class="@container flex flex-col gap-2">
+				<div class="mb-2 flex flex-col gap-2 @lg:flex-row @lg:items-center">
+					<ShieldCheck class=" h-8 w-8 text-primary-500 print:h-5 print:w-5" />
 					<h3 class="h3">Bezahlung pro Feature</h3>
-				</div>
-				<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-2">
-					<p>Statt für Entwicklungszeit bezahlen Sie bei uns nur für abgenommene Features.</p>
 				</div>
 				<BulletPoint>Bezahlung nur für abgenommene Features statt Entwicklungszeit</BulletPoint>
 				<BulletPoint>Minimiertes Risiko und volle Kostentransparenz</BulletPoint>
 				<BulletPoint>Festlegung einer "Definition of Done" vor Entwicklungsstart</BulletPoint>
 				<BulletPoint>Anzahlung vor Start, Restzahlung nach erfolgreicher Abnahme</BulletPoint>
 			</div>
-			<div class="@container flex flex-col gap-4">
-				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+			<div class="@container flex flex-col gap-2">
+				<div class="mb-2 flex flex-col gap-3 @lg:flex-row @lg:items-center">
 					<Layers class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
 					<h3 class="h3">Flexible Projektbeteiligung</h3>
-				</div>
-				<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-2">
-					<p>Sie entscheiden pro Projektabschnitt, wie stark wir uns einbringen.</p>
 				</div>
 				<BulletPoint>Entscheidung über Beteiligungsgrad pro Projektabschnitt</BulletPoint>
 				<BulletPoint>
@@ -77,13 +79,10 @@
 				</BulletPoint>
 				<BulletPoint>Anpassung an Ihre Bedürfnisse und Ihr Budget</BulletPoint>
 			</div>
-			<div class="@container flex flex-col gap-4">
-				<div class="flex flex-col gap-3 @lg:flex-row @lg:items-center">
+			<div class="@container flex flex-col gap-2">
+				<div class="mb-2 flex flex-col gap-3 @lg:flex-row @lg:items-center">
 					<Handshake class="h-8 w-8 text-primary-500 print:h-5 print:w-5" />
 					<h3 class="h3">Individuelles Kooperationsmodell</h3>
-				</div>
-				<div class="flex flex-col gap-2 border-l-2 border-primary-500 pl-2">
-					<p>Wir finden gemeinsam das Kooperationsmodell, das am besten zu Ihren Zielen passt.</p>
 				</div>
 				<BulletPoint>
 					Gemeinsame Findung des passenden Modells (SaaS, Partnerschaft, Auftragsentwicklung)
@@ -101,30 +100,32 @@
 	id="requirements"
 >
 	<IconCard heading="Bring your own" iconStyle="tonal" icon={FileCheck} class="relative">
-		<p>
-			Sie haben bereits eine <strong>vollständige</strong> Anforderungsdokumentation erstellt.
-		</p>
 		<div class="flex flex-col gap-2">
-			<BulletPoint>Bei Unvollständigkeit ist ein anderes Modell notwendig</BulletPoint>
+			<AccentText class="mb-2">
+				Sie haben bereits eine <strong>vollständige</strong> Anforderungsdokumentation erstellt.
+			</AccentText>
+			<div class="flex flex-col gap-2">
+				<BulletPoint>Bei Unvollständigkeit ist ein anderes Modell notwendig</BulletPoint>
+			</div>
 		</div>
 		{@render star(requirement === 'bring-your-own', () => (requirement = 'bring-your-own'))}
 	</IconCard>
 	<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake} class="relative">
-		<p>
-			Wir stellen <strong>Vorlagen</strong> bereit und geben regelmäßig
-			<strong>Rückmeldung</strong> zur Qualität und Vollständigkeit Ihrer Dokumentation.
-		</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Wir stellen <strong>Vorlagen</strong> bereit und geben regelmäßig
+				<strong>Rückmeldung</strong> zur Qualität und Vollständigkeit Ihrer Dokumentation.
+			</AccentText>
 			<BulletPoint>Frühe Einbindung der technischen Experten</BulletPoint>
 			<BulletPoint>Vorlagen helfen Nicht-Technikern</BulletPoint>
 		</div>
 		{@render star(requirement === 'cooperative', () => (requirement = 'cooperative'))}
 	</IconCard>
 	<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText} class="relative">
-		<p>
-			Wir erstellen die <strong>komplette Dokumentation</strong> basierend auf Ihrem Input und Feedback.
-		</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Wir erstellen die <strong>komplette Dokumentation</strong> basierend auf Ihrem Input und Feedback.
+			</AccentText>
 			<BulletPoint>Professionelle Dokumentation</BulletPoint>
 			<BulletPoint>Einbindung von Softwarearchitekten</BulletPoint>
 			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
@@ -139,23 +140,29 @@
 	id="design"
 >
 	<IconCard heading="Bring your own" iconStyle="tonal" icon={Upload} class="relative">
-		<p>Sie stellen ein <strong>fertiges, umsetzbares</strong> Design bereit.</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Sie stellen ein <strong>fertiges, umsetzbares</strong> Design bereit.
+			</AccentText>
 			<BulletPoint>Nutzung bestehender Ressourcen</BulletPoint>
 			<BulletPoint>Höhere Entwicklungskosten</BulletPoint>
 		</div>
 		{@render star(design === 'bring-your-own', () => (design = 'bring-your-own'))}
 	</IconCard>
 	<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate} class="relative">
-		<p>Nutzung unseres <strong>bewährten Standard-Designs</strong> für schnelle Ergebnisse.</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Nutzung unseres <strong>bewährten Standard-Designs</strong> für schnelle Ergebnisse.
+			</AccentText>
 			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
 		</div>
 		{@render star(design === 'standard', () => (design = 'standard'))}
 	</IconCard>
 	<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush} class="relative">
-		<p><strong>Maßgeschneidertes</strong> Design durch uns oder unsere Partner.</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				<strong>Maßgeschneidertes</strong> Design durch uns oder unsere Partner.
+			</AccentText>
 			<BulletPoint>Keine Auswirkung auf Entwicklungskosten</BulletPoint>
 		</div>
 		{@render star(design === 'individual', () => (design = 'individual'))}
@@ -168,8 +175,10 @@
 	id="development"
 >
 	<IconCard {...models.saas} iconStyle="tonal" class="relative">
-		<p>Wir entwickeln und betreiben das Produkt <strong>exklusiv</strong> für Sie.</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Wir entwickeln und betreiben das Produkt <strong>exklusiv</strong> für Sie.
+			</AccentText>
 			<BulletPoint>Betrieb durch Experten</BulletPoint>
 			<BulletPoint>Volle Marktrechte</BulletPoint>
 			<BulletPoint>Betriebspauschale basierend auf der Benutzeranzahl</BulletPoint>
@@ -178,10 +187,10 @@
 		{@render star(development === 'saas', () => (development = 'saas'))}
 	</IconCard>
 	<IconCard {...models.partnership} iconStyle="tonal" class="relative">
-		<p>
-			Durch <strong>Skalierung</strong> am Markt lösen wir Ihr Problem nachhaltig und preiswert.
-		</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Durch <strong>Skalierung</strong> am Markt lösen wir Ihr Problem nachhaltig und preiswert.
+			</AccentText>
 			<BulletPoint>Entwicklung und Betrieb durch Experten</BulletPoint>
 			<BulletPoint>Dauerhaft kostenfreie Lizenz</BulletPoint>
 			<BulletPoint>Keine Betriebspauschale</BulletPoint>
@@ -190,8 +199,10 @@
 		{@render star(development === 'partnership', () => (development = 'partnership'))}
 	</IconCard>
 	<IconCard {...models.commissioned} iconStyle="tonal" class="relative">
-		<p>Wir entwickeln das Produkt und <strong>übergeben</strong> den Code an Sie.</p>
 		<div class="flex flex-col gap-2">
+			<AccentText class="mb-2">
+				Wir entwickeln das Produkt und <strong>übergeben</strong> den Code an Sie.
+			</AccentText>
 			<BulletPoint>Voller Zugriff auf den Quellcode</BulletPoint>
 			<BulletPoint>Sie betreiben das Produkt selbst</BulletPoint>
 		</div>

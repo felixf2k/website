@@ -1,3 +1,4 @@
+export { default as AccentText } from './AccentText.svelte';
 export { default as BulletPoint } from './BulletPoint.svelte';
 export { default as Card } from './Card.svelte';
 export { default as Hero } from './Hero.svelte';
