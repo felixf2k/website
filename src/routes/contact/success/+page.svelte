@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { ArrowRight, CircleCheckBig } from '@lucide/svelte';
 </script>
 
@@ -8,7 +9,7 @@
 		<h1 class="text-xl font-semibold lg:text-4xl">Nachricht empfangen</h1>
 		<p class="text-lg text-surface-700-300 lg:text-3xl">Wir melden uns in Kürze bei dir.</p>
 		<div class="mt-2 grid grid-cols-1 gap-4 sm:mt-4 sm:w-fit sm:grid-cols-1 lg:gap-8">
-			<a class="btn preset-filled-primary-500 lg:btn-xl" href="/">
+			<a class="btn preset-filled-primary-500 lg:btn-xl" href={resolve('/')}>
 				Zurück zur Startseite
 				<ArrowRight />
 			</a>

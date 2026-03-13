@@ -8,4 +8,3 @@ export { default as LearnMoreButton } from './LearnMoreButton.svelte';
 export { default as Logo } from './Logo.svelte';
 export { default as ProgressSection } from './ProgressSection.svelte';
 export { default as Section } from './Section.svelte';
-export { default as ThemeController } from './ThemeController.svelte';

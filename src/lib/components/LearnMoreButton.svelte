@@ -10,10 +10,10 @@
 		href: string;
 	};
 
-	let { class: clazz, href, label = 'Mehr erfahren', icon: Icon = ArrowRight }: Props = $props();
+	let { class: clazz, label = 'Mehr erfahren', icon: Icon = ArrowRight, ...rest }: Props = $props();
 </script>
 
-<a class={merge('group btn preset-filled-primary-500', clazz)} {href}>
+<a class={merge('group btn preset-filled-primary-500', clazz)} {...rest}>
 	{label}
 	<Icon class="stroke-2 transition-all group-hover:stroke-3" size={16} />
 </a>

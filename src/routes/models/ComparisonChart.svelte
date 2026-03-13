@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { merge } from '@ims360/svelte-ivory/utils/functions';
 	import { Icon as GenericIcon } from '@lucide/svelte';
 	import { scaleLinear } from 'd3-scale';
@@ -91,7 +91,7 @@
 		{/if}
 	</div>
 	<div class="flex flex-row items-start justify-start gap-x-6 gap-y-2 md:flex-col">
-		{#each datasets as set, i}
+		{#each datasets as set, i (i)}
 			{@const { label, icon: Icon, class: clazz, input } = set}
 			<div
 				class="flex w-full items-center gap-2 select-none"
@@ -108,4 +108,4 @@
 			</div>
 		{/each}
 	</div>
-</div>
+</div> -->

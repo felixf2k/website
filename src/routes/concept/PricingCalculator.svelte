@@ -6,6 +6,7 @@
 		FileCheck,
 		FileText,
 		Handshake,
+		Icon,
 		LayoutTemplate,
 		Paintbrush,
 		Upload,
@@ -38,7 +39,7 @@
 	type Option<T extends RequirementOptions | DesignOptions | DevelopmentOptions> = {
 		value: T;
 		label: string;
-		icon: any;
+		icon: typeof Icon;
 		modifier: number;
 	};
 
@@ -130,28 +131,28 @@
 		},
 		{
 			name: 'Benutzerverwaltung & Rollen (RBAC)',
-			price: 5000,
+			price: 7500,
 			enabled: true,
 			fixed: true,
 			exemptFromModifiers: false,
 		},
 		{
 			name: 'Single Sign-On (SSO) & Active Directory Synchronisierung',
-			price: 5000,
+			price: 7500,
 			enabled: true,
 			fixed: false,
 			exemptFromModifiers: false,
 		},
 		{
 			name: 'Multi-Tenancy (Mandantenfähigkeit)',
-			price: 6500,
+			price: 10000,
 			enabled: true,
 			fixed: false,
 			exemptFromModifiers: false,
 		},
 		{
 			name: 'Ticketsystem Kernfunktionalität',
-			price: 13500,
+			price: 20000,
 			enabled: true,
 			fixed: false,
 			exemptFromModifiers: false,
@@ -219,7 +220,7 @@
 			<div class="hidden xl:block">Anpassung</div>
 			<div class="text-right">Kosten</div>
 		</div>
-		{#each features as feature}
+		{#each features as feature (feature.name)}
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<svelte:element
 				this={feature.fixed ? 'div' : 'button'}
@@ -258,7 +259,7 @@
 						<div
 							class="mr-auto grid w-fit grid-cols-[auto_1fr] gap-y-0.5 whitespace-nowrap sm:grid-cols-[auto_auto_auto]"
 						>
-							{#each activeModifiers as mod}
+							{#each activeModifiers as mod (mod.label)}
 								<p class="col-span-2 pr-2 text-surface-600-400 sm:col-span-1 sm:text-end">
 									{mod.category}:
 								</p>
@@ -313,7 +314,7 @@
 	<div class="flex flex-col gap-2">
 		<span class="font-bold">{label}</span>
 		<div class="flex flex-col gap-0.5">
-			{#each options as opt}
+			{#each options as opt (opt.value)}
 				{@const Icon = opt.icon}
 				<button
 					type="button"

@@ -18,8 +18,8 @@ const transporter: Transporter = createTransport({
 	secure: port === 465,
 	auth: {
 		user: env.SMTP_USER,
-		pass: env.SMTP_PASS
-	}
+		pass: env.SMTP_PASS,
+	},
 });
 
 async function sendEmail(options: EmailOptions) {
@@ -27,5 +27,5 @@ async function sendEmail(options: EmailOptions) {
 }
 
 export const mail = {
-	send: sendEmail
+	send: sendEmail,
 };

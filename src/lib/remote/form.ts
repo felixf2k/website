@@ -5,7 +5,7 @@ import {
 	type RemoteForm,
 	type RemoteFormInput,
 	type RemoteQuery,
-	type RemoteQueryOverride
+	type RemoteQueryOverride,
 } from '@sveltejs/kit';
 
 type FormCallback<In, Out> = (data: In, issues: InvalidField<In>) => Promise<Out>;
@@ -37,7 +37,7 @@ interface FormEnhanceProps<In extends RemoteFormInput, Out> {
 }
 
 export function enhanceForm<In extends RemoteFormInput, Out>(
-	props: FormEnhanceProps<In, Out>
+	props: FormEnhanceProps<In, Out>,
 ): EnhanceFunction {
 	return async ({ submit, form }) => {
 		try {

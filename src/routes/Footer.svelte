@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Logo from '$lib/components/Logo.svelte';
-	import ThemeController from '$lib/components/ThemeController.svelte';
+	import { ThemeSelect } from '@ims360/svelte-ivory/components/basic';
 	import type { ClassValue } from 'svelte/elements';
 
 	type Props = {
@@ -8,8 +9,6 @@
 	};
 
 	let { class: clazz }: Props = $props();
-
-	const year = new Date().getFullYear();
 </script>
 
 <footer
@@ -21,15 +20,16 @@
 	<div class="mx-auto flex w-fit flex-row gap-8 content md:gap-16">
 		<div class="flex flex-col items-start gap-4">
 			<Logo class="mt-2 h-8" />
-			<span class="text-surface-600-400">© {year} Elench UG</span>
-			<ThemeController />
+			<ThemeSelect />
 		</div>
 		<div class="flex flex-col gap-2 text-surface-600-400">
-			<a href="/imprint" class="transition-colors hover:text-surface-900-100">Impressum</a>
-			<a href="/data-protection" class="transition-colors hover:text-surface-900-100">
+			<a href={resolve('/imprint')} class="transition-colors hover:text-surface-900-100">
+				Impressum
+			</a>
+			<a href={resolve('/data-protection')} class="transition-colors hover:text-surface-900-100">
 				Datenschutz
 			</a>
-			<a href="/contact" class="transition-colors hover:text-surface-900-100">Kontakt</a>
+			<a href={resolve('/contact')} class="transition-colors hover:text-surface-900-100">Kontakt</a>
 		</div>
 	</div>
 </footer>

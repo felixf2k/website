@@ -7,7 +7,6 @@
 		toast: ToastSettings & {
 			id?: string;
 			close: () => void;
-			timeoutId?: ReturnType<typeof setTimeout>;
 		};
 	}
 

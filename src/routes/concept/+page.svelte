@@ -33,14 +33,6 @@
 	let development = $state<DevelopmentOptions>('partnership');
 </script>
 
-<svelte:head>
-	<title>Elench - Konzept</title>
-	<meta
-		name="description"
-		content="Unser Konzept der kooperativen Softwareentwicklung: Bezahlung pro Feature, flexible Projektbeteiligung und individuelle Kooperationsmodelle."
-	/>
-</svelte:head>
-
 <Hero
 	centered
 	description="Wir glauben, dass großartige Software durch enge Zusammenarbeit und flexible, faire Modelle entsteht. "
@@ -108,7 +100,7 @@
 				<BulletPoint>Bei Unvollständigkeit ist ein anderes Modell notwendig</BulletPoint>
 			</div>
 		</div>
-		{@render star(requirement === 'bring-your-own', () => (requirement = 'bring-your-own'))}
+		{@render like(requirement === 'bring-your-own', () => (requirement = 'bring-your-own'))}
 	</IconCard>
 	<IconCard heading="Cooperative" iconStyle="tonal" icon={Handshake} class="relative">
 		<div class="flex flex-col gap-2">
@@ -119,7 +111,7 @@
 			<BulletPoint>Frühe Einbindung der technischen Experten</BulletPoint>
 			<BulletPoint>Vorlagen helfen Nicht-Technikern</BulletPoint>
 		</div>
-		{@render star(requirement === 'cooperative', () => (requirement = 'cooperative'))}
+		{@render like(requirement === 'cooperative', () => (requirement = 'cooperative'))}
 	</IconCard>
 	<IconCard heading="Full-Service" iconStyle="tonal" icon={FileText} class="relative">
 		<div class="flex flex-col gap-2">
@@ -130,7 +122,7 @@
 			<BulletPoint>Einbindung von Softwarearchitekten</BulletPoint>
 			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
 		</div>
-		{@render star(requirement === 'full-service', () => (requirement = 'full-service'))}
+		{@render like(requirement === 'full-service', () => (requirement = 'full-service'))}
 	</IconCard>
 </Section>
 
@@ -147,7 +139,7 @@
 			<BulletPoint>Nutzung bestehender Ressourcen</BulletPoint>
 			<BulletPoint>Höhere Entwicklungskosten</BulletPoint>
 		</div>
-		{@render star(design === 'bring-your-own', () => (design = 'bring-your-own'))}
+		{@render like(design === 'bring-your-own', () => (design = 'bring-your-own'))}
 	</IconCard>
 	<IconCard heading="Standard" iconStyle="tonal" icon={LayoutTemplate} class="relative">
 		<div class="flex flex-col gap-2">
@@ -156,7 +148,7 @@
 			</AccentText>
 			<BulletPoint>Vergünstigung der folgenden Phasen</BulletPoint>
 		</div>
-		{@render star(design === 'standard', () => (design = 'standard'))}
+		{@render like(design === 'standard', () => (design = 'standard'))}
 	</IconCard>
 	<IconCard heading="Individual" iconStyle="tonal" icon={Paintbrush} class="relative">
 		<div class="flex flex-col gap-2">
@@ -165,7 +157,7 @@
 			</AccentText>
 			<BulletPoint>Keine Auswirkung auf Entwicklungskosten</BulletPoint>
 		</div>
-		{@render star(design === 'individual', () => (design = 'individual'))}
+		{@render like(design === 'individual', () => (design = 'individual'))}
 	</IconCard>
 </Section>
 
@@ -184,7 +176,7 @@
 			<BulletPoint>Betriebspauschale basierend auf der Benutzeranzahl</BulletPoint>
 		</div>
 		<LearnMoreButton class="w-fit" href="{resolve('/models')}#saas" />
-		{@render star(development === 'saas', () => (development = 'saas'))}
+		{@render like(development === 'saas', () => (development = 'saas'))}
 	</IconCard>
 	<IconCard {...models.partnership} iconStyle="tonal" class="relative">
 		<div class="flex flex-col gap-2">
@@ -196,7 +188,7 @@
 			<BulletPoint>Keine Betriebspauschale</BulletPoint>
 		</div>
 		<LearnMoreButton class="w-fit" href="{resolve('/models')}#partnership" />
-		{@render star(development === 'partnership', () => (development = 'partnership'))}
+		{@render like(development === 'partnership', () => (development = 'partnership'))}
 	</IconCard>
 	<IconCard {...models.commissioned} iconStyle="tonal" class="relative">
 		<div class="flex flex-col gap-2">
@@ -207,7 +199,7 @@
 			<BulletPoint>Sie betreiben das Produkt selbst</BulletPoint>
 		</div>
 		<LearnMoreButton class="w-fit" href="{resolve('/models')}#commissioned" />
-		{@render star(development === 'commissioned', () => (development = 'commissioned'))}
+		{@render like(development === 'commissioned', () => (development = 'commissioned'))}
 	</IconCard>
 </Section>
 
@@ -231,7 +223,7 @@
 	</div>
 </Section>
 
-{#snippet star(active: boolean, onclick: () => void)}
+{#snippet like(active: boolean, onclick: () => void)}
 	<button class="absolute top-8 right-8 text-primary-500 print:hidden" {onclick}>
 		<Star class={active ? 'fill-current' : 'opacity-70'} />
 	</button>

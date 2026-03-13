@@ -3,11 +3,6 @@
 	import { Link } from '@lucide/svelte';
 </script>
 
-<svelte:head>
-	<meta name="description" content="Datenschutzerklärung" />
-	<title>Datenschutzerklärung - Elench</title>
-</svelte:head>
-
 <div class="mx-auto prose mt-24 flex flex-col gap-4 content prose-p:m-0">
 	<h1>Datenschutzerklärung</h1>
 	<p>
@@ -101,12 +96,38 @@
 		<p>Berechtigte Interessen (Art. 6 Abs. 1 lit. f) DSGVO i. V. m. § 25 Abs. 2 Nr. 2 TDDDG)</p>
 	</div>
 
+	<h3>Kontaktformular und E-Mail-Kontakt</h3>
+	<p>
+		Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus
+		dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der
+		Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Wir löschen die Daten, sofern
+		diese nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+	</p>
+
+	<div class="grid w-full grid-cols-1 gap-2 xl:grid-cols-[auto_1fr]">
+		<p class="flex shrink-0 font-bold whitespace-nowrap">Datenkategorien:</p>
+		<p>
+			Bestandsdaten (z. B. Name), Kontaktdaten (z. B. E-Mail, Telefonnummer), Inhaltsdaten (z. B.
+			Texteingaben)
+		</p>
+
+		<p class="flex shrink-0 font-bold whitespace-nowrap">Zweck der Verarbeitung:</p>
+		<p>Beantwortung von Kontaktanfragen und Kommunikation</p>
+
+		<p class="flex shrink-0 font-bold whitespace-nowrap">Rechtsgrundlage:</p>
+		<p>
+			Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 lit. b) DSGVO), Berechtigte
+			Interessen (Art. 6 Abs. 1 lit. f) DSGVO)
+		</p>
+	</div>
+
 	<h3>Hosting</h3>
 	<p>
 		Unsere Website wird bei einem externen Dienstleister gehostet. Daten der Besucher unserer
 		Website, insbesondere sog. Logfiles, werden auf den Servern unseres Dienstleisters gespeichert.
 		Eine Verarbeitung der Daten durch den von uns eingesetzten Hosting-Anbieter zu eigenen Zwecken
-		findet nicht statt.
+		findet nicht statt. Wir haben einen Vertrag zur Auftragsverarbeitung (AVV) mit dem Anbieter
+		geschlossen.
 	</p>
 	<div class="grid w-full grid-cols-1 gap-2 xl:grid-cols-[auto_1fr]">
 		<p class="flex shrink-0 font-bold whitespace-nowrap">Kategorien Daten:</p>
@@ -122,7 +143,11 @@
 		<p>Vercel Inc., Avenue Huart Hamoir 71, 1030 Brussels, Belgium</p>
 
 		<p class="flex shrink-0 font-bold whitespace-nowrap">Drittlandsübermittlung:</p>
-		<p>Findet nicht statt (Speicherung auf EU-Servern).</p>
+		<p>
+			Da es sich um ein US-Unternehmen handelt, kann eine Datenübermittlung in die USA nicht
+			gänzlich ausgeschlossen werden. Grundlage hierfür sind Standardvertragsklauseln (SCC) bzw. das
+			EU-US Data Privacy Framework (DPF).
+		</p>
 
 		<p class="flex shrink-0 font-bold whitespace-nowrap">Datenschutzerklärung:</p>
 		<p>
@@ -162,6 +187,14 @@
 
 		<p class="flex shrink-0 font-bold whitespace-nowrap">Recht auf Löschung:</p>
 		<p>Gem. Art. 17 DSGVO.</p>
+
+		<p class="flex shrink-0 font-bold whitespace-nowrap">
+			Recht auf Einschränkung der Verarbeitung:
+		</p>
+		<p>Gem. Art. 18 DSGVO.</p>
+
+		<p class="flex shrink-0 font-bold whitespace-nowrap">Recht auf Datenübertragbarkeit:</p>
+		<p>Gem. Art. 20 DSGVO.</p>
 
 		<p class="flex shrink-0 font-bold whitespace-nowrap">Beschwerderecht:</p>
 		<p>Beschwerde bei der zuständigen Aufsichtsbehörde gem. Art. 77 DSGVO.</p>

@@ -25,6 +25,10 @@
 	const currentLink = $derived(LINKS.find((link) => link.url === page.url.pathname));
 	const pageType = $derived(currentLink?.type || 'WebPage');
 
+	const rawTitle = $derived(currentLink?.title || currentLink?.name || 'Elench');
+	const pageTitle = $derived(rawTitle.endsWith(' - Elench') ? rawTitle : `${rawTitle} - Elench`);
+	const pageDescription = $derived(currentLink?.description || 'Innovative Lösungen von Elench.');
+
 	const schema = $derived({
 		'@context': 'https://schema.org',
 		'@graph': [
@@ -33,9 +37,8 @@
 				'@id': 'https://elench.de/#organization',
 				name: 'Elench',
 				url: 'https://elench.de/',
-				logo: 'https://elench.de/favicon-512.png', // Good practice to include for Org
+				logo: 'https://elench.de/favicon-512.png',
 			},
-			// Include Breadcrumbs if not on homepage
 			...(!isHome
 				? [
 						{
@@ -55,7 +58,7 @@
 				'@id': `https://elench.de${page.url.pathname}#webpage`,
 				url: `https://elench.de${page.url.pathname}`,
 				name: currentLink?.name || 'Elench',
-				description: currentLink?.description || 'Innovative Lösungen von Elench.',
+				description: pageDescription,
 				isPartOf: { '@id': 'https://elench.de/#organization' },
 				...(!isHome && {
 					breadcrumb: { '@id': `https://elench.de${page.url.pathname}#breadcrumb` },
@@ -66,8 +69,18 @@
 </script>
 
 <svelte:head>
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDescription} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={`https://elench.de${page.url.pathname}`} />
+	<meta property="og:image" content="https://elench.de/favicon-512.png" />
+	<meta name="twitter:card" content="summary" />
 	<link rel="icon" href={favicon} />
-	{@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
+	<script type="application/ld+json">
+        {@html JSON.stringify(schema)}
+	</script>
 </svelte:head>
 
 <AnimatedBackground class="fixed top-0 left-0 -z-10 h-screen w-full" />
@@ -77,7 +90,7 @@
 </main>
 <Footer />
 <div style="display:none">
-	{#each locales as locale}
+	{#each locales as locale (locale)}
 		<a href={localizeHref(page.url.pathname, { locale })}>
 			{locale}
 		</a>

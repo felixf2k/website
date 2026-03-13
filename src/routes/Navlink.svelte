@@ -3,18 +3,17 @@
 
 	import type { HTMLAnchorAttributes } from 'svelte/elements';
 
-	let { class: clazz, href, children, ...props }: HTMLAnchorAttributes = $props();
+	let { class: clazz, children, ...props }: HTMLAnchorAttributes = $props();
 
 	let isActive = $derived.by(() => {
-		if (!href) return false;
+		if (!props.href) return false;
 		const { pathname } = page.url;
-		if (pathname === '/') return href === pathname;
-		return pathname.startsWith(href);
+		if (pathname === '/') return props.href === pathname;
+		return pathname.startsWith(props.href);
 	});
 </script>
 
 <a
-	{href}
 	class={[
 		'transition-colors',
 		isActive ? 'text-primary-500' : 'text-surface-700-300 hover:text-surface-950-50',

@@ -27,14 +27,6 @@
 	} from '@lucide/svelte';
 </script>
 
-<svelte:head>
-	<meta
-		name="description"
-		content="Elench bietet risikofreie Individualsoftware zu Fixpreisen. Entdecken Sie unsere flexiblen Kooperationsmodelle für planbare und nachhaltige Softwareprojekte."
-	/>
-	<title>Individualsoftware zu Fixpreisen - Elench</title>
-</svelte:head>
-
 <Hero centered>
 	{#snippet heading()}
 		Deine Software<br /><span class="text-primary-600-400"> Dein Modell </span>

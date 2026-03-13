@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { BulletPoint, Card, Hero, IconBulletPoint, IconCard, Section } from '$lib/components';
-	import { models } from '$lib/models';
 	import { getLocale } from '$lib/paraglide/runtime';
 	import {
 		ArrowRight,
@@ -28,15 +28,6 @@
 	// TODO: Zahl hier schon nennen?
 	const IP_INCLUDED_USERS = 100;
 </script>
-
-<svelte:head>
-	<title>Kooperationsmodelle - Elench</title>
-	<meta
-		name="description"
-		content="Entdecke unsere flexiblen Kooperationsmodelle: {models.partnership.heading}, {models
-			.saas.heading} und {models.commissioned.heading}. Maßgeschneidert für dein Projekt."
-	/>
-</svelte:head>
 
 <Hero centered>
 	{#snippet heading()}
@@ -85,7 +76,7 @@
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			<Card>
 				<h3 class="h3">Vorteile</h3>
-				<div class="flex flex-col gap-6">
+				<div class="flex grow flex-col gap-6">
 					<IconBulletPoint
 						title="Minimales Investment (CAPEX)"
 						description="Durch unser geteiltes Interresse erhältst du eine High-End-Lösung zu einem Bruchteil der Marktkosten."
@@ -106,7 +97,7 @@
 						icon={Shield}
 						iconClass="text-primary-500"
 					/>
-					<p class="mt-4 font-semibold">Bei Markterfolg</p>
+					<p class="mt-auto pt-4 font-semibold">Bei Markterfolg</p>
 					<IconBulletPoint
 						title="Kostenneutrale Weiterentwicklung"
 						description="Um das Produkt noch attraktiver zu machen entwickeln wir gefragte features für dich Kostenneutral."
@@ -118,7 +109,7 @@
 
 			<Card>
 				<h3 class="h3">Trade-Offs</h3>
-				<div class="flex flex-col gap-6">
+				<div class="flex grow flex-col gap-6">
 					<IconBulletPoint
 						title="Keine Exklusivität"
 						description="Da wir das Produkt vermarkten, können auch andere Marktteilnehmer die Lösung nutzen."
@@ -131,7 +122,7 @@
 						icon={Copyright}
 						iconClass="text-surface-500"
 					/>
-					<p class="mt-4 font-semibold">Bei Markterfolg</p>
+					<p class="mt-auto pt-4 font-semibold">Bei Markterfolg</p>
 					<IconBulletPoint
 						title="Roadmap-Sharing"
 						description="Neue Features werden so entwickelt, dass sie auch für den breiteren Markt funktionieren."
@@ -398,7 +389,7 @@
 				uns auf deine Idee!
 			</p>
 		</div>
-		<a href="/contact" class="btn preset-filled-primary-500">
+		<a href={resolve('/contact')} class="btn preset-filled-primary-500">
 			Kontakt aufnehmen
 			<ArrowRight class="h-5 w-5" />
 		</a>

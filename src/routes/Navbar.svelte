@@ -3,31 +3,59 @@
 	import { resolve } from '$app/paths';
 	// import logo from '$lib/assets/images/logo.svg';
 	import Logo from '$lib/components/Logo.svelte';
+	import { models } from '$lib/models';
 	import { clickOutside } from '@ims360/svelte-ivory/utils/attachments';
 	import { Menu, X } from '@lucide/svelte';
 	import type { ClassValue } from 'svelte/elements';
 	import { slide } from 'svelte/transition';
 	import Navlink from './Navlink.svelte';
 
-	const DISPLAYED_LINKS = [
-		{ name: 'Konzept', url: resolve('/concept'), description: '', type: 'WebPage' },
-		{ name: 'Modelle', url: resolve('/models'), description: '', type: 'WebPage' },
-		{ name: 'Über uns', url: resolve('/about'), description: '', type: 'AboutPage' },
+	export interface Link {
+		name: string;
+		url: string;
+		description: string;
+		type: 'WebPage' | 'ContactPage' | 'AboutPage';
+		title?: string;
+	}
+
+	const DISPLAYED_LINKS: Link[] = [
+		{
+			name: 'Konzept',
+			url: resolve('/concept'),
+			description:
+				'Bezahlung pro Feature, flexible Projektbeteiligung und individuelle Kooperationsmodelle.',
+			type: 'WebPage',
+		},
+		{
+			name: 'Modelle',
+			url: resolve('/models'),
+			description: `Entdecke unsere flexiblen Kooperationsmodelle: ${models.partnership.heading}, ${models.saas.heading} und ${models.commissioned.heading}. Maßgeschneidert für dein Projekt.`,
+			title: 'Kooperationsmodelle',
+			type: 'WebPage',
+		},
+		{
+			name: 'Über uns',
+			url: resolve('/about'),
+			description:
+				'Lerne Elench kennen. Planbare Softwareprojekte durch geteilte Interessen und flexible Kooperationsmodelle.',
+			type: 'AboutPage',
+		},
 	];
 
-	export const LINKS = [
+	export const LINKS: Link[] = [
 		...DISPLAYED_LINKS,
 		{
 			name: 'Startseite',
 			url: resolve('/'),
 			description:
-				'Elench bietet risikofreie Individualsoftware zu Fixpreisen. Entdecken Sie unsere flexiblen Kooperationsmodelle für planbare und nachhaltige Softwareprojekte.',
+				'Risikofreie Individualsoftware zu Fixpreisen. Entdecken Sie unsere flexiblen Kooperationsmodelle für planbare und nachhaltige Softwareprojekte.',
+			title: 'Individualsoftware zu Fixpreisen - Elench',
 			type: 'WebPage',
 		},
 		{
 			name: 'Kontakt',
 			url: resolve('/contact'),
-			description: 'Nimm Kontakt zu uns auf',
+			description: 'Nimm unverbindlich Kontakt mit uns auf.',
 			type: 'ContactPage',
 		},
 		{
@@ -73,7 +101,7 @@
 	{@attach clickOutside(() => (isMobileMenuOpen = false))}
 >
 	<div class="mx-auto flex flex-row justify-between content pr-0 lg:pr-8">
-		<a class="flex shrink-0 items-center py-4" href="/" aria-label="Startseite">
+		<a class="flex shrink-0 items-center py-4" href={resolve('/')} aria-label="Startseite">
 			<Logo class="h-10 w-auto lg:h-12" />
 		</a>
 		<div class="hidden lg:flex lg:items-center">
@@ -114,7 +142,7 @@
 </div> -->
 
 {#snippet navItems(mobile = false)}
-	{#each DISPLAYED_LINKS as link}
+	{#each DISPLAYED_LINKS as link, i (i)}
 		<Navlink
 			href={link.url}
 			class={['flex items-center px-4 text-lg', mobile ? 'w-full py-2' : 'h-full justify-center ']}
@@ -122,7 +150,10 @@
 			{link.name}
 		</Navlink>
 	{/each}
-	<a href="/contact" class={['text-lg', mobile ? 'mt-2 w-fit px-4' : 'ml-4 h-full py-8']}>
+	<a
+		href={resolve('/contact')}
+		class={['text-lg', mobile ? 'mt-2 w-fit px-4' : 'ml-4 h-full py-8']}
+	>
 		<div class="btn h-full preset-filled-primary-500 font-semibold">Kontakt aufnehmen</div>
 	</a>
 {/snippet}

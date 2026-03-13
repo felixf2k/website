@@ -4,14 +4,6 @@
 	import image from './FF.jpg?enhanced&w=512';
 </script>
 
-<svelte:head>
-	<title>Über uns - Elench</title>
-	<meta
-		name="description"
-		content="Lerne Elench kennen. Wir revolutionieren Softwareprojekte durch geteilte Interessen und flexible Kooperationsmodelle."
-	/>
-</svelte:head>
-
 <Section heading="Founder">
 	<Card class="flex flex-col gap-0 overflow-hidden p-0">
 		<div class="flex flex-col md:flex-row">
