@@ -114,7 +114,7 @@
 			icon={Route}
 		>
 			<div class="flex flex-col gap-1">
-				<AccentText class="mb-4 text-lg italic">Know-How in Software gießen</AccentText>
+				<AccentText class="mb-4 text-lg italic">Know-how in Software gießen</AccentText>
 				<BulletPoint>Klassische Auftragsentwicklung</BulletPoint>
 				<BulletPoint>Volle Kontrolle über kritischen Code</BulletPoint>
 				<BulletPoint>Eigene Hostingverantwortung</BulletPoint>

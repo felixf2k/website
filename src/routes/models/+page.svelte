@@ -66,7 +66,7 @@
 			</IconCard>
 			<IconCard heading="Was wir übernehmen" iconStyle="tonal" icon={Code}>
 				<div class="flex flex-col gap-2">
-					<BulletPoint>Technisches Know-How & Architektur</BulletPoint>
+					<BulletPoint>Technisches Know-how & Architektur</BulletPoint>
 					<BulletPoint>Produkt-Vision & Vermarktungsstrategie</BulletPoint>
 					<BulletPoint>Betrieb & Wartung</BulletPoint>
 				</div>
@@ -205,7 +205,7 @@
 				<div class="flex flex-col gap-6">
 					<IconBulletPoint
 						title="Exklusivitäts-Garantie"
-						description="Kein Know-How-Leak. Die Lösung wird exklusiv für dich entwickelt und betrieben."
+						description="Kein Know-how-Leak. Die Lösung wird exklusiv für dich entwickelt und betrieben."
 						icon={Shield}
 						iconClass="text-primary-500"
 					/>

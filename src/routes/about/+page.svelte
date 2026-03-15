@@ -33,7 +33,7 @@
 					<p>Softwareprojekte stehen vor einigen Herausvorderungen:</p>
 					<ol class="list-decimal pl-4">
 						<li>
-							Vendor Lock-in ist kaum zu vermeiden, da das technische Know-How zwangsläufig bei dem
+							Vendor Lock-in ist kaum zu vermeiden, da das technische Know-how zwangsläufig bei dem
 							Tech-Team liegt.
 						</li>
 						<li>Der Aufbau eigener Tech-Teams ist jedoch schwierig, Zeit-und Kostenintensiv.</li>
@@ -75,5 +75,24 @@
 			</div>
 			<LearnMoreButton label="Kontakt aufnehmen" class="md:w-fit" href={resolve('/contact')} />
 		</div>
+	</Card>
+</Section>
+
+<Section heading="Firmenname">
+	<Card>
+		<p class="text-lg">
+			Unser Name <span class="font-semibold text-primary-500">Elench</span> stammt vom
+			altgriechischen Begriff <i class="text-primary-500">"Elenchos"</i> - der sokratischen Methode, durch
+			gezieltes Fragen zur Wahrheit zu gelangen.
+		</p>
+		<AccentText>
+			<p>
+				Dieser Ansatz prägt unsere Softwareentwicklung. Wir setzen Anforderungen nicht unhinterfragt
+				um. Stattdessen analysieren wir Probleme im Dialog und prüfen bestehende Annahmen kritisch.
+				Erst wenn wir den wahren Kern einer Herausforderung verstanden haben, schreiben wir den
+				Code. Das Ergebnis sind präzise Softwarelösungen, die exakt dort ansetzen, wo sie den
+				größten Mehrwert bieten.
+			</p>
+		</AccentText>
 	</Card>
 </Section>

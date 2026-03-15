@@ -17,7 +17,7 @@
 	<div class="@mx:gap-x-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 @md:gap-y-0 print:gap-y-0">
 		<div
 			class={[
-				'flex h-12 w-12  items-center justify-center rounded-xl text-3xl @md:row-span-2 not-print:@md:h-16 not-print:@md:w-16',
+				'col-span-2 flex h-12 w-12 items-center justify-center rounded-xl text-3xl @xs:col-span-1 @md:row-span-2 @md:flex-col not-print:@md:h-16 not-print:@md:w-16',
 				iconStyle === 'filled' && 'preset-filled-primary-500 p-3 @md:p-4 print:p-3',
 				iconStyle === 'tonal' && 'bg-primary-50-950 p-3 text-primary-500 @md:p-4 print:p-3',
 			]}
