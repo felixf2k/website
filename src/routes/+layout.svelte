@@ -1,12 +1,16 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import { page } from '$app/state';
 	import favicon from '$lib/assets/images/favicon.svg';
 	import AnimatedBackground from '$lib/components/background/AnimatedBackground.svelte';
 	import ToastUI from '$lib/components/toast/ToastUI.svelte';
 	import { locales, localizeHref } from '$lib/paraglide/runtime';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import Footer from './Footer.svelte';
 	import './layout.css';
 	import Navbar, { LINKS } from './Navbar.svelte';
+
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 	let { children } = $props();
 
