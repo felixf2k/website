@@ -3,7 +3,7 @@
 	import { Link } from '@lucide/svelte';
 </script>
 
-<div class="mx-auto prose mt-24 flex flex-col gap-4 content prose-p:m-0">
+<div class="mx-auto prose mt-24 flex flex-col gap-4 content dark:prose-invert prose-p:m-0">
 	<h1>Datenschutzerklärung</h1>
 	<p>
 		Wir freuen uns über Ihren Besuch auf unserer Webseite. Gern möchten wir Sie nachstehend über die
