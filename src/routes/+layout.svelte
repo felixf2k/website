@@ -82,9 +82,7 @@
 	<meta property="og:image" content="https://elench.de/favicon-512.png" />
 	<meta name="twitter:card" content="summary" />
 	<link rel="icon" href={favicon} />
-	<script type="application/ld+json">
-        {@html JSON.stringify(schema)}
-	</script>
+	{@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
 </svelte:head>
 
 <AnimatedBackground class="fixed top-0 left-0 -z-10 h-screen w-full" />

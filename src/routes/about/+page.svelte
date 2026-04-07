@@ -36,14 +36,14 @@
 							Vendor Lock-in ist kaum zu vermeiden, da das technische Know-how zwangsläufig bei dem
 							Tech-Team liegt.
 						</li>
-						<li>Der Aufbau eigener Tech-Teams ist jedoch schwierig, Zeit-und Kostenintensiv.</li>
+						<li>Der Aufbau eigener Tech-Teams ist jedoch schwierig, zeit-und kostenintensiv.</li>
 						<li>
 							Zudem sind Softwareprojekte oft durch unvorhergesehene Kostensteigerungen
 							gekennzeichnet.
 						</li>
 					</ol>
 					<p>
-						Ich bin der Überzeugung, dass durch eine Struktur die eine Überlappung der Interressen
+						Ich bin der Überzeugung, dass durch eine Struktur die eine Überlappung der Interessen
 						beider Partein sicherstellt, bessere Ergebnisse erzielt werden können.
 					</p>
 				</AccentText>
@@ -89,9 +89,9 @@
 			<p>
 				Dieser Ansatz prägt unsere Softwareentwicklung. Wir setzen Anforderungen nicht unhinterfragt
 				um. Stattdessen analysieren wir Probleme im Dialog und prüfen bestehende Annahmen kritisch.
-				Erst wenn wir den wahren Kern einer Herausforderung verstanden haben, schreiben wir den
-				Code. Das Ergebnis sind präzise Softwarelösungen, die exakt dort ansetzen, wo sie den
-				größten Mehrwert bieten.
+				Erst wenn wir den wahren Kern einer Herausforderung verstanden haben, schreiben wir Code.
+				Das Ergebnis sind präzise Softwarelösungen, die exakt dort ansetzen, wo sie den größten
+				Mehrwert bieten.
 			</p>
 		</AccentText>
 	</Card>
