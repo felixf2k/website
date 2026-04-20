@@ -55,7 +55,8 @@
 		{
 			name: 'Kontakt',
 			url: resolve('/contact'),
-			description: 'Nimm unverbindlich Kontakt mit uns auf.',
+			description:
+				'Nimm unverbindlich Kontakt mit uns auf und beschreite mit uns den Weg zu deiner eigenen SaaS Anwendung.',
 			type: 'ContactPage',
 		},
 		{

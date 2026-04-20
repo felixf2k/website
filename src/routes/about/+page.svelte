@@ -17,7 +17,7 @@
 			<div class="flex max-w-2xl flex-col gap-4 p-8">
 				<h3 class="h3">Felix Fischerkeller</h3>
 				<p class="leading-relaxed text-surface-700-300">
-					Als Softwareingenieur habe ich über 5 Jahre an der Konzeptionierung und Umsetzung
+					Als Softwareingenieur habe ich über fünf Jahre an der Konzeptionierung und Umsetzung
 					komplexer Management- und KI-Plattformen gearbeitet. Dabei habe ich Verbesserungspotential
 					in der gängigen Organisation und Umsetung von komplexen Softwareprojekten erkannt, dass
 					ich mit Elench verwirkliche.
@@ -30,7 +30,7 @@
 					<h4 class="h4">Motivation</h4>
 				</div>
 				<AccentText class="flex flex-col gap-2 leading-relaxed">
-					<p>Softwareprojekte stehen vor einigen Herausvorderungen:</p>
+					<p>Softwareprojekte stehen vor einigen Herausforderungen:</p>
 					<ol class="list-decimal pl-4">
 						<li>
 							Vendor Lock-in ist kaum zu vermeiden, da das technische Know-how zwangsläufig bei dem
@@ -38,8 +38,7 @@
 						</li>
 						<li>Der Aufbau eigener Tech-Teams ist jedoch schwierig, zeit-und kostenintensiv.</li>
 						<li>
-							Zudem sind Softwareprojekte oft durch unvorhergesehene Kostensteigerungen
-							gekennzeichnet.
+							Softwareprojekte sind oft durch unvorhergesehene Kostensteigerungen gekennzeichnet.
 						</li>
 					</ol>
 					<p>
